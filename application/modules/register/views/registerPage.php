@@ -100,11 +100,17 @@
                         </div>
                         <div class="col-sm-6">
                            <div class="form-group">
-                              <input type="text" class="phone form-control" name="phone" placeholder="Mobile no." maxlength="10"  onkeypress="return (event.charCode !=8 &amp;&amp; event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 &amp;&amp; event.charCode <= 57)))">
+                              <input type="text" class="phone form-control" name="phone" placeholder="Mobile number" maxlength="10"  onkeypress="return (event.charCode !=8 &amp;&amp; event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 &amp;&amp; event.charCode <= 57)))">
                               <span id="phone"></span>
                            </div>
                         </div>
                         <?php }else if($this->website->web_lang=='ar'){?>
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <input type="text" class="phone form-control" name="phone" placeholder="رقم الجوال" maxlength="10"  onkeypress="return (event.charCode !=8 &amp;&amp; event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 &amp;&amp; event.charCode <= 57)))">
+                              <span id="phone"></span>
+                           </div>
+                        </div>
                         <div class="col-sm-6">
                            <div class="form-group">
                               <select class="form-control" name="phonecode">
@@ -114,12 +120,7 @@
                               </select>
                            </div>
                         </div>
-                        <div class="col-sm-6">
-                           <div class="form-group">
-                              <input type="text" class="phone form-control" name="phone" placeholder="رقم المحمول." maxlength="10"  onkeypress="return (event.charCode !=8 &amp;&amp; event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 &amp;&amp; event.charCode <= 57)))">
-                              <span id="phone"></span>
-                           </div>
-                        </div>
+                        
                         <?php } ?>
                         <?php if($this->website->web_lang=='en'){?>
                         <div class="col-sm-12">

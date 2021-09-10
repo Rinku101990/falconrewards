@@ -20,7 +20,8 @@
       color: #666;
       font-weight: 600;
       font-size: 19px;
-      margin-top: 0px;
+      /* margin-top: 0px; */
+      margin-top: -20px;
       margin-bottom: 5px;
       text-align: left;
    }
@@ -69,15 +70,24 @@
                            <input type="hidden" name="item_price" class="item_price<?=$items['rowid'];?>" value="<?=$item_price;?>">
                            <div class="product-image"><img src="<?php echo $items['img'];?>"></div>
                            <h1><?=currency($this->website->web_currency);?> <?php echo number_format($item_price,2);?> </h1>
+                           <?php if($this->website->web_lang=='en'){ ?>
                            <h4>Unit Price</h4>
                            <h3 style="margin-top: 0px !important;">Product</h3>
+                           <?php }else if($this->website->web_lang=='ar'){ ?>
+                           <h4>سعر الوحدة</h4>
+                           <h3 style="margin-top: 0px !important;">المنتج</h3>
+                           <?php } ?>
                            <h4><?php $productname = strlen($items['name']); if($productname>=20){echo substr($items['name'],0,20).'.';}else{echo substr($items['name'],0,20);}?></h4>
                         </div>
                      </div>
                      <div class="col-md-5" style="">
                         <div style="padding: 15px 15px;    margin-bottom: 6px;">
                            <div class="product-image"><img src="<?php echo $items['rewardimg'];?>"> </div>
-                           <h3 style="margin-top: 0px !important;">Prize</h3>
+                           <?php if($this->website->web_lang=='en'){ ?>
+                              <h3 style="margin-top: 0px !important;">Prize</h3>
+                           <?php }else if($this->website->web_lang=='ar'){ ?>
+                              <h3 style="margin-top: 0px !important;">جائزة</h3>
+                           <?php } ?>
                            <h4 style="height:57px;overflow: hidden;  text-overflow: ellipsis;  width: 45%;"><?php $rewardprice = strlen($items['rewardprice']); if($rewardprice>=18){echo substr($items['rewardprice'],0,18).'.';}else{echo substr($items['rewardprice'],0,18);}?></h4>
                            <span class="available<?=$items['rowid'];?>" style="font-size: 14px;float: left;padding: 3px 1px;font-weight: 600;"></span>
                         </div>

@@ -8,7 +8,7 @@
                     </a>
                     <br>
                     <h5 class="head_tag_5" style="margin-top: 55px;"><?php echo $this->variables[31]->var_parent_name;?></h5>
-                    <ul class="social" style="width: 100%;margin-bottom: 30px;">
+                    <ul class="social" style="width: 114%;margin-bottom: 30px;">
                        <?php $facebook=$this->website->web_facebook_link;if(!empty($facebook)){ ?>
                           <li><a href="<?php echo $facebook;?>"  title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
                        <?php } ?>

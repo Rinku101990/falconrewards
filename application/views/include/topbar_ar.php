@@ -37,7 +37,7 @@
                            <div class="profile-drop-down" style="margin-top: 0px !important;">
                               <div class="profile-dropdown">
                                  <a class="dropbtn" >
-                                 <i class="fa fa-user"></i> <span style="color: #056839">Hi, </span>
+                                 <i class="fa fa-user"></i> <span style="color: #056839">مرحبا، </span>
                                  <?php $myNameLength=strlen($this->customer->usr_fname);if($myNameLength >=7){echo substr($this->customer->usr_fname,0,7).'';}else{echo substr($this->customer->usr_fname,0,7);}?>
                                  </a>
                                  <div class="dropdown-content">

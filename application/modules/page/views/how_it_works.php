@@ -6,9 +6,17 @@
 <!-- winner-section start-->
 <div class="inner-common">
    <div class="container">
-      <h1>How It Works</h1>
+      <?php if($this->website->web_lang=='en'){?>
+            <h1><?php echo $page->pg_title;?></h1>
+      <?php }else if($this->website->web_lang=='ar'){?>
+            <h1><?php echo $page->pg_title_ar;?></h1>
+      <?php } ?>
       <div class="how-its-works">
+      <?php if($this->website->web_lang=='en'){?>
          <?=$page->content1;?>
+      <?php }else if($this->website->web_lang=='ar'){?>
+         <?=$page->content2;?>
+      <?php } ?>
       </div>
    </div>
 </div>

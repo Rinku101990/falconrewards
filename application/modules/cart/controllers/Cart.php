@@ -36,10 +36,45 @@ class Cart extends MY_Controller {
     public function cart_save()
 	{   
 		$current_date=date('Y-m-d');
+		$cartLang = $this->input->post('lang');
 		$pid=decode($this->input->post('RefId'));
 		$price=$this->input->post('price');
 		$qty=$this->input->post('qty');
-		$product = $this->Cart->product_detail($this->campid,$pid,$this->campaign);		
+		$product = $this->Cart->product_detail($this->campid,$pid,$this->campaign);
+		if($cartLang=='en'){
+			$img=base_url('admin/uploads/product/'.$product->p_picture);
+			$rewardimg = base_url('admin/uploads/reward/'.$product->image);
+			$product_url=base_url('product/').encode($product->p_id).'/'.slug($product->p_name);
+			$product_name=$product->p_name;
+			$data = array(
+				'id' => $product->p_id, 
+				'name' => $product_name, 
+				'price' => $product->p_aed, 
+				'qty' => $qty, 
+				'img' => $img, 
+				'product_url' =>$product_url, 
+				'rewardimg' => $rewardimg,
+				'rewardtitle'=> $product->r_title,
+				'rewardprice'=> $product->r_price
+			);
+		}else if($cartLang=='ar'){
+			$img=base_url('admin/uploads/product/'.$product->p_picture);
+			$rewardimg = base_url('admin/uploads/reward/'.$product->image);
+			$product_url=base_url('product/').encode($product->p_id).'/'.slug($product->p_name);
+			$product_name=$product->p_name_ar;
+			$data = array(
+				'id' => $product->p_id, 
+				'name' => $product_name, 
+				'price' => $product->p_aed, 
+				'qty' => $qty, 
+				'img' => $img, 
+				'product_url' =>$product_url, 
+				'rewardimg' => $rewardimg,
+				'rewardtitle'=> $product->r_title_ar,
+				'rewardprice'=> $product->r_price_ar
+			);
+		}
+				
 		// if($product->sp_start_date <= $current_date && $product->sp_end_date >= $current_date){
 		// 	$special_price=$product->sp_special_price; 
 		// 	$price=$product->sp_special_price;
@@ -47,27 +82,14 @@ class Cart extends MY_Controller {
 		// 	$special_price='';
 		// 	$price=$product->p_selling_price; 
 		// }
-		$img=base_url('admin/uploads/product/'.$product->p_picture);
-		$rewardimg = base_url('admin/uploads/reward/'.$product->image);
-	    $product_url=base_url('product/').encode($product->p_id).'/'.slug($product->p_name);
-		$product_name=$product->p_name;
+		
 		// if($product->p_tax=='1'){
 		// 	$tax=tax($product->cate_id);
 		// }else{
 		// 	$tax='0';
 		// }
 
-		$data = array(
-            'id' => $product->p_id, 
-            'name' => $product_name, 
-            'price' => $product->p_aed, 
-            'qty' => $qty, 
-            'img' => $img, 
-			'product_url' =>$product_url, 
-			'rewardimg' => $rewardimg,
-			'rewardtitle'=> $product->r_title,
-			'rewardprice'=> $product->r_price
-        );
+		
       	//print_r($data);die();
 		$this->cart->insert($data);
         $result=$this->show_cart();       

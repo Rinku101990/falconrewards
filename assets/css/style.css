@@ -2491,7 +2491,8 @@ header, div#carousel-example-generic, .reward-section, .game-section,.our-produc
 }
 .navbar-brand > img {
     display: block;
-    width: 225px !important;
+    /* width: 225px !important; */
+	width: 250px !important;
 }
 .product-quantity2 {
     background: #FAFAFA;

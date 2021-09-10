@@ -318,8 +318,8 @@
                            <span class="second-liner"><span class="small-text">OUT OF</span><?php echo $productStocks;?></span> 
                         </div>
                      <?php }else if($this->website->web_lang=='ar'){?>
-                        <div class="remaining"><span class="number"><?php //echo round(sold($pro->p_id)*100/$pro->p_qty)+$pro->p_sold_plus;?> <?php if(!empty($soldOut)){echo $soldOut;}else{echo'0';}?><span class="sold-label">تم البيع</span></span>
-                           <span class="second-liner"><span class="small-text">بعيدا عن المكان</span><?php echo $productStocks;?></span> 
+                        <div class="remaining"><span class="number"><?php //echo round(sold($pro->p_id)*100/$pro->p_qty)+$pro->p_sold_plus;?> <?php if(!empty($soldOut)){echo $soldOut;}else{echo'0';}?><span class="sold-label">تم بيع</span></span>
+                           <span class="second-liner"><span class="small-text">من مجموع</span><?php echo $productStocks;?></span> 
                         </div>
                      <?php }?>
                      
@@ -347,31 +347,49 @@
 <div class="our-products"  style="background:#1C745C;border-radius: 35px;padding: 34px 36px;direction:ltr">
    <div class="container-fuild">
       <a id="products" data-magellan-target="products"></a>
-        <h2 style="font-size: 26px;font-weight: 500;color: #fff">
+        
         
             <?php if($this->website->web_lang=='en'){?>
-                <b style="font-weight:400 !important"><span class="first"></span> 
-                    Sold Out 
-                <span class="second"></span></b>
-                <span class="owl-nav" style="float:right">
-                    <span class="owl-prev" id="demo-prev"> <i class="fa fa-angle-left" aria-hidden="true"></i></span>
-                    <span class="owl-next" id="demo-next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>
-                </span>
+               <h2 style="font-size: 26px;font-weight: 500;color: #fff">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <b style="font-weight:400 !important">
+                           <span class="first"></span> 
+                              Sold Out 
+                           <span class="second"></span>
+                           <p style="color: #fff">All our sold out campaigns along with their corresponding draw dates are listed here.</p>
+                        </b>
+                     </div>
+                     <div class="col-md-6">
+                        <span class="owl-nav" style="float:right">
+                           <span class="owl-prev" id="demo-prev"> <i class="fa fa-angle-left" aria-hidden="true"></i></span>
+                           <span class="owl-next" id="demo-next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>
+                        </span>
+                     </div>
+                  <div>  
+               </h2> 
             <?php }else if($this->website->web_lang=='ar'){?>
-            <b style="font-weight:400 !important;float:right"><span class="first"></span> 
-                نفذ
-            <span class="second"></span></b>
-            <span class="owl-nav" style="float:left">
-                <span class="owl-prev" id="demo-prev"> <i class="fa fa-angle-left" aria-hidden="true"></i></span>
-                <span class="owl-next" id="demo-next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>
-            </span>
+            <h2 style="font-size: 26px;font-weight: 500;color: #fff">
+               <div class="row">
+                  <div class="col-md-6">
+                     <span class="owl-nav" style="float:left">
+                        <span class="owl-prev" id="demo-prev"> <i class="fa fa-angle-left" aria-hidden="true"></i></span>
+                        <span class="owl-next" id="demo-next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>
+                     </span>
+                  </div>
+                  <div class="col-md-6">
+                     <b style="font-weight:400 !important;float:right;text-align: end;">
+                        <span class="first"></span> 
+                           نفذ
+                        <span class="second"></span>
+                        <p style="color: #fff;">جميع حملاتنا التي تم بيعها مع تواريخ السحب مذكورة هنا.</p>
+                     </b>
+                  </div>
+                  
+               </div>
+            </h2>
             <?php }?>
-            <?php if($this->website->web_lang=='en'){ ?>
-            <p style="color: #fff">All our sold out campaigns along with their corresponding draw dates are listed here.</p>
-        <?php }else if($this->website->web_lang=='ar'){ ?>
-            <p style="color: #fff;">جميع حملاتنا التي تم بيعها مع تواريخ السحب المقابلة مذكورة هنا.</p>
-        <?php } ?>
-        </h2>
+       
         
       
       <br>

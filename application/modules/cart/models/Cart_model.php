@@ -6,7 +6,7 @@ class Cart_model extends MY_Model{
 	
 	function product_detail($campid,$pid,$table)
 	{
-		$this->db->select('pro.p_id,pro.p_name,pro.p_category,pro.p_sku,pro.p_aed,pro.p_inr,pro.p_omr,pro.p_kwd,pro.p_bhd,pro.p_usd,pro.p_ticket,pro.p_picture,pro.p_description,rwd.r_title,rwd.r_price,rwd.r_url,rwd.r_category,rwd.image,rwd.r_short_description,camp.id,camp.product,camp.reward');
+		$this->db->select('pro.p_id,pro.p_name,pro.p_name_ar,pro.p_category,pro.p_sku,pro.p_aed,pro.p_inr,pro.p_omr,pro.p_kwd,pro.p_bhd,pro.p_usd,pro.p_ticket,pro.p_picture,pro.p_description,pro.p_description_ar,rwd.r_title,rwd.r_title_ar,rwd.r_price,rwd.r_price_ar,rwd.r_url,rwd.r_url_ar,rwd.r_category,rwd.image,rwd.r_short_description,camp.id,camp.product,camp.reward');
 		$this->db->join('tbl_product pro','camp.product=pro.p_id','LEFT');
 		$this->db->join('tbl_reward rwd','camp.reward=rwd.r_id','LEFT');
 		$this->db->order_by('camp.'.$campid,"ASC");

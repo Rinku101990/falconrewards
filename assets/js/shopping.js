@@ -16,7 +16,7 @@ $(document).ready(function(){
             $.ajax({
                 type: "POST",
                 url: url+"cart/cart_save",
-                data:{'RefId':RefId,'price':price,'qty':qty},
+                data:{'lang':webLang,'RefId':RefId,'price':price,'qty':qty},
                 dataType: 'json',
                 beforeSend: function (){ 
                     $('#add_to_cart'+RefId).html('<img src='+url+'assets/img/process.gif>');

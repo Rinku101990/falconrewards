@@ -67,6 +67,26 @@
          html:lang(ar) .main-navigation li.search-item {
              float: left;
          }
+         html:lang(ar) footer ul.social li{
+            float: right !important;
+            margin-right: -10px;
+            padding: 0px 8px;
+         }
+         html:lang(ar) .footer-contacts a span{
+            float: right !important;
+            margin-right: 0px;
+            margin-left: 5px;
+         }
+         html:lang(ar) .section-d h2{
+            float:right !important;
+         }
+         html:lang(ar) .section-d span{
+            float:left !important;
+         }
+         html:lang(ar) .payment-box p{
+            text-align: right !important;
+            float: right !important;
+         }
       </style>
       <!-- Facebook Pixel Code -->
       <script>

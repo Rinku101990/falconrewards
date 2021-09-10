@@ -135,7 +135,7 @@ $(document).ready(function(){
 			if(webLang==='en'){
 				$('#crfpassword').html('<span style="color:red;float:left;margin:5px 5px">Confirm password should be minimum 6 Characters.</span>'); 
 			}else if(webLang==='ar'){
-				$('#crfpassword').html('<span style="color:red;float:right;margin:5px 5px">Confirm password should be minimum 6 Characters.</span>'); 
+				$('#crfpassword').html('<span style="color:red;float:right;margin:5px 5px">يجب أن لا تقل كلمة المرور عن 6</span>'); 
 			}
 		    check=false; }
 		else{ 
@@ -197,7 +197,7 @@ $(document).ready(function(){
 							// 	}, 3000);
 							if(webLang==='en'){
 								swal({
-									title: "Success!",
+									title: "You have successfully registered",
 									text: "Thank you for registering with us. We have sent you a confirmation email",
 									type: "success",
 									timer: 3000
@@ -206,7 +206,7 @@ $(document).ready(function(){
 								  });
 							}else if(webLang==='ar'){
 								swal({
-									title: "النجاح!",
+									title: "تم تسجيلك بنجاح",
 									text: "شكرا لتسجيلك معنا. لقد ارسلنا اليك ايميل تاكيد",
 									type: "success",
 									timer: 3000
