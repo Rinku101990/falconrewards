@@ -521,15 +521,3 @@ DEBUG - 2021-08-14 12:44:20 --> File loaded: D:\xampp\htdocs\falconrewards.com\a
 DEBUG - 2021-08-14 12:44:20 --> File loaded: D:\xampp\htdocs\falconrewards.com\application\views\include/footer.php
 DEBUG - 2021-08-14 12:44:20 --> File loaded: D:\xampp\htdocs\falconrewards.com\application\views\layout.php
 DEBUG - 2021-08-14 12:44:20 --> Total execution time: 0.1352
-DEBUG - 2021-08-14 21:37:35 --> UTF-8 Support Enabled
-DEBUG - 2021-08-14 21:37:35 --> No URI present. Default controller set.
-DEBUG - 2021-08-14 21:37:35 --> Global POST, GET and COOKIE data sanitized
-DEBUG - 2021-08-14 21:37:35 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
-DEBUG - 2021-08-14 21:37:35 --> Home MX_Controller Initialized
-DEBUG - 2021-08-14 23:07:35 --> File loaded: D:\xampp\htdocs\falconrewards.com\application\modules/home/models/Home_model.php
-DEBUG - 2021-08-14 23:07:35 --> File loaded: D:\xampp\htdocs\falconrewards.com\application\views\include/header.php
-DEBUG - 2021-08-14 23:07:35 --> File loaded: D:\xampp\htdocs\falconrewards.com\application\views\include/topbar.php
-DEBUG - 2021-08-14 23:07:36 --> File loaded: D:\xampp\htdocs\falconrewards.com\application\modules/home/views/home.php
-DEBUG - 2021-08-14 23:07:36 --> File loaded: D:\xampp\htdocs\falconrewards.com\application\views\include/footer.php
-DEBUG - 2021-08-14 23:07:36 --> File loaded: D:\xampp\htdocs\falconrewards.com\application\views\layout.php
-DEBUG - 2021-08-14 23:07:36 --> Total execution time: 0.4218

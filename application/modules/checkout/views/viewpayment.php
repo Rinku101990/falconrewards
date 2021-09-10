@@ -2,19 +2,19 @@
     
     /*--- UAT Credentials & Url ---*/ 
 
-    $outletRef   = "2688c131-45dc-48ef-9b88-4f8e44b1449d";                                                                   
-    $apikey  = "OTZmMGEyODctYzlhMi00YjEwLWJlMmItZDU5MTE4YjYzZDNlOjQ1YTg5NjJmLTc2OWMtNDMwYy04OTdiLTcxN2Y2NzFjNzBmZQ=="; 
+    // $outletRef   = "2688c131-45dc-48ef-9b88-4f8e44b1449d";                                                                   
+    // $apikey  = "OTZmMGEyODctYzlhMi00YjEwLWJlMmItZDU5MTE4YjYzZDNlOjQ1YTg5NjJmLTc2OWMtNDMwYy04OTdiLTcxN2Y2NzFjNzBmZQ=="; 
     
-    $idServiceURL  = "https://identity-uat.ngenius-payments.com/auth/realms/ni/protocol/openid-connect/token";          
-    $txnServiceURL = "https://api-gateway-uat.ngenius-payments.com/transactions/outlets/".$outletRef."/orders";
+    // $idServiceURL  = "https://identity-uat.ngenius-payments.com/auth/realms/ni/protocol/openid-connect/token";          
+    // $txnServiceURL = "https://api-gateway-uat.ngenius-payments.com/transactions/outlets/".$outletRef."/orders";
 
     /*--- Live Credentials & Url ---*/ 
 
-    // $outletRef   = "9fe1eebb-b168-4da0-9e3c-fddc621e1dba";                                                                   
-    // $apikey  = "MmMzZDE0NzUtNjg4MS00NTkxLWE3N2QtM2UzZDI2OGMwY2M5OjNjM2Q0MWYxLWY5NWItNDc1OC04YWYyLWVlODI0YTRmYjk0OA=="; 
+    $outletRef   = "9fe1eebb-b168-4da0-9e3c-fddc621e1dba";                                                                   
+    $apikey  = "MmMzZDE0NzUtNjg4MS00NTkxLWE3N2QtM2UzZDI2OGMwY2M5OjNjM2Q0MWYxLWY5NWItNDc1OC04YWYyLWVlODI0YTRmYjk0OA=="; 
     
-    // $idServiceURL  = "https://identity.ngenius-payments.com/auth/realms/NetworkInternational/protocol/openid-connect/token";          
-    // $txnServiceURL = "https://api-gateway.ngenius-payments.com/transactions/outlets/".$outletRef."/orders";
+    $idServiceURL  = "https://identity.ngenius-payments.com/auth/realms/NetworkInternational/protocol/openid-connect/token";          
+    $txnServiceURL = "https://api-gateway.ngenius-payments.com/transactions/outlets/".$outletRef."/orders";
     
     $tokenHeaders  = array("Authorization: Basic ".$apikey, "Content-Type: application/x-www-form-urlencoded");
     $tokenResponse = invokeCurlRequest("POST", $idServiceURL, $tokenHeaders, http_build_query(array('grant_type' => 'client_credentials')));
@@ -46,7 +46,7 @@
     $order->billingAddress->countryCode = $get_country;
     $order->language = "en";                    
     $order->merchantOrderReference = time();    
-    //$order->merchantAttributes->redirectUrl = "https://falconrewards.com/thankyou/response"; // UAT Thank You URL
+    //$order->merchantAttributes->redirectUrl = "https://falconrewards.com/testmode/thankyou/response"; // UAT Thank You URL
     $order->merchantAttributes->redirectUrl = base_url('thankyou/response');  //Live Thank You URL   
     $order = json_encode($order);  
     

@@ -52,9 +52,9 @@ class Checkout extends MY_Controller {
             $custid = $this->customer->usr_id; /*--- Check User Login OR Not ---*/ 
             $content['tax'] = $this->Checkout->tax_list($this->tax);
             if (!empty($custid)) {
-
-                // if(!empty($this->session->userdata('orderReference'))){
-                //     echo $this->session->userdata('orderReference')." if Condition to Update";
+                // $orderReference = $this->session->userdata('orderReference');
+                // if(!empty($orderReference)){
+                //     echo $orderReference." if Condition to Update";
                 //     $this->session->unset_userdata('orderReference');
                 // }else{
                 //     $this->session->set_userdata('orderReference', '123456');
@@ -81,7 +81,6 @@ class Checkout extends MY_Controller {
                             'ord_updated' => date('Y-m-d h:i:s')
                         );
                         $ordid = $this->Checkout->UpdateOrderInformation($this->fld_ordid,$getOrderId,$orderArray, $this->table_orders);
-                        
                         if(!empty($ordid)) {
                             $getOrderProductList = $this->Checkout->getOrderProductsList($this->fld_ordid,$getOrderId,$this->table_order_products);
                             
@@ -129,7 +128,7 @@ class Checkout extends MY_Controller {
                                 );
                             }
                             $check = $this->Checkout->SaveOrderProduct($orderProducts, $this->table_order_products);
-                            $content['customOrderReference'] = $this->session->userdata('orderReference');
+                            $content['customOrderReference'] = $content['customOrderReference'];
 
                         }
                     }else{

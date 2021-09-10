@@ -2,28 +2,29 @@
 $(document).ready(function(){
 
 	/*--- set language by custom ---*/
-  $("#setLanguage").click(function(){
-      let defaultLang = $(this).attr("defLang");
-      let currentUrl  = $("#current_url").val();
-      let baseUrl  = $("#site_url").val();
-      $.ajax({
-          type: "POST",
-					url: baseUrl+"home/language",
-          data:{customLang:defaultLang},
-          success:function(response){
-              if(response=='set'){
-                  window.location.href=currentUrl;
-              }else{
-                  window.location.href=baseUrl;
-              }
-          }
-      });
-  });
-  /*--- end language ---*/ 
+	$("#setLanguage").click(function(){
+		let defaultLang = $(this).attr("defLang");
+		let currentUrl  = $("#current_url").val();
+		let baseUrl  = $("#site_url").val();
+		$.ajax({
+			type: "POST",
+						url: baseUrl+"home/language",
+			data:{customLang:defaultLang},
+			success:function(response){
+				if(response=='set'){
+					window.location.href=currentUrl;
+				}else{
+					window.location.href=baseUrl;
+				}
+			}
+		});
+	});
+	/*--- end language ---*/ 
 
 	/* Sign up Onclick enent */
-	$(".SignUpCustomerBtn").click(function(){
-
+	$(".SignUpCustomerBtn").click(function()
+	{
+		let webLang = $("#site_lang").val();
 		let url 	= $("#site_url").val();
 		let ptype 	= $("input[name='customerAgree']").is(":checked");
         let check   = true;
@@ -37,7 +38,11 @@ $(document).ready(function(){
 	   /* Validate fname Input Fields Value */
 		if($.trim($('.fname').val()) === "" || $.trim($('.fname').val())=== null){
 			$('.fname').css('border','1px solid red');
-			$('#fname').html('<span style="color:red;float:left;margin:5px 5px">This field is required.</span>'); 
+			if(webLang==='en'){
+				$('#fname').html('<span style="color:red;float:left;margin:5px 5px">This field is required.</span>');
+			}else if(webLang==='ar'){
+				$('#fname').html('<span style="color:red;float:right;margin:5px 5px">هذه الخانة مطلوبه.</span>');
+			} 
 			check=false;
 		}else{ 
 			$('#fname').html(' ');
@@ -47,7 +52,11 @@ $(document).ready(function(){
 		
 		if($.trim($('.lname').val())=== "" || $.trim($('.lname').val())===null){
 			$('.lname').css('border','1px solid red');
-			$('#lname').html('<span style="color:red;float:left;margin:5px 5px">This field is required.</span>'); 
+			if(webLang==='en'){
+				$('#lname').html('<span style="color:red;float:left;margin:5px 5px">This field is required.</span>');
+			}else if(webLang==='ar'){
+				$('#lname').html('<span style="color:red;float:right;margin:5px 5px">هذه الخانة مطلوبه.</span>');
+			} 
 			check=false;
 		}else{ 
 			$('#lname').html(' ');$('.lname').css('border','');
@@ -56,7 +65,11 @@ $(document).ready(function(){
         
 		if($.trim($('.email').val())=== ""){ 
 			$('.email').css('border','1px solid red');
-			$('#email').html('<span style="color:red;float:left;margin:5px 5px">This field is required.</span>'); 
+			if(webLang==='en'){
+				$('#email').html('<span style="color:red;float:left;margin:5px 5px">This field is required.</span>');
+			}else if(webLang==='ar'){
+				$('#email').html('<span style="color:red;float:right;margin:5px 5px">هذه الخانة مطلوبه.</span>');
+			} 
 			check=false;
 		}else{ 
 			$('#email').html(' ');
@@ -67,7 +80,11 @@ $(document).ready(function(){
             let filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;         
             if(filter.test(email)) scheck=true;
             else{ 
-				$('#email').html('<span style="color:red;float:left;margin:5px 5px">Email type mismatched.</span>'); 
+				if(webLang==='en'){
+					$('#email').html('<span style="color:red;float:left;margin:5px 5px">Email type mismatched.</span>'); 
+				}else if(webLang==='ar'){
+					$('#email').html('<span style="color:red;float:right;margin:5px 5px">نوع البريد الإلكتروني غير متطابق.</span>'); 
+				}
 				scheck=false; $('#email').focus(); 
 			}
 		}
@@ -75,10 +92,18 @@ $(document).ready(function(){
 		/* Validate phone Input Fields Value */
 		if($('.phone').val().length === 0  || $('.phone').val() === 0){ 
 			$('.phone').css('border','1px solid red');
-			$('#phone').html('<span style="color:red;float:left;margin:5px 5px">This field is required.</span>');
+			if(webLang==='en'){
+				$('#phone').html('<span style="color:red;float:left;margin:5px 5px">This field is required.</span>');
+			}else if(webLang==='ar'){
+				$('#phone').html('<span style="color:red;float:right;margin:5px 5px">هذه الخانة مطلوبه.</span>');
+			}
 			check=false;
-		}else if($('.phone').val().length < 6) {  
-			$('#phone').html('<span style="color:red;float:left;margin:5px 5px">Enter Mobile number.</span>');
+		}else if($('.phone').val().length < 6) {
+			if(webLang==='en'){
+				$('#phone').html('<span style="color:red;float:left;margin:5px 5px">Enter Mobile number.</span>');
+			}else if(webLang==='ar'){
+				$('#phone').html('<span style="color:red;float:right;margin:5px 5px">أدخل رقم الهاتف المحمول.</span>');
+			}  
 			$('.phone').css('border',''); check = false; 
 		}else{ 
 			$('#phone').html(' ');$('.phone').css('border',''); 
@@ -92,7 +117,11 @@ $(document).ready(function(){
 		
 		if(Password.length < 6){ 
 		    $('.password').css('border','1px solid red');
-		    $('#password').html('<span style="color:red;float:left;margin:5px 5px">Password should be minimum 6 Characters.</span>');
+			if(webLang==='en'){
+				$('#password').html('<span style="color:red;float:left;margin:5px 5px">Password should be minimum 6 Characters.</span>');
+			}else if(webLang==='ar'){
+				$('#password').html('<span style="color:red;float:right;margin:5px 5px">يجب أن لا تقل كلمة المرور عن 6</span>');
+			}
 		    check=false; 
 		    
 		}
@@ -103,7 +132,11 @@ $(document).ready(function(){
 		
 		if(RePassword.length < 6){ 
 		    $('.crfpassword').css('border','1px solid red');
-		    $('#crfpassword').html('<span style="color:red;float:left;margin:5px 5px">Confirm password should be minimum 6 Characters.</span>'); 
+			if(webLang==='en'){
+				$('#crfpassword').html('<span style="color:red;float:left;margin:5px 5px">Confirm password should be minimum 6 Characters.</span>'); 
+			}else if(webLang==='ar'){
+				$('#crfpassword').html('<span style="color:red;float:right;margin:5px 5px">Confirm password should be minimum 6 Characters.</span>'); 
+			}
 		    check=false; }
 		else{ 
 		    $('.crfpassword').css('border','');
@@ -132,7 +165,11 @@ $(document).ready(function(){
 							setTimeout(function(){
                                 $(".RegisterCustomerResponse").show(0).delay(3000).hide(0);
                             }, 3000);
-							$(".SignUpCustomerBtn").html('Retry');
+							if(webLang==='en'){
+								$(".SignUpCustomerBtn").html('Retry');
+							}else if(webLang==='ar'){
+								$(".SignUpCustomerBtn").html('أعد المحاولة');
+							}							
 							$('.SignUpCustomerBtn').prop('disabled', false);
 						}else if(response=='Used'){
 							$(".RegisterCustomerResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> Email address already in use.</span>');
@@ -140,39 +177,69 @@ $(document).ready(function(){
                                 //$(".RegisterCustomerResponse").hide("3000")
                                 $(".RegisterCustomerResponse").show(0).delay(3000).hide(0);
                             }, 1000);
-							$(".SignUpCustomerBtn").html('Retry');
+							if(webLang==='en'){
+								$(".SignUpCustomerBtn").html('Retry');
+							}else if(webLang==='ar'){
+								$(".SignUpCustomerBtn").html('أعد المحاولة');
+							}
 							$('.SignUpCustomerBtn').prop('disabled', false);
 						}else{	
 						    $("#RegisterForm")[0].reset();
-							$('.SignUpCustomerBtn').html('Register Now');
+							if(webLang==='en'){
+								$('.SignUpCustomerBtn').html('Register Now');
+							}else if(webLang==='ar'){
+								$('.SignUpCustomerBtn').html('سجل الان');
+							}
 							$('.SignUpCustomerBtn').prop('disabled', false);
 							//$(".RegisterCustomerResponse").html('<span class="text-success" style="font-size:16px">Thank you for registering with us. We have sent you a confirmation email</span>');
-				// 			window.setTimeout(function() {
-				// 				window.location.href = url;
-				// 			}, 3000);
-                            swal({
-                              title: "Success!",
-                              text: "Thank you for registering with us. We have sent you a confirmation email",
-                              type: "success",
-                              timer: 3000
-                            },function(){
-                              window.location.href = url;
-                            });
+							// 	window.setTimeout(function() {
+							// 	window.location.href = url;
+							// 	}, 3000);
+							if(webLang==='en'){
+								swal({
+									title: "Success!",
+									text: "Thank you for registering with us. We have sent you a confirmation email",
+									type: "success",
+									timer: 3000
+								  },function(){
+									window.location.href = url;
+								  });
+							}else if(webLang==='ar'){
+								swal({
+									title: "النجاح!",
+									text: "شكرا لتسجيلك معنا. لقد ارسلنا اليك ايميل تاكيد",
+									type: "success",
+									timer: 3000
+								  },function(){
+									window.location.href = url;
+								  });
+							}
+                            
                            // setTimeout(function () { swal.close(); }, timer);
 						}
 					}
 				});
 		    }else{
-		        $('#crfpassword').html('<span style="color:red;float:left;margin:5px 5px">Password Mismatched.</span>');
+				if(webLang==='en'){
+					$('#crfpassword').html('<span style="color:red;float:left;margin:5px 5px">Password Mismatched.</span>');
+				}else if(webLang==='ar'){
+					$('#crfpassword').html('<span style="color:red;float:right;margin:5px 5px">كلمة المرور غير متطابقة.</span>');
+				}
 		    }
         }else{
-            $(".SignUpCustomerBtn").html('Retry');
+			if(webLang==='en'){
+				$(".SignUpCustomerBtn").html('Retry');
+			}else if(webLang==='ar'){
+				$(".SignUpCustomerBtn").html('أعد المحاولة');
+			}
+            
 		}
 	});
 
 	/* Sign in Onclick enent */
 	$(".SignIn_btn").click(function()
 	{
+		let webLang  	= $("#site_lang").val();
         let url 		= $('#site_url').val();
         let current_url = $('#current_url').val();
         let check 		= true;
@@ -180,7 +247,11 @@ $(document).ready(function(){
 		/* Validate email Input Fields Value */
 		if($('.cust_email').val().length == 0 || $('.cust_email').val() == 0){ 
 			$('.cust_email').css('border','1px solid red');
-			$('#cust_email').html('<span style="color:red;float:left;margin:5px 5px">This field is required.</span>');
+			if(webLang==='en'){
+				$('#cust_email').html('<span style="color:red;float:left;margin:5px 5px">This field is required.</span>');
+			}else if(webLang==='ar'){
+				$('#cust_email').html('<span style="color:red;float:right;margin:5px 5px">هذه الخانة مطلوبه.</span>');
+			}
 			check=false; 
 		}else{ 
 			$('#cust_email').html(' ');$('.cust_email').css('border',''); 
@@ -190,14 +261,22 @@ $(document).ready(function(){
 			if(filter.test(email)) 
 			Pcheck=true;
             else{ 
-				$('#cust_email').html('<span style="color:red;float:left;margin:5px 5px">Email type Mismatched.</span>'); 
+				if(webLang==='en'){
+					$('#cust_email').html('<span style="color:red;float:left;margin:5px 5px">Email type Mismatched.</span>');
+				}else if(webLang==='ar'){
+					$('#cust_email').html('<span style="color:red;float:right;margin:5px 5px">نوع البريد الإلكتروني غير متطابق.</span>');
+				} 
 				Pcheck=false; $('#email').focus(); 
 			} 	
 		}
 		/* Validate Password Input Fields Value */
 		if($('.cust_password').val().length == 0){ 
 			$('.cust_password').css('border','1px solid red');
-			$('#cust_password').html('<span style="color:red;float:left;margin:5px 5px">This field is required.</span>'); 
+			if(webLang==='en'){
+				$('#cust_password').html('<span style="color:red;float:left;margin:5px 5px">This field is required.</span>');
+			}else if(webLang==='ar'){
+				$('#cust_password').html('<span style="color:red;float:right;margin:5px 5px">هذه الخانة مطلوبه.</span>');
+			} 
 			check=false; 
 		}else{ 
 			$('#cust_password').html(' ');$('.cust_password').css('border','');
@@ -218,17 +297,33 @@ $(document).ready(function(){
 				success: function(response)
 				{
 					if(response == 'Failed'){
-					    $(".loginResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> Invalid email Id and Password.</span>');
-                        $(".SignIn_btn").html('Retry');
+						if(webLang==='en'){
+							$(".loginResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> Invalid email Id and Password.</span>');
+							$(".SignIn_btn").html('Retry');
+						}else if(webLang==='ar'){
+							$(".loginResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> معرف البريد الإلكتروني وكلمة المرور غير صالحين.</span>');
+							$(".SignIn_btn").html('أعد المحاولة');
+						}
                         $('.SignIn_btn').prop('disabled', false);                      
 					}else if(response == 'Active'){
-					    $(".loginResponse").html('<span class="text-danger" style="font-size:16px"><strong>Pending!</strong> Verify your email id.</span>');
-                        $(".SignIn_btn").html('Retry');
+						if(webLang==='en'){
+							$(".loginResponse").html('<span class="text-danger" style="font-size:16px"><strong>Pending!</strong> Verify your email id.</span>');
+                        	$(".SignIn_btn").html('Retry');
+						}else if(webLang==='ar'){
+							$(".loginResponse").html('<span class="text-danger" style="font-size:16px"><strong>Pending!</strong> تحقق من معرف البريد الإلكتروني الخاص بك.</span>');
+							$(".SignIn_btn").html('أعد المحاولة');
+						}
                         $('.SignIn_btn').prop('disabled', false);
-					}else{					
-						$(".SignIn_btn").html('Sign In..');
-                       	$('.SignIn_btn').prop('disabled', false);	
-					    $(".loginResponse").html('<span class="text-success" style="font-size:16px"><strong>Success!</strong> redirecting..</span>');
+					}else{
+						if(webLang==='en'){
+							$(".SignIn_btn").html('Sign In..');
+                       		$('.SignIn_btn').prop('disabled', false);	
+					    	$(".loginResponse").html('<span class="text-success" style="font-size:16px"><strong>Success!</strong> redirecting..</span>');
+						}else if(webLang==='ar'){
+							$(".SignIn_btn").html('تسجيل الدخول');
+                       		$('.SignIn_btn').prop('disabled', false);	
+					    	$(".loginResponse").html('<span class="text-success" style="font-size:16px"><strong>النجاح!</strong> إعادة توجيه..</span>');
+						}
 					    window.location.href = current_url;
                     }
 				}
@@ -236,138 +331,219 @@ $(document).ready(function(){
         }
         else
 		{
-            $(".SignIn_btn").html('Retry');          
+			if(webLang==='en'){
+				$(".SignIn_btn").html('Retry'); 
+			}else if(webLang==='ar'){
+				$(".SignIn_btn").html('أعد المحاولة'); 
+			}
+                     
            // $('#SigninResponse').html('<span style="color:red;">(Any of the fields are empty.)</span>');
 		}	
 	});
 	/* End Sign In */
 	
-		/* Account Verified in Onclick enent */
-  $(".Accont_btn").click(function()
-	  {
-	    let url 		= $('#site_url').val();     
-	    let check    = true;
-	    let Pcheck    = true; 
-	    /* Validate email Input Fields Value */
-	    if($('.cust_email').val().length == 0 || $('.cust_email').val() == 0){ $('.cust_email').css('border','1px solid red');
-	      $('#cust_email').html('<span style="color:red;">This field is required.</span>'); check=false; }
-	    else{ $('#cust_email').html(' ');$('.cust_email').css('border',''); check = true;
-	      let email = $('.cust_email').val();
-	      let filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;         
-	      if(filter.test(email)) Pcheck=true;
-	      else{ $('#cust_email').html('<span style="color:red;">Email type Mismatched.</span>'); Pcheck=false; $('#for_email').focus(); 
-	    }
-	  }
+	/* Account Verified in Onclick enent */
+	$(".Accont_btn").click(function()
+	{
+		let webLang  	= $("#site_lang").val();
+		let url 		= $('#site_url').val();     
+		let check    = true;
+		let Pcheck    = true; 
+		/* Validate email Input Fields Value */
+		if($('.cust_email').val().length == 0 || $('.cust_email').val() == 0){ 
+			$('.cust_email').css('border','1px solid red');
+			if(webLang==='en'){
+				$('#cust_email').html('<span style="color:red;float:left">This field is required.</span>');
+			}else if(webLang==='ar'){
+				$('#cust_email').html('<span style="color:red;float:right">هذه الخانة مطلوبه.</span>');
+			}
+			check=false;
+		}else{ 
+			$('#cust_email').html(' ');$('.cust_email').css('border','');
+			check = true;
+			let email = $('.cust_email').val();
+			let filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;         
+			if(filter.test(email)) Pcheck=true;
+			else{ 
+				if(webLang==='en'){
+					$('#cust_email').html('<span style="color:red;">Email type Mismatched.</span>');
+				}else if(webLang==='ar'){
+					$('#cust_email').html('<span style="color:red;float:right">نوع البريد الإلكتروني غير متطابق.</span>');
+				}
+				Pcheck=false; $('#for_email').focus(); 
+		}
+	}
 
-	  if(check && Pcheck){
-	          $.ajax(
-	    { 
-	      type: "POST",
-	      url: url+"login/send",
-	      data:$('#AccountForm').serialize(),
-	      // dataType:'json',       
-	      beforeSend: function ()
-	      {
-	        $('.Accont_btn').html('Checking...');
-	        $('.Accont_btn').prop('disabled', true);
-	      },
-	      success: function(response)
-	      {
-	        
-	        if(response == 'Failed'){
-	           $("#AccountResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>Oops!</strong> Unable to Email Verified .Some error occurred.</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
-	                     $(".Accont_btn").html('Retry');
-	                     $('.Accont_btn').prop('disabled', false);                      
-	        }else if(response == 'Wrong'){
-	           $("#AccountResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>Danger !</strong> Email address Invalid !.</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
-	                     $(".Accont_btn").html('Retry');
-	                     $('.Accont_btn').prop('disabled', false);
-	        }else{          
-	        $(".Accont_btn").html('Sent..');
-	                     $('.Accont_btn').prop('disabled', false);  
-	            $("#AccountResponse").html('<div class="alert alert-success alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-thumbs-up "></i></span> <span class="alert-inner--text"><strong>Success !</strong> Thank you for again mail. We have sent you a confirmation email</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
-	           
-	                    }
-	        
-	        
-	      }
-	    });
-	      }
-	      else
-	  {
-	          $(".Accont_btn").html('Retry');          
-	        //  $('#ForgotResponse').html('<span style="color:red;">(Any of the fields are empty.)</span>');
-	  } 
-    
-  });
-  /* End Account Verified */
+		if(check && Pcheck){
+				$.ajax(
+			{ 
+			type: "POST",
+			url: url+"login/send",
+			data:$('#AccountForm').serialize(),
+			// dataType:'json',       
+			beforeSend: function ()
+			{
+				$('.Accont_btn').html('Checking...');
+				$('.Accont_btn').prop('disabled', true);
+			},
+			success: function(response)
+			{
+				
+				if(response == 'Failed'){
+					$('.Accont_btn').prop('disabled', false); 
+					if(webLang==='en'){
+						$("#AccountResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>Oops!</strong> Unable to Email Verified .Some error occurred.</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+						$(".Accont_btn").html('Retry');
+					}else if(webLang==='ar'){
+						$("#AccountResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>وجه الفتاة!</strong> تعذر إرسال بريد إلكتروني تم التحقق منه. حدث خطأ ما.</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+						$(".Accont_btn").html('أعد المحاولة');
+					}
+					                     
+				}else if(response == 'Wrong'){
+					$('.Accont_btn').prop('disabled', false);
+					if(webLang==='en'){
+						$("#AccountResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>Danger !</strong> Email address Invalid !.</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+						$(".Accont_btn").html('Retry');
+					}else if(webLang==='ar'){
+						$("#AccountResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>خطر !</strong> عنوان البريد الإلكتروني غير صحيح!</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+						$(".Accont_btn").html('أعد المحاولة');
+					}
+				}else{          
+					$('.Accont_btn').prop('disabled', false);
+					if(webLang==='en'){
+						$(".Accont_btn").html('Sent..');
+						$("#AccountResponse").html('<div class="alert alert-success alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-thumbs-up "></i></span> <span class="alert-inner--text"><strong>Success !</strong> Thank you for again mail. We have sent you a confirmation email</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+					}else if(webLang==='ar'){
+						$(".Accont_btn").html('أرسلت..');
+						$("#AccountResponse").html('<div class="alert alert-success alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-thumbs-up "></i></span> <span class="alert-inner--text"><strong>النجاح !</strong> شكرا لك على البريد مرة أخرى. لقد ارسلنا اليك ايميل تاكيد</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+					}
+				}
+			}
+			});
+		}
+		else
+		{
+			if(webLang==='en'){
+				$(".Accont_btn").html('Retry');  
+			}else if(webLang==='ar'){
+				$(".Accont_btn").html('أعد المحاولة');  
+			}
+			        
+			//  $('#ForgotResponse').html('<span style="color:red;">(Any of the fields are empty.)</span>');
+		} 
+		
+	});
+	/* End Account Verified */
 	
 	/* Forgot_Password in Onclick enent */
-  $(".Forgot_btn").click(function()
-  {
-    let url 		= $('#site_url').val();     
-    let check    = true;
-    let Pcheck    = true; 
-    /* Validate email Input Fields Value */
-     if($('.cust_email').val().length == 0 || $('.cust_email').val() == 0){ $('.cust_email').css('border','1px solid red');
-         $('#cust_email').html('<span style="color:red;">This field is required.</span>'); check=false; }
-        else{ $('#cust_email').html(' ');$('.cust_email').css('border',''); check = true;
-          let email = $('.cust_email').val();
-            let filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;         
-            if(filter.test(email)) Pcheck=true;
-            else{ $('#cust_email').html('<span style="color:red;">Email type Mismatched.</span>'); Pcheck=false; $('#for_email').focus(); 
-        } }
+	$(".Forgot_btn").click(function()
+	{
+		let webLang  	= $("#site_lang").val();
+		let url 		= $('#site_url').val();     
+		let check    = true;
+		let Pcheck    = true; 
+		/* Validate email Input Fields Value */
+		if($('.cust_email').val().length == 0 || $('.cust_email').val() == 0){ 
+			$('.cust_email').css('border','1px solid red');
+			if(webLang==='en'){
+				$('#cust_email').html('<span style="color:red;float:left">This field is required.</span>'); 
+			}else if(webLang==='ar'){
+				$('#cust_email').html('<span style="color:red;float:right">هذه الخانة مطلوبه.</span>'); 
+			}
+			
+			check=false; }
+		else{ 
+			$('#cust_email').html(' ');$('.cust_email').css('border',''); 
+			check = true;
+			let email = $('.cust_email').val();
+			let filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;         
+			if(filter.test(email)) 
+				Pcheck=true;
+			else{ 
+				
+				if(webLang==='en'){
+					$('#cust_email').html('<span style="color:red;">Email type Mismatched.</span>');
+				}else if(webLang==='ar'){
+					$('#cust_email').html('<span style="color:red;float:right">نوع البريد الإلكتروني غير متطابق.</span>'); 
+				} 
+				Pcheck=false; $('#for_email').focus(); 
+			} 
+		}
 
-    if(check && Pcheck){
-            $.ajax(
-      { 
-        type: "POST",
-        url: url+"login/forgot_password",
-        data:$('#ForgotForm').serialize(),
-        // dataType:'json',       
-        beforeSend: function ()
-        {
-          $('.Forgot_btn').html('Checking...');
-          $('.Forgot_btn').prop('disabled', true);
-        },
-        success: function(response)
-        {
-          
-          if(response == 'Failed'){
-             $("#ForgotResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>Oops!</strong> Unable to Change Password.Some error occurred.</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
-                       $(".Forgot_btn").html('Retry');
-                       $('.Forgot_btn').prop('disabled', false);                      
-          }else if(response == 'Wrong'){
-             $("#ForgotResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>Danger !</strong> Email address Invalid !.</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
-                       $(".Forgot_btn").html('Retry');
-                       $('.Forgot_btn').prop('disabled', false);
-          }else{          
-          $(".Forgot_btn").html('Sent..');
-                       $('.Forgot_btn').prop('disabled', false);  
-              $("#ForgotResponse").html('<div class="alert alert-success alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-thumbs-up "></i></span> <span class="alert-inner--text"><strong>Success !</strong> Your password has been successfully reset. Check Your Email Id...</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
-             
-                      }
-          
-          
-        }
-      });
-        }
-        else
-    {
-            $(".Forgot_btn").html('Retry');          
-          //  $('#ForgotResponse').html('<span style="color:red;">(Any of the fields are empty.)</span>');
-    } 
-    
-  });
-  /* End Forgot_Password */
+		if(check && Pcheck){
+			$.ajax({ 
+				type: "POST",
+				url: url+"login/forgot_password",
+				data:$('#ForgotForm').serialize(),
+				// dataType:'json',       
+				beforeSend: function ()
+				{
+					if(webLang==='en'){
+						$('.Forgot_btn').html('Checking...');
+					}else if(webLang==='ar'){
+						$('.Forgot_btn').html('تدقيق...');
+					}
+					$('.Forgot_btn').prop('disabled', true);
+				},
+				success: function(response)
+				{
+				
+					if(response == 'Failed'){
+						
+						$('.Forgot_btn').prop('disabled', false); 
+						if(webLang==='en'){
+							$("#ForgotResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>Oops!</strong> Unable to Change Password.Some error occurred.</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+							$(".Forgot_btn").html('Retry');
+						}else if(webLang==='ar'){
+							$("#ForgotResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>وجه الفتاة!</strong> غير قادر على تغيير كلمة المرور. حدث خطأ ما.</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+							$(".Forgot_btn").html('أعد المحاولة');
+						}                    
+					}else if(response == 'Wrong'){
+						
+						$('.Forgot_btn').prop('disabled', false);
+						if(webLang==='en'){
+							$("#ForgotResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>Danger !</strong> Email address Invalid !.</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+							$(".Forgot_btn").html('Retry');
+						}else if(webLang==='ar'){
+							$("#ForgotResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>خطر !</strong> عنوان البريد الإلكتروني غير صحيح!</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+							$(".Forgot_btn").html('أعد المحاولة');
+						}
+					}else{          
+						
+						$('.Forgot_btn').prop('disabled', false);  
+						
+						if(webLang==='en'){
+							$(".Forgot_btn").html('Sent..');
+							$("#ForgotResponse").html('<div class="alert alert-success alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-thumbs-up "></i></span> <span class="alert-inner--text"><strong>Success !</strong> Your password has been successfully reset. Check Your Email Id...</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+						}else if(webLang==='ar'){
+							$(".Forgot_btn").html('أرسلت..');
+							$("#ForgotResponse").html('<div class="alert alert-success alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-thumbs-up "></i></span> <span class="alert-inner--text"><strong>النجاح !</strong> تم إعادة تعيين كلمة المرور الخاصة بك بنجاح. تحقق من معرف البريد الإلكتروني الخاص بك ...</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+						}
+					}
+				}
+			});
+			}else
+			{
+				if(webLang==='en'){
+					$(".Forgot_btn").html('Retry'); 
+				}else if(webLang==='ar'){
+					$(".Forgot_btn").html('أعد المحاولة'); 
+				}
+				         
+				//  $('#ForgotResponse').html('<span style="color:red;">(Any of the fields are empty.)</span>');
+			} 
+		
+	});
+	/* End Forgot_Password */
 	
 	/* Change_Password in Onclick enent */
 	$(".Change_Password").click(function()
 	{
-    let url 		= $('#site_url').val();
-    let current_url = $('#current_url').val();
-    let check 		= true;
-    let Pcheck 		= true; 
+		let webLang  	= $("#site_lang").val();
+		let url 		= $('#site_url').val();
+		let current_url = $('#current_url').val();
+		let check 		= true;
+		let Pcheck 		= true; 
 		/* Validate old_password Input Fields Value */
 		if($('.old_password').val().length == 0 ){ $('.old_password').css('border','1px solid red');
         check=false; }
@@ -379,12 +555,27 @@ $(document).ready(function(){
 		
             /* Validate Confirm  Password Input Fields Value */
         if($('.password2').val().length == 0){ $('.password2').css('border','1px solid red');
-         	$('#password2').html('<span style="color:red;float:left;margin:5px 5px">This field is required.</span>'); check=false; }
-        else{ $('#password2').html(' ');$('.password2').css('border',''); check = true;
+			if(webLang==='en'){
+				$('#password2').html('<span style="color:red;float:left;margin:5px 5px">This field is required.</span>');
+			}else if(webLang==='ar'){
+				$('#password2').html('<span style="color:red;float:right;margin:5px 5px">هذه الخانة مطلوبه.</span>');
+			}
+			 check=false; 
+		}else{ 
+			$('#password2').html(' ');$('.password2').css('border',''); check = true;
           	let NewPassword 	= $('.new_password').val();
 			let ReNewPassword 	= $('.password2').val();            
 			if(NewPassword == ReNewPassword){ Pcheck = true;}
-			else{ $('#password2').html('<span style="color:red;float:left;margin:5px 5px">Enter new password same as confirm password .</span>'); Pcheck = false; $('#PasswordResponse1').focus();} }    
+			else{ 
+				if(webLang==='en'){
+					$('#password2').html('<span style="color:red;float:left;margin:5px 5px">Enter new password same as confirm password .</span>'); 
+				}else if(webLang==='ar'){
+					$('#password2').html('<span style="color:red;float:right;margin:5px 5px">أدخل كلمة المرور الجديدة مثل تأكيد كلمة المرور.</span>'); 
+				}
+				Pcheck = false; 
+				$('#PasswordResponse1').focus();
+			} 
+		}    
 
 		if(check && Pcheck){
             $.ajax({	
@@ -394,32 +585,57 @@ $(document).ready(function(){
 				// dataType:'json',				
 				beforeSend: function ()
 				{
-					$('.Change_Password').html('Checking...');
+					if(webLang==='en'){
+						$('.Change_Password').html('Checking...');
+					}else if(webLang==='ar'){
+						$('.Change_Password').html('تدقيق...');
+					}
 					$('.Change_Password').prop('disabled', true);
 				},
 				success: function(response)
 				{
 					if(response == 'Failed'){
-					    $("#PasswordResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> Unable to change password.some error occurred.</span>');
-                        $(".Change_Password").html('Retry');
-                        $('.Change_Password').prop('disabled', false);                      
+					    $('.Change_Password').prop('disabled', false);  
+						if(webLang==='en'){
+							$("#PasswordResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> Unable to change password.some error occurred.</span>');
+                        	$(".Change_Password").html('Retry');
+						}else if(webLang==='ar'){
+							$("#PasswordResponse").html('<span class="text-danger" style="font-size:16px"><strong>وجه الفتاة!</strong> غير قادر على تغيير كلمة المرور. حدث خطأ ما.</span>');
+                        	$(".Change_Password").html('أعد المحاولة');
+						}                    
 					}else if(response == 'NotMach'){
-					    $("#PasswordResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> Old Password doesn`t match Password.</span>');
-                        $(".Change_Password").html('Retry');
-                        $('.Change_Password').prop('disabled', false);
+					    $('.Change_Password').prop('disabled', false);
+						if(webLang==='en'){
+							$("#PasswordResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> Old Password doesn`t match Password.</span>');
+                        	$(".Change_Password").html('Retry');
+						}else if(webLang==='ar'){
+							$("#PasswordResponse").html('<span class="text-danger" style="font-size:16px"><strong>وجه الفتاة!</strong> كلمة المرور القديمة لا تطابق كلمة المرور.</span>');
+                        	$(".Change_Password").html('أعد المحاولة');
+						} 
 					}else{					
-					$(".Change_Password").html('Changed..');
                         $('.Change_Password').prop('disabled', false);	
-					    $("#PasswordResponse").html('<span class="text-success" style="font-size:16px"><strong>Success!</strong> Password change successfully.</span> ');
-                        window.location.href = current_url;
+                        if(webLang==='en'){
+							$(".Change_Password").html('Changed..');
+							$("#PasswordResponse").html('<span class="text-success" style="font-size:16px"><strong>Success!</strong> Password change successfully.</span> ');
+						}else if(webLang==='ar'){
+							$(".Change_Password").html('تغير..');
+							$("#PasswordResponse").html('<span class="text-success" style="font-size:16px"><strong>النجاح!</strong> تم تغيير كلمة المرور بنجاح.</span> ');
+						} 
+						window.location.href = current_url;
                     }
 				}
 			});
         }
         else
 		{
-            $(".Change_Password").html('Retry');          
-            $('#PasswordResponse').html('<span style="color:red">(Any of the fields are empty.)</span>');
+			if(webLang==='en'){
+				$(".Change_Password").html('Retry');          
+            	$('#PasswordResponse').html('<span style="color:red">(Any of the fields are empty.)</span>');
+			}else if(webLang==='ar'){
+				$(".Change_Password").html('Retry');          
+            	$('#PasswordResponse').html('<span style="color:red">(أي من الحقول فارغة.)</span>');
+			} 
+            
 		}	
 		
 	});
@@ -442,21 +658,30 @@ $(document).ready(function(){
     
     /*--- Change Forgot Password Text on keyup ---*/
     $(".forgotEmailButton").keyup(function(){
-       var forgotEmailBox = $(this).val();
-       var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;         
-       var sendButton = $(".Forgot_btn").text();
-       if(filter.test(forgotEmailBox)){
-           $(".Forgot_btn").text('Sent');
-       }else{
-           $(".Forgot_btn").text('Send');
-       }
+		let webLang  	= $("#site_lang").val();
+       	var forgotEmailBox = $(this).val();
+       	var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;         
+       	var sendButton = $(".Forgot_btn").text();
+		if(filter.test(forgotEmailBox)){
+			if(webLang==='en'){
+				$(".Forgot_btn").text('Sent');
+			}else if(webLang==='ar'){
+				$(".Forgot_btn").text('أرسلت');
+			}
+		}else{
+			if(webLang==='en'){
+				$(".Forgot_btn").text('Send');
+			}else if(webLang==='ar'){
+				$(".Forgot_btn").text('يرسل');
+			}
+		}
     });
 
 });
 
 
 /* Search data in Onclick enent */
-	function ajaxSearch() {
+function ajaxSearch() {
 
     var input_data = $('#mysearch').val();
     var url         =  $('#site_url').val();;     
@@ -480,23 +705,25 @@ $(document).ready(function(){
             }
          });
 
-     }
-	 }
+    }
+}
 
-function inc(rowid,e){	
-  let qty 		= $('.avail_qty'+rowid).val();
-  let price 		= $('.item_price'+rowid).val();
+function inc(rowid,e)
+{	
+	let webLang  	= $("#site_lang").val();
+  	let qty 		= $('.avail_qty'+rowid).val();
+  	let price 		= $('.item_price'+rowid).val();
 	let url 		=  $("#site_url").val();
 	let txt 		=  $("#txt").val();
-	let txt_per     =  $(".txt-per").html();
+	//let txt_per   =  $(".txt-per").html();
 	let get_total 	= $('#get_total').html();
 	let product 	= $('.total_product').html();
 	let products    = parseInt(product)+1;
 	let ticket 	    = $('.total_tickets').html();
-    //let tickets     = parseInt(products)+parseInt(products);
+    //let tickets   = parseInt(products)+parseInt(products);
 	let qtys        = parseInt(qty)+1;
 	let sub_total   = parseInt(qtys)*parseInt(price);
-	//let GetTotal    = parseInt(get_total)+parseInt(price)-parseInt(txt_per);
+	//let GetTotal  = parseInt(get_total)+parseInt(price)-parseInt(txt_per);
 	let GetTotal    = parseInt(get_total)+parseInt(price);
 	let tax    = GetTotal*txt/100;
 	//alert(GetTotal);
@@ -506,7 +733,7 @@ function inc(rowid,e){
 	let getMaxQty = parseInt($('.avail_qty'+rowid).attr('max'));
 
 	if (parseInt(qty) < parseInt(getMaxQty)) {
-		let newVal = parseInt(getMaxQty);
+		//let newVal = parseInt(getMaxQty);
 		$.ajax({
 			type:"post",
 		  url: url+"cart/cart_add",
@@ -518,7 +745,7 @@ function inc(rowid,e){
 				$('.avail_qty'+rowid).val(qtys);
 			},
 			success:function(data){
-			  $('#inc'+rowid).html('<button class="plus-btn icon-plus" type="button" name="button" onclick="inc('+rowid2+',this)" style="padding: 11px 10px; border: none;background: #FAFAFA;"><i class="fa fa-plus" style=" background: transparent;font-size: 16px; color: #4a4a4a;"></i></button>');
+			  	$('#inc'+rowid).html('<button class="plus-btn icon-plus" type="button" name="button" onclick="inc('+rowid2+',this)" style="padding: 11px 10px; border: none;background: #FAFAFA;"><i class="fa fa-plus" style=" background: transparent;font-size: 16px; color: #4a4a4a;"></i></button>');
 				//console.log(data);
 				$('.avail_qty'+rowid).val(qtys);
 				$('#sub_total'+rowid).html(parseFloat(sub_total)+'.00');
@@ -531,47 +758,59 @@ function inc(rowid,e){
 				$('.ticket_count'+rowid).attr('data-itemcount',tickets);
 				
 				// if(newVal >=5){
-		  //  		$('.available'+rowid).css('color','#1c745c'); 
-		  //  		$('.available'+rowid).html('stock not available more than '+getMaxQty);  
-		  //  	}else{
-		  //  		$('.available'+rowid).css('color','#f12222'); 
-		  //  		$('.available'+rowid).html('stock not available more than '+getMaxQty);  
-		  //  	}
-
-				if(tickets > '1'){
-	        $('.ticket_name').html('Tickets Per Unit');
-	        $('.main_total_tickt').html('Total Tickets');
-	      }else{
-	       	$('.ticket_name').html('Ticket Per Unit');
-	        $('.main_total_tickt').html('Total Ticket');
-	      }
+		  		//  	$('.available'+rowid).css('color','#1c745c'); 
+		  		//  		$('.available'+rowid).html('stock not available more than '+getMaxQty);  
+		  		//  	}else{
+		  		//  		$('.available'+rowid).css('color','#f12222'); 
+		  		//  		$('.available'+rowid).html('stock not available more than '+getMaxQty);  
+		  		//  	}
+				if(webLang==='en'){
+					if(tickets > '1'){
+						$('.ticket_name').html('Tickets Per Unit');
+						$('.main_total_tickt').html('Total Tickets');
+					}else{
+						$('.ticket_name').html('Ticket Per Unit');
+						$('.main_total_tickt').html('Total Ticket');
+					}
+				}else if(webLang==='ar'){
+					if(tickets > '1'){
+						$('.ticket_name').html('تذاكر لكل وحدة');
+						$('.main_total_tickt').html('إجمالي التذاكر');
+					}else{
+						$('.ticket_name').html('تذكرة لكل وحدة');
+						$('.main_total_tickt').html('إجمالي التذكرة');
+					}
+				}
+				
 				//$('#show_cart').html(data.show_cart);
 				//$('#cart_details').html(data.cart);  
 			}
 		});
 	}else{
-   	let newVal = parseInt(getMaxQty);
-   	if(newVal >=5){
-   		$('.available'+rowid).css('color','#1c745c'); 
-   		$('.available'+rowid).html('stock not available more than '+getMaxQty);  
-   	}else{
-   		$('.available'+rowid).css('color','#f12222'); 
-   		$('.available'+rowid).html('stock not available more than '+getMaxQty);  
-   	}
-  }
+   		let newVal = parseInt(getMaxQty);
+		if(newVal >=5){
+			$('.available'+rowid).css('color','#1c745c'); 
+			$('.available'+rowid).html('stock not available more than '+getMaxQty);  
+		}else{
+			$('.available'+rowid).css('color','#f12222'); 
+			$('.available'+rowid).html('stock not available more than '+getMaxQty);  
+		}
+  	}
 }
 
-function dec(rowid,e){	
-  let qty 		= $('.avail_qty'+rowid).val();
-  let price 		= $('.item_price'+rowid).val();
+function dec(rowid,e)
+{	
+	let webLang  	= $("#site_lang").val();
+  	let qty 		= $('.avail_qty'+rowid).val();
+  	let price 		= $('.item_price'+rowid).val();
 	let url 		=  $("#site_url").val();
 	let txt 		=  $("#txt").val();
-	let txt_per     =  $(".txt-per").html();
+	//let txt_per     =  $(".txt-per").html();
 	let get_total 	= $('#get_total').html();
 	let product 	= $('.total_product').html();
 	let products    = parseInt(product)-1;
 	let ticket 	    = $('.total_tickets').html();
-  //let tickets     = parseInt(products)+parseInt(products);
+  	//let tickets     = parseInt(products)+parseInt(products);
 	let qtys        = parseInt(qty)-1;
 	let sub_total   = parseInt(qtys)*parseInt(price);
 	//let GetTotal    = parseInt(get_total)-parseInt(price)-parseInt(txt_per);
@@ -582,7 +821,7 @@ function dec(rowid,e){
 	let tickets     = parseInt(qtys)*2;
 	let rowid2="'"+rowid+"'";
 	let getMaxQty = parseInt($('.avail_qty'+rowid).attr('max'));
-	let newVal = parseInt(getMaxQty);
+	//let newVal = parseInt(getMaxQty);
 	
 	$.ajax({
 		type:"post",
@@ -599,28 +838,40 @@ function dec(rowid,e){
 			if(qtys=='0'){
 			    window.location.href=url+'cart';
 			}else{
-		    $('#dec'+rowid).html('<button class="plus-btn icon-plus" type="button" name="button" onclick="dec('+rowid2+',this)" style="padding: 11px 10px; border: none;background: #FAFAFA;"><i class="fa fa-minus" style=" background: transparent;font-size: 16px; color: #4a4a4a;"></i></button>');
-  			$('.avail_qty'+rowid).val(qtys);
-  			$('#sub_total'+rowid).html(parseFloat(sub_total)+'.00');
-  			$('.total_product').html(products);
-  			$('.total_tickets').html(parseInt(ticket)-2);
-  			$('.txt-per').html(parseFloat(tax)+'.00');
-  			$('#get_total').html(parseFloat(GetTotal2)+'.00');
-  			$('.tickets').html('<i class="fa fa-ticket blue d" aria-hidden="true"></i>');
-  	    $('.tickets'+rowid).html('<i class="fa fa-ticket blue d" aria-hidden="true"></i>');
-  			$('.ticket_count'+rowid).html(tickets);
-  			$('.ticket_count'+rowid).attr('data-itemcount',tickets);
-  				
-  			$('.available'+rowid).css('color','#1c745c'); 
-		   	$('.available'+rowid).html('stock not available more than '+getMaxQty); 
+				$('#dec'+rowid).html('<button class="plus-btn icon-plus" type="button" name="button" onclick="dec('+rowid2+',this)" style="padding: 11px 10px; border: none;background: #FAFAFA;"><i class="fa fa-minus" style=" background: transparent;font-size: 16px; color: #4a4a4a;"></i></button>');
+				$('.avail_qty'+rowid).val(qtys);
+				$('#sub_total'+rowid).html(parseFloat(sub_total)+'.00');
+				$('.total_product').html(products);
+				$('.total_tickets').html(parseInt(ticket)-2);
+				$('.txt-per').html(parseFloat(tax)+'.00');
+				$('#get_total').html(parseFloat(GetTotal2)+'.00');
+				$('.tickets').html('<i class="fa fa-ticket blue d" aria-hidden="true"></i>');
+				$('.tickets'+rowid).html('<i class="fa fa-ticket blue d" aria-hidden="true"></i>');
+				$('.ticket_count'+rowid).html(tickets);
+				$('.ticket_count'+rowid).attr('data-itemcount',tickets);
+				$('.available'+rowid).css('color','#1c745c'); 
+				
+				
+				if(webLang==='en'){
+					$('.available'+rowid).html('stock not available more than '+getMaxQty); 
+					if(tickets > '1'){
+						$('.ticket_name').html('Tickets Per Unit');
+						$('.main_total_tickt').html('Total Tickets');
+					}else{
+						$('.ticket_name').html('Ticket Per Unit');
+						$('.main_total_tickt').html('Total Ticket');
+					}
+				}else if(webLang==='ar'){
+					$('.available'+rowid).html('المخزون لا يتوفر أكثر من '+getMaxQty); 
+					if(tickets > '1'){
+						$('.ticket_name').html('تذاكر لكل وحدة');
+						$('.main_total_tickt').html('إجمالي التذاكر');
+					}else{
+						$('.ticket_name').html('تذكرة لكل وحدة');
+						$('.main_total_tickt').html('إجمالي التذكرة');
+					}
+				}
 
-  			if(tickets > '1'){
-          $('.ticket_name').html('Tickets Per Unit');
-          $('.main_total_tickt').html('Total Tickets');
-        }else{
-          $('.ticket_name').html('Ticket Per Unit');
-          $('.main_total_tickt').html('Total Ticket');
-        }
 			}
 		}
 	});

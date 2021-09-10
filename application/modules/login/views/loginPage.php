@@ -47,13 +47,21 @@
                      <div class="row">
                         <div class="col-sm-12">
                            <div class="form-group">
-                              <input type="email" class="cust_email form-control" name="email" placeholder="Registered Email Address" value="">
+                               <?php if($this->website->web_lang=='en'){?>
+                                    <input type="email" class="cust_email form-control" name="email" placeholder="<?php echo $this->variables[1]->var_parent_name;?>" value="">
+                               <?php }else if($this->website->web_lang=='ar'){?>
+                                    <input type="email" class="cust_email form-control" name="email" placeholder="<?php echo $this->variables[1]->var_parent_name_ar;?>" value="">
+                               <?php } ?>
                               <span id="cust_email"></span>
                            </div>
                         </div>
                         <div class="col-sm-12">
                            <div class="form-group">
-                              <input type="password" class="cust_password form-control" name="password" placeholder="Password">
+                               <?php if($this->website->web_lang=='en'){?>
+                               <input type="password" class="cust_password form-control" name="password" placeholder="<?php echo $this->variables[12]->var_parent_name;?>">
+                               <?php }else if($this->website->web_lang=='ar'){?>
+                               <input type="password" class="cust_password form-control" name="password" placeholder="<?php echo $this->variables[12]->var_parent_name_ar;?>">
+                               <?php } ?>
                               <span id="cust_password"></span>
                            </div>
                         </div>
@@ -63,18 +71,24 @@
                         <?php if($this->website->web_lang=='en'){?>
                         <div class="col-sm-6 pull-left">
                            <div class="checkbox" style="margin-top: 0">
-                              <label><input type="checkbox" > <?php echo $this->variables[2]->var_parent_name;?></label>
+                              <label>
+                                  <input type="checkbox" > 
+                                  <b style="font-weight: 400 !important"><?php echo $this->variables[2]->var_parent_name;?></b>
+                                </label>
                            </div>
                         </div>
                         <div class="col-sm-6 pull-right">
                            <a href="<?=base_url('login/forgot');?>" style="font-size: initial !important;float: right"><?php echo $this->variables[3]->var_parent_name;?></a>
                         </div>
                         <?php }else if($this->website->web_lang=='ar'){?>
-                           <div class="col-sm-6 pull-right">
-                              <div class="checkbox" style="margin-top: 0;float: right;">
-                                 <label><input type="checkbox" > <?php echo $this->variables[2]->var_parent_name_ar;?></label>
-                              </div>
-                           </div>
+                            <div class="col-sm-6 pull-right">
+                                <div class="checkbox" style="margin-top: 0;float: right;">
+                                    <label>
+                                        <input type="checkbox" > 
+                                        <b style="font-weight: 400 !important;margin-right: 18px;"><?php echo $this->variables[2]->var_parent_name_ar;?></b>
+                                    </label>
+                                </div>
+                            </div>
                            <div class="col-sm-6 pull-left">
                               <a href="<?=base_url('login/forgot');?>" style="font-size: initial !important;float: left;"><?php echo $this->variables[3]->var_parent_name_ar;?></a>
                            </div>
@@ -86,7 +100,7 @@
                            <button type="button" class="btn btn-default login-submit SignIn_btn" style="float:left"><?php echo $this->variables[4]->var_parent_name;?></button>
                         </div>
                         <div class="col-sm-6 pull-right"> 
-                           <a class="new-account-sign btn_login pull-center" href="<?php echo site_url('register');?>" style="padding: 10px;margin-left:36%"><?php echo $this->variables[5]->var_parent_name;?></a> 
+                           <a class="new-account-sign btn_login pull-center" href="<?php echo site_url('register');?>" style="padding: 10px;"><?php echo $this->variables[5]->var_parent_name;?></a> 
                         </div>
                         <?php }else if($this->website->web_lang=='ar'){?>
                            <div class="col-sm-6 pull-right">

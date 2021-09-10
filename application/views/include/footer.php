@@ -41,8 +41,7 @@
                  <div class="col-sm-3 col-md-3 col-lg-2 footer-top-spacing">
                     <h5 class="head_tag_5"><?php echo $this->variables[22]->var_parent_name;?></h5>
                     <ul class="footer-links">
-                       <li><a href="<?php echo site_url('about-us');?>"><?php echo $this->variables[18]->var_parent_name;?></a>
-                       </li>
+                       <li><a href="<?php echo site_url('about-us');?>"><?php echo $this->variables[18]->var_parent_name;?></a></li>
                        <li><a href="<?php echo site_url('');?>#Campaigns"><?php echo $this->variables[23]->var_parent_name;?></a>
                        </li>
                        <?php if(!empty($this->session->userdata('logged_in_users'))){ ?>
@@ -52,6 +51,7 @@
                        <?php }?>
                        <li><a href="<?php echo site_url('');?>#products"><?php echo $this->variables[25]->var_parent_name;?></a>
                        </li>
+                       <li><a href="<?php echo site_url('videos');?>">Draws</a></li>
                     </ul>
                  </div>
                  <div class="col-sm-3 col-md-3 col-lg-2 footer-top-spacing Customer-Service">
@@ -148,6 +148,7 @@
 </div>
 <button onclick="topFunction()" id="customFalconBackToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
 <!-- / footer section end -->
+<input type="hidden" id="site_lang" name="site_lang" value="<?php echo $this->website->web_lang;?>">
 <input type="hidden" id="site_url" name="site_url" value="<?php echo site_url();?>">
 <input type="hidden" id="current_url" name="current_url" value="<?php  echo (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";?>">
 <!-- global plugin scripts  -->

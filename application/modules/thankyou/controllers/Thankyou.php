@@ -80,7 +80,8 @@ class Thankyou extends MY_Controller{
                         'ord_txt_status' => $get_status,
                         'ord_txt_id' => $data->reference,
                         'order_status' => 'Waiting',
-                        'ord_through' => 'Webapp'
+                        'ord_through' => 'Webapp',
+                        'ord_updated' => date('Y-m-d h:i:s')
                     );
                     $updatestatus = $this->Thankyou->UpdateOrderInformation($this->refId,$orderReferenceId,$orderUpdate,$this->table_orders);
                     
@@ -132,7 +133,8 @@ class Thankyou extends MY_Controller{
                         'ord_txt_status' => $get_status,
                         'ord_txt_id' => $data->reference,
                         'order_status' => 'InProcess',
-                        'ord_through' => 'Webapp'
+                        'ord_through' => 'Webapp',
+                        'ord_updated' => date('Y-m-d h:i:s')
                     );
                     $updatestatus = $this->Thankyou->UpdateOrderInformation($this->refId,$orderReferenceId,$orderUpdate,$this->table_orders);
                     
@@ -166,10 +168,11 @@ class Thankyou extends MY_Controller{
                     $this->session->unset_userdata('orderReference');
                     /*-- Not Getting Response --*/ 
                     $orderUpdate = array(
-                       'ord_txt_status' => $get_status,
+                        'ord_txt_status' => $get_status,
                         'ord_txt_id' => $data->reference,
                         'order_status' => 'Waiting',
-                        'ord_through' => 'Webapp'
+                        'ord_through' => 'Webapp',
+                        'ord_updated' => date('Y-m-d h:i:s')
                     );
                     $updatestatus = $this->Thankyou->UpdateOrderInformation($this->refId,$orderReferenceId,$orderUpdate,$this->table_orders);
                     

@@ -49,28 +49,28 @@
                      <!-- Tabs Titles -->
                      <div class="row">
                         <?php if($this->website->web_lang=='en'){?>
-                        <div class="col-sm-6 pull-left">
+                        <div class="col-sm-6">
                            <div class="form-group">
                               <input type="hidden" name="ipaddress" value="<?php echo $_SERVER['REMOTE_ADDR'];?>">
                               <input name="fname" placeholder="<?php echo $this->variables[9]->var_parent_name;?>" class="fname form-control" type="text">
                               <span id="fname"></span>
                            </div>
                         </div>
-                        <div class="col-sm-6 pull-right">
+                        <div class="col-sm-6">
                            <div class="form-group">
                               <input name="lname" placeholder="<?php echo $this->variables[10]->var_parent_name;?>" class="lname form-control" type="text">
                               <span id="lname"></span>
                            </div>
                         </div>
                         <?php }else if($this->website->web_lang=='ar'){?>
-                        <div class="col-sm-6 pull-right">
+                        <div class="col-sm-6">
                            <div class="form-group">
                               <input type="hidden" name="ipaddress" value="<?php echo $_SERVER['REMOTE_ADDR'];?>">
                               <input name="fname" placeholder="<?php echo $this->variables[9]->var_parent_name_ar;?>" class="fname form-control" type="text">
                               <span id="fname"></span>
                            </div>
                         </div>
-                        <div class="col-sm-6 pull-left">
+                        <div class="col-sm-6">
                            <div class="form-group">
                               <input name="lname" placeholder="<?php echo $this->variables[10]->var_parent_name_ar;?>" class="lname form-control" type="text">
                               <span id="lname"></span>
@@ -89,7 +89,7 @@
                            </div>
                         </div>
                         <?php if($this->website->web_lang=='en'){?>
-                        <div class="col-sm-6 pull-left">
+                        <div class="col-sm-6">
                            <div class="form-group">
                               <select class="form-control" name="phonecode">
                                  <?php foreach($country_code as $code){?>
@@ -98,14 +98,14 @@
                               </select>
                            </div>
                         </div>
-                        <div class="col-sm-6 pull-right">
+                        <div class="col-sm-6">
                            <div class="form-group">
                               <input type="text" class="phone form-control" name="phone" placeholder="Mobile no." maxlength="10"  onkeypress="return (event.charCode !=8 &amp;&amp; event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 &amp;&amp; event.charCode <= 57)))">
                               <span id="phone"></span>
                            </div>
                         </div>
                         <?php }else if($this->website->web_lang=='ar'){?>
-                        <div class="col-sm-6 pull-right">
+                        <div class="col-sm-6">
                            <div class="form-group">
                               <select class="form-control" name="phonecode">
                                  <?php foreach($country_code as $code){?>
@@ -114,7 +114,7 @@
                               </select>
                            </div>
                         </div>
-                        <div class="col-sm-6 pull-left">
+                        <div class="col-sm-6">
                            <div class="form-group">
                               <input type="text" class="phone form-control" name="phone" placeholder="رقم المحمول." maxlength="10"  onkeypress="return (event.charCode !=8 &amp;&amp; event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 &amp;&amp; event.charCode <= 57)))">
                               <span id="phone"></span>
@@ -130,14 +130,14 @@
                         </div>
                         <div class="col-sm-12">
                            <div class="form-group">
-                              <input type="password" class="crfpassword form-control" name="crfpassword" placeholder="<?php echo $this->variables[13]->var_parent_name_ar;?>">
+                              <input type="password" class="crfpassword form-control" name="crfpassword" placeholder="<?php echo $this->variables[13]->var_parent_name;?>">
                               <span id="crfpassword"></span>
                            </div>
                         </div>
                         <?php }else if($this->website->web_lang=='ar'){?>
                         <div class="col-sm-12">
                            <div class="form-group">
-                              <input type="password" class="password form-control" name="password" placeholder="<?php echo $this->variables[12]->var_parent_name;?>">
+                              <input type="password" class="password form-control" name="password" placeholder="<?php echo $this->variables[12]->var_parent_name_ar;?>">
                               <span id="password"></span>
                            </div>
                         </div>
@@ -152,9 +152,15 @@
                            <div class="col-sm-12">
                               <div class="checkbox" style="margin-left: 2px;">
                                  <?php if($this->website->web_lang=='en'){?>
-                                    <label style="float:left;margin-bottom:10px"><input type="checkbox" id="protype" name="newsletter" value="1" checked="checked"><?php echo $this->variables[14]->var_parent_name;?></label>
+                                    <label style="float:left;margin-bottom:10px">
+                                        <input type="checkbox" id="protype" name="newsletter" value="1" checked="checked">
+                                        <b style="font-weight: 400 !important;"><?php echo $this->variables[14]->var_parent_name;?></b>
+                                    </label>
                                  <?php }else if($this->website->web_lang=='ar'){?>
-                                    <label style="float: right;margin-bottom: 10px"><input type="checkbox" id="protype" name="newsletter" value="1" checked="checked"><?php echo $this->variables[14]->var_parent_name_ar;?></label>
+                                    <label style="float: right;margin-bottom: 10px">
+                                        <input type="checkbox" id="protype" name="newsletter" value="1" checked="checked">
+                                        <b style="font-weight: 400 !important;margin-right: 18px;"><?php echo $this->variables[14]->var_parent_name_ar;?></b>
+                                    </label>
                                  <?php }?>
                               </div>
                            </div>

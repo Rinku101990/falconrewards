@@ -24,14 +24,14 @@
          <div class="container-fuild">
             <div class="row">
 
-               <div class="col-md-4">
-                  <div class="select-usd" style="font-size:20px; font-weight:600;margin-top:13px;float: right !important;margin-right: -30px;">
+               <div class="col-md-3">
+                  <div class="select-usd-ar" style="font-size:20px; font-weight:600;margin-top:13px;float: right !important;margin-right: -30px;">
                      <a href="javascript:void(0)" id="setLanguage" defLang="<?php if($this->website->web_lang=='en'){echo'ar';}else if($this->website->web_lang=='ar'){echo'en';}?>">
                         <img src="<?=base_url('assets/img/ae.png');?>"  style="vertical-align:text-bottom;width: 45px;"/> USD  <i class="fa fa-caret-down" aria-hidden="true"></i>
                      </a>
                   </div>
-                  <div class="user-detail-log-cart-section" style="margin-top: 13px;    margin-left: 110px;">
-                     <ul>
+                  <div class="user-detail-log-cart-section" style="margin-top: 15px;    margin-left: -15px;">
+                     <ul class="btn-ar" style="margin-right:0px">
                         <?php if(!empty($this->session->userdata('logged_in_users'))){ ?>
                         <li>
                            <div class="profile-drop-down" style="margin-top: 0px !important;">
@@ -64,7 +64,7 @@
                   <!-- /.navbar-collapse -->
                </div>
 
-               <div class="col-md-8">
+               <div class="col-md-9">
                   <!-- Brand and toggle get grouped for better mobile display -->
                   <div class="navbar-header" style="float:right">
                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">

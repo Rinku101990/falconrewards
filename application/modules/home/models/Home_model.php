@@ -113,7 +113,7 @@ class Home_model extends MY_Model{
 
 
 
-	public function Product_Search($fld_value,$table)
+public function Product_Search($fld_value,$table)
 	{
 		$this->db->select('pro.p_id,pro.p_name,pro.p_category,pro.p_sku,pro.p_aed,pro.p_inr,pro.p_omr,pro.p_kwd,pro.p_bhd,pro.p_usd,pro.p_qty,pro.p_ticket,pro.p_picture,pro.p_description,rwd.r_title,rwd.r_url,rwd.r_category,rwd.image,rwd.r_short_description,camp.id,camp.product,camp.reward,camp.img');
 		$this->db->join('tbl_product pro','camp.product=pro.p_id','LEFT');

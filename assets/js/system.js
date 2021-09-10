@@ -9,33 +9,40 @@ $('#currencySelector').change(function () {
     window.location = variable.SetCurrency+"/"+currency;
 });
 $('#donate').change(function () {
+    let webLang  	= $("#site_lang").val();
     var total_ticket = $('.total_tickets').html();
     var product 	= $('.total_product').html();
    
     //alert(total_ticket);
     if($('#donate').is(':checked')){
         var donate = 1;
-         $('.rowid:checked').each(function() {
-        var tct=$(this).val();
-        var tkt=$('.ticket_count'+tct).attr('data-itemcount');    
-        $('.tickets'+tct).html('<i class="fa fa-ticket blue d" aria-hidden="true"></i>');
-        $('.ticket_count'+tct).html(parseInt(tkt)+parseInt(tkt));
-         $('.ticket_count'+tct).attr('data-itemcount',parseInt(tkt)+parseInt(tkt));
-        // $(".ticket_count"+tct).each(function (i) {
-        //     $(this).html(parseInt(total_ticket)+parseInt(product));
-        //     var temp = parseInt($(this).html())*$(this).data('itemcount');
-        //         //alert(temp);
-        //     total_ticket = parseInt(total_ticket)+parseInt(product);
-        // });
+        $('.rowid:checked').each(function() {
+            var tct=$(this).val();
+            var tkt=$('.ticket_count'+tct).attr('data-itemcount');    
+            $('.tickets'+tct).html('<i class="fa fa-ticket blue d" aria-hidden="true"></i>');
+            $('.ticket_count'+tct).html(parseInt(tkt)+parseInt(tkt));
+            $('.ticket_count'+tct).attr('data-itemcount',parseInt(tkt)+parseInt(tkt));
         });
         $('.total_tickets').html(parseInt(total_ticket)+parseInt(total_ticket));
-        if(total_ticket > '1'){
-              $('.ticket_name').html('Tickets Per Unit');
-               $('.main_total_tickt').html('Total Tickets');
-        }else{
-           $('.ticket_name').html('Ticket Per Unit');
-            $('.main_total_tickt').html('Total Ticket');
+        
+        if(webLang==='en'){
+            if(total_ticket > '1'){
+                $('.ticket_name').html('Tickets Per Unit');
+                 $('.main_total_tickt').html('Total Tickets');
+            }else{
+                $('.ticket_name').html('Ticket Per Unit');
+                $('.main_total_tickt').html('Total Ticket');
+            }
+        }else if(webLang==='en'){
+            if(total_ticket > '1'){
+                $('.ticket_name').html('تذاكر لكل وحدة');
+                 $('.main_total_tickt').html('إجمالي التذاكر');
+            }else{
+                $('.ticket_name').html('تذكرة لكل وحدة');
+                $('.main_total_tickt').html('إجمالي التذكرة');
+            }
         }
+        
     } else{
         var donate = 0;
         $('.d').remove();
@@ -61,12 +68,22 @@ $('#donate').change(function () {
         // });
         });
         $('.total_tickets').html(parseInt(total_ticket)/2);
-         if(total_ticket > '1'){
-              $('.ticket_name').html('Tickets Per Unit');
-              $('.main_total_tickt').html('Total Tickets');
-        }else{
-           $('.ticket_name').html('Ticket Per Unit');
-           $('.main_total_tickt').html('Total Ticket');
+        if(webLang==='en'){
+            if(total_ticket > '1'){
+                $('.ticket_name').html('Tickets Per Unit');
+                 $('.main_total_tickt').html('Total Tickets');
+            }else{
+                $('.ticket_name').html('Ticket Per Unit');
+                $('.main_total_tickt').html('Total Ticket');
+            }
+        }else if(webLang==='en'){
+            if(total_ticket > '1'){
+                $('.ticket_name').html('تذاكر لكل وحدة');
+                 $('.main_total_tickt').html('إجمالي التذاكر');
+            }else{
+                $('.ticket_name').html('تذكرة لكل وحدة');
+                $('.main_total_tickt').html('إجمالي التذكرة');
+            }
         }
         
     }

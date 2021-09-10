@@ -13,7 +13,7 @@ a, a:visited, a:hover, a:active {
 	text-decoration: none;
 	color: inherit;
 	outline: none;
-	font-size: inherit;
+	/*font-size: inherit;*/
 	transition-duration: 0.4s;
 }
 
@@ -118,7 +118,7 @@ p.alt {
 	margin-top: 0px;
 	font-weight: 400;
 	outline: none;
-	font-size: 15px;
+	font-size: 14px;
 }
 .user-detail-log-cart-section .login-btn:hover {
 	 background: #fff;
@@ -196,7 +196,7 @@ p.alt {
 	width: 260px;
 }
 header,div#carousel-example-generic, .reward-section, .game-section,.our-products, footer, .copyright-bottom{
-	    margin: 17px 36px 14px;
+	    margin: 17px 20px 14px;
 	        border-radius: 15px;
 }
 .navbar-default {
@@ -459,6 +459,23 @@ header,div#carousel-example-generic, .reward-section, .game-section,.our-product
 	border: 1px solid #e6e6e6;
 	position: relative;
 }
+
+.game-box2 .col-md-3 {
+    margin-left: 26px;
+    background-color: #fff;
+    padding: 4px 4px;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+    float: left;
+    width: 300px;
+    margin-bottom: 30px;
+    box-shadow: 0px 1px 9px 0px rgb(68 68 68 / 20%);
+    transition-duration: 0.4s;
+    border: 1px solid #e6e6e6;
+    position: relative;
+}
+
 .game-box:hover {
 	box-shadow: 0px 7px 16px 0px rgba(50, 50, 50, 0.2);
 	transition-duration: 0.4s;
@@ -1663,9 +1680,9 @@ color:#2c2c2c
 .head-top-heading p {
 	color: #666;
 	font-weight: 700;
-	font-size: 30px;
+	font-size: 25px;
 	margin-top: 0px;
-	margin-bottom: 30px;
+	/*margin-bottom: 30px;*/
 }
 .login-section .form-control {
 	display: block;
@@ -2410,10 +2427,32 @@ div.message.error {
 		    margin-top: 10px !important;
     margin-left: 28px;
 }
+.select-usd-ar{
+	margin-top: 10px !important;
+    margin-left: 0;
+    margin-right: 0px !important;
+}
+
 .user-detail-log-cart-section {
     margin-bottom: 13px;
-    margin-left: 0 !important;
+    margin-left: -13px !important;
+    float: left;
+    margin-top: -25px !IMPORTANT;
+}
+.user-detail-log-cart-section-en{
+        margin-bottom: 13px;
+    margin-left: 8px !important;
+    float: left;
+    margin-top: 10px !IMPORTANT;
+}
+html:lang(ar) .main-navigation li {
+    /* display: block; */
     float: right;
+    width: 100%;
+}
+.btn-ar{
+    padding-right:0px;
+     margin-top: 42px !IMPORTANT;
 }
 .navbar-right {
 	float: left !important;
@@ -2462,6 +2501,9 @@ header, div#carousel-example-generic, .reward-section, .game-section,.our-produc
 }
 input.jsChangeCartItem {
     width: 90px !important;
+}
+#wowslider-container1 {
+    max-width: 86.5% !important;
 }
 .navbar-default .navbar-toggle .icon-bar {
 	background-color: #056839;
@@ -2737,7 +2779,7 @@ font-weight: 400;
    position: fixed;
     right: 67px;
     bottom: 15px;
-    z-index: 32;
+    z-index: 99;
 }
 #cart-indicator {
     background: #1C745C;

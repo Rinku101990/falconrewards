@@ -79,6 +79,7 @@
    </div>
 </div>
 <!-- game-section start-->
+<?php //print("<pre>".print_r($products,true)."</pre>");?>
 <div class="game-section" name="campaigns" style="display: none" >
    <?php if(!empty($products)){ ?>
    <div class="container--fuild">
@@ -209,6 +210,15 @@
                      </div>
                   </div>
                </div>
+               <!--<div class="progress-div">-->
+               <!--   <div class="c100 p3 big">-->
+               <!--      <span>3%</span>-->
+               <!--      <div class="slice">-->
+               <!--         <div class="bar"></div>-->
+               <!--         <div class="fill"></div>-->
+               <!--      </div>-->
+               <!--   </div>-->
+               <!--</div>-->
             </div>
             <div class="col-md-4">
                <img src="<?php echo site_url('admin/uploads/reward/'.$pro->image);?>"  style="width: 351px;height: 251px;object-fit: contain;"/>
@@ -226,7 +236,6 @@
    </div>
    <?php } ?>
 </div>
-
 <div class="game-section" name="campaigns" >
    <?php if(!empty($products)){ ?>
    <div class="container--fuild">
@@ -277,9 +286,9 @@
                   }
                ?>
                <?php if($this->website->web_lang=='en'){?>
-                  <h4>Get a chance to <span style="color:#ff6262;font-style: italic;">WIN </span>: <br><?php echo $pro->r_win;?></h4>
+                  <h4>Get a chance to <span style="color:#ff6262;font-style: italic;">WIN </span>: <br><?php $winLength = strlen($pro->r_win); if($winLength > 32){echo substr($pro->r_win,0,30).'..';}else{echo $pro->r_win;}?></h4>
                <?php }else if($this->website->web_lang=='ar'){?>
-                  <h4>احصل على فرصة <span style="color:#ff6262;font-style: italic;">فوز </span>: <br><?php echo $pro->r_win_ar;?></h4>
+                  <h4>احصل على فرصة <span style="color:#ff6262;font-style: italic;">فوز </span>: <br><?php $winLength = strlen($pro->r_win_ar); if($winLength > 32){echo substr($pro->r_win_ar,0,30).'..';}else{echo $pro->r_win_ar;}?></h4>
                <?php } ?>
                
                <!-- <button type="button" class="btn addcart-btn add-to-cart refresh-me add_to_cart" RefId="<?=encode($pro->id);?>">Add to Cart</button>-->
@@ -338,24 +347,32 @@
 <div class="our-products"  style="background:#1C745C;border-radius: 35px;padding: 34px 36px;direction:ltr">
    <div class="container-fuild">
       <a id="products" data-magellan-target="products"></a>
-      <h2 style="font-size: 26px;font-weight: 500;color: #fff">
-         <span class="first"></span> 
-         <?php if($this->website->web_lang=='en'){?>
-            Sold Out 
-         <?php }else if($this->website->web_lang=='ar'){?>
-            نفذ
-         <?php }?>
-         <span class="second"></span>
-         <span class="owl-nav ">
-         <span class="owl-prev" id="demo-prev"> <i class="fa fa-angle-left" aria-hidden="true"></i></span>
-         <span class="owl-next" id="demo-next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>
-         </span>
-      </h2>
-      <?php if($this->website->web_lang=='en'){ ?>
-         <p style="color: #fff">All our sold out campaigns along with their corresponding draw dates are listed here.</p>
-      <?php }else if($this->website->web_lang=='ar'){ ?>
-         <p style="color: #fff;">جميع حملاتنا التي تم بيعها مع تواريخ السحب المقابلة مذكورة هنا.</p>
-      <?php } ?>
+        <h2 style="font-size: 26px;font-weight: 500;color: #fff">
+        
+            <?php if($this->website->web_lang=='en'){?>
+                <b style="font-weight:400 !important"><span class="first"></span> 
+                    Sold Out 
+                <span class="second"></span></b>
+                <span class="owl-nav" style="float:right">
+                    <span class="owl-prev" id="demo-prev"> <i class="fa fa-angle-left" aria-hidden="true"></i></span>
+                    <span class="owl-next" id="demo-next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>
+                </span>
+            <?php }else if($this->website->web_lang=='ar'){?>
+            <b style="font-weight:400 !important;float:right"><span class="first"></span> 
+                نفذ
+            <span class="second"></span></b>
+            <span class="owl-nav" style="float:left">
+                <span class="owl-prev" id="demo-prev"> <i class="fa fa-angle-left" aria-hidden="true"></i></span>
+                <span class="owl-next" id="demo-next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>
+            </span>
+            <?php }?>
+            <?php if($this->website->web_lang=='en'){ ?>
+            <p style="color: #fff">All our sold out campaigns along with their corresponding draw dates are listed here.</p>
+        <?php }else if($this->website->web_lang=='ar'){ ?>
+            <p style="color: #fff;">جميع حملاتنا التي تم بيعها مع تواريخ السحب المقابلة مذكورة هنا.</p>
+        <?php } ?>
+        </h2>
+        
       
       <br>
       <div class="owl-carousel owl-theme" id="falcon-slider2" >
@@ -424,19 +441,27 @@
    <div class="container-fuild">
       <a id="products" data-magellan-target="products"></a>
       <h2 style="font-size: 26px;font-weight: 500">
-         <span class="first"></span> 
+         
          <?php if($this->website->web_lang=='en'){?>
+          <b><span class="first"></span> 
             Falcon Products
+            <span class="second"></span></b>
+            <span class="owl-nav ">
+                 <span class="owl-prev" id="demo1-prev"> <i class="fa fa-angle-left" aria-hidden="true"></i></span>
+                 <span class="owl-next" id="demo1-next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>
+             </span>
          <?php }else if($this->website->web_lang=='ar'){?>
+            <b style="float:right"><span class="first"></span> 
             منتجات فالكون
+            <span class="second"></span></b>
+            <span class="owl-nav" style="float:left">
+                 <span class="owl-prev" id="demo1-prev"> <i class="fa fa-angle-left" aria-hidden="true"></i></span>
+                 <span class="owl-next" id="demo1-next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>
+             </span><br>
          <?php }?>
-         <span class="second"></span>
-         <span class="owl-nav ">
-         <span class="owl-prev" id="demo1-prev"> <i class="fa fa-angle-left" aria-hidden="true"></i></span>
-         <span class="owl-next" id="demo1-next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>
-         </span>
+         
+         
       </h2>
-      <br>
       <div class="owl-carousel owl-theme" id="demo1">
          <?php foreach ($coming_product as $cp_value) {?>
          <div class="item" >
@@ -463,19 +488,27 @@
    <div class="container-fuild">
       <a id="products" data-magellan-target="products"></a>
       <h2 style="font-size: 26px;font-weight: 500; color: #fff">
-         <span class="first"></span> 
+         
          <?php if($this->website->web_lang=='en'){?>
-            Winners
+            <b><span class="first"></span> 
+                Winners
+            <span class="second"></span></b>
+            <span class="owl-nav ">
+                 <span class="owl-prev" id="demo2-prev"> <i class="fa fa-angle-left" aria-hidden="true"></i></span>
+                 <span class="owl-next" id="demo2-next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>
+             </span>
          <?php }else if($this->website->web_lang=='ar'){?>
+            <b style="float:right"><span class="first"></span> 
             الفائزون
+            <span class="second"></span></b>
+            <span class="owl-nav " style="float:left">
+                 <span class="owl-prev" id="demo2-prev"> <i class="fa fa-angle-left" aria-hidden="true"></i></span>
+                 <span class="owl-next" id="demo2-next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>
+             </span><br>
          <?php }?>
-         <span class="second"></span>
-         <span class="owl-nav ">
-         <span class="owl-prev" id="demo2-prev"> <i class="fa fa-angle-left" aria-hidden="true"></i></span>
-         <span class="owl-next" id="demo2-next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>
-         </span>
+         
+         
       </h2>
-      <br>
       <div class="owl-carousel owl-theme" id="demo2">
          <?php foreach($winners as $winkey => $winvalue) {?>
          <div class="item" >
