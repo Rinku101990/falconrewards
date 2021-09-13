@@ -1,15 +1,20 @@
-<!-- banner section start-->
-<div class="inner-banner winner">
-   <img src="<?php echo site_url('assets/img/contact_banner.jpg');?>"/>
-</div>
+<?php if($this->website->web_lang=='en'){?>
+   <div class="inner-banner winner">
+      <img src="<?php echo site_url('admin/uploads/content-page/').$page->pg_banner_img;?>" title="<?=$page->pg_title;?>"/>
+   </div>
+<?php }else if($this->website->web_lang=='ar'){?>
+   <div class="inner-banner winner">
+      <img src="<?php echo site_url('admin/uploads/content-page/').$page->pg_banner_img_ar;?>" title="<?=$page->pg_title_ar;?>"/>
+   </div>
+<?php } ?>
 <!-- / banner section end -->
 <!-- winner-section start-->
 <div class="inner-common">
    <div class="container">
       <?php if($this->website->web_lang=='en'){?>
-         <h1><?php echo $this->variables[21]->var_parent_name;?></h1>
+         <h1><?=$page->pg_title;?></h1>
       <?php }else if($this->website->web_lang=='ar'){?>
-         <h1><?php echo $this->variables[21]->var_parent_name_ar;?></h1>
+         <h1><?=$page->pg_title_ar;?></h1>
       <?php } ?>
       <div class="row">
          <div class="col-sm-6">

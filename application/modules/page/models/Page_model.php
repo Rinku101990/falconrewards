@@ -9,8 +9,25 @@ class Page_model extends MY_Model{
 		else return false;
 	}
 
-	function get_page_list($id,$table){
-		// $this->db->order_by('slr_order',"asc");
+	function get_page_list($id,$table)
+	{
+		$this->db->where('pg_id',$id);	
+		$query=$this->db->get($table);
+		if($query->num_rows() != 0) return $query->row();
+		else return false;
+	}
+
+	function get_page_list_en($id,$table)
+	{
+		$this->db->select('pg_id,pg_title,pg_banner_img,content1');
+		$this->db->where('pg_id',$id);	
+		$query=$this->db->get($table);
+		if($query->num_rows() != 0) return $query->row();
+		else return false;
+	}
+	function get_page_list_ar($id,$table)
+	{
+		$this->db->select('pg_id,pg_title_ar,pg_banner_img,content2');
 		$this->db->where('pg_id',$id);	
 		$query=$this->db->get($table);
 		if($query->num_rows() != 0) return $query->row();

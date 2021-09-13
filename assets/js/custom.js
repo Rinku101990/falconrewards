@@ -8,7 +8,7 @@ $(document).ready(function(){
 		let baseUrl  = $("#site_url").val();
 		$.ajax({
 			type: "POST",
-						url: baseUrl+"home/language",
+			url: baseUrl+"home/language",
 			data:{customLang:defaultLang},
 			success:function(response){
 				if(response=='set'){

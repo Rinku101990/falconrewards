@@ -41,7 +41,7 @@
    }
 </style>
 <!-- banner section start-->
-
+<?php if($this->website->web_lang=='en'){?>
 <div id="carousel-example-generic" class="carousel slide view" data-ride="carousel">
    <!-- Indicators -->
    <!-- Wrapper for slides -->
@@ -55,10 +55,27 @@
          <img src="<?php echo site_url('assets/img/banner1.jpg');?>" alt="1" style="width:100%;object-fit:cover;">
       </div>
       <?php } ?>
-      
    </div>
    <!-- Controls -->
 </div>
+<?php }else if($this->website->web_lang=='ar'){?>
+<div id="carousel-example-generic" class="carousel slide view" data-ride="carousel">
+   <!-- Indicators -->
+   <!-- Wrapper for slides -->
+   <div class="carousel-inner" role="listbox">
+      <?php if(!empty($banner)){ foreach($banner as $bnrskey=>$bnrsvalue){?>
+         <div class="item <?php if($bnrskey==0){echo "active";}else{echo "";}?>">
+            <img src="<?php echo site_url('admin/uploads/banner/'.$bnrsvalue->slr_img_ar);?>" alt="1" style="width:100%;object-fit:cover;">
+         </div>
+      <?php } }else{ ?>
+      <div class="item">
+         <img src="<?php echo site_url('assets/img/banner1.jpg');?>" alt="1" style="width:100%;object-fit:cover;">
+      </div>
+      <?php } ?>
+   </div>
+   <!-- Controls -->
+</div>
+<?php } ?>
 <!-- / banner section end -->
 <div class="reward-section">
    <div class="section_bg_gray">

@@ -61,8 +61,10 @@ $route['how-it-works'] = 'page/works';
 $route['winners'] = 'page/winners';
 $route['contact-us'] = 'page/contacts';
 $route['privacy-policy'] = 'page/privacy';
-$route['privacy-policy'] = 'page/privacy';
+//$route['^(en|ar)$']
 $route['charities'] = 'page/charities';
+$route['en/charities'] = 'page/charities_en';
+$route['ar/charities'] = 'page/charities_ar';
 $route['terms-conditions'] = 'page/terms';
 $route['faq'] = 'page/faq';
 $route['404_override'] = '';

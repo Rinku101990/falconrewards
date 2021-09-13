@@ -2555,3 +2555,76 @@ DEBUG - 2021-09-10 22:13:08 --> Session: "sess_save_path" is empty; using BC fal
 DEBUG - 2021-09-10 22:13:08 --> Cart MX_Controller Initialized
 DEBUG - 2021-09-10 23:43:08 --> File loaded: D:\xampp\htdocs\falconrewards.com\application\modules/cart/models/Cart_model.php
 DEBUG - 2021-09-10 23:43:08 --> Total execution time: 0.0594
+DEBUG - 2021-09-10 22:32:32 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:32:32 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:32:33 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+DEBUG - 2021-09-10 22:32:33 --> Home MX_Controller Initialized
+DEBUG - 2021-09-10 22:32:33 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:32:33 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:32:33 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+DEBUG - 2021-09-10 22:32:33 --> Cart MX_Controller Initialized
+DEBUG - 2021-09-10 22:32:44 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:32:44 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:32:44 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+DEBUG - 2021-09-10 22:32:44 --> Home MX_Controller Initialized
+DEBUG - 2021-09-10 22:32:44 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:32:44 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:32:44 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+DEBUG - 2021-09-10 22:32:44 --> Cart MX_Controller Initialized
+DEBUG - 2021-09-10 22:44:21 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:44:21 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:44:22 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+DEBUG - 2021-09-10 22:44:22 --> Cart MX_Controller Initialized
+DEBUG - 2021-09-10 22:44:22 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:44:22 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:44:22 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+DEBUG - 2021-09-10 22:44:22 --> Cart MX_Controller Initialized
+DEBUG - 2021-09-10 22:44:25 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:44:25 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:44:25 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+DEBUG - 2021-09-10 22:44:25 --> Cart MX_Controller Initialized
+DEBUG - 2021-09-10 22:44:25 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:44:25 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:44:25 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+DEBUG - 2021-09-10 22:44:25 --> Cart MX_Controller Initialized
+DEBUG - 2021-09-10 22:44:35 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:44:35 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:44:35 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+ERROR - 2021-09-10 22:44:35 --> 404 Page Not Found: /index
+DEBUG - 2021-09-10 22:44:49 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:44:49 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:44:49 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+ERROR - 2021-09-10 22:44:49 --> 404 Page Not Found: /index
+DEBUG - 2021-09-10 22:44:55 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:44:55 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:44:55 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+ERROR - 2021-09-10 22:44:55 --> 404 Page Not Found: /index
+DEBUG - 2021-09-10 22:52:11 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:52:11 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:52:11 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+ERROR - 2021-09-10 22:52:11 --> 404 Page Not Found: /index
+DEBUG - 2021-09-10 22:52:18 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:52:18 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:52:18 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+DEBUG - 2021-09-10 22:52:18 --> Page MX_Controller Initialized
+DEBUG - 2021-09-10 22:52:32 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:52:32 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:52:32 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+DEBUG - 2021-09-10 22:52:32 --> Page MX_Controller Initialized
+DEBUG - 2021-09-10 22:52:42 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:52:42 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:52:42 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+DEBUG - 2021-09-10 22:52:42 --> Page MX_Controller Initialized
+DEBUG - 2021-09-10 22:53:04 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:53:04 --> No URI present. Default controller set.
+DEBUG - 2021-09-10 22:53:05 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:53:05 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+DEBUG - 2021-09-10 22:53:05 --> Home MX_Controller Initialized
+DEBUG - 2021-09-10 22:53:14 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:53:14 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:53:14 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+ERROR - 2021-09-10 22:53:14 --> 404 Page Not Found: /index
+DEBUG - 2021-09-10 22:53:27 --> UTF-8 Support Enabled
+DEBUG - 2021-09-10 22:53:27 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2021-09-10 22:53:27 --> Session: "sess_save_path" is empty; using BC fallback to "sess_table_name".
+DEBUG - 2021-09-10 22:53:27 --> Page MX_Controller Initialized

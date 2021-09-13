@@ -26,6 +26,7 @@ class Page extends MY_Controller {
 
     public function contacts()
 	{ 		
+		$content['page'] = $this->Page->get_page_list('8',$this->table_page);
 		$content['subview']='page/contact';
 		$this->load->view('layout', $content);
 	}
@@ -71,9 +72,26 @@ class Page extends MY_Controller {
 		$content['subview']='page/charities';
 		$this->load->view('layout', $content);
 	}
+
 	public function test()
 	{ 		
 		//$content['subview']='page/test';
 		$this->load->view('page/test');
 	}
+
+	/*--- Charities English and Arabic Custom Format ---*/ 
+	public function charities_en()
+	{ 		
+		$content['page'] = $this->Page->get_page_list_en('5',$this->table_page);
+		//$content['subview']='page/charities_en';
+		$this->load->view('page/charities_en', $content);
+	}
+
+	public function charities_ar()
+	{ 		
+		$content['page'] = $this->Page->get_page_list_ar('5',$this->table_page);
+		//$content['subview']='page/charities_ar';
+		$this->load->view('page/charities_ar', $content);
+	}
+
 }
