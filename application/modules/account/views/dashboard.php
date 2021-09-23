@@ -1,9 +1,13 @@
 <div class="inner-common">
    <div class="container">
+      <?php if($this->website->web_lang=='en'){ ?>
       <h1> Hi, <?php echo $this->customer->usr_fname.' '.$this->customer->usr_lname;?></h1>
+      <?php }else if($this->website->web_lang=='ar'){ ?>
+      <h1> مرحبا، <?php echo $this->customer->usr_fname.' '.$this->customer->usr_lname;?></h1>
+      <?php } ?>
       <div class="row">
          <?php if($this->website->web_lang=='en'){ ?>
-         <div class="col-md-9 pull-right">
+         <div class="col-md-9">
             <div class="level-member">
                 <div class="img-member">
                     <?php if(!empty($this->customer->usr_profile_photo)){?>
@@ -19,7 +23,7 @@
             </div>
          </div>
          <?php }else if($this->website->web_lang=='ar'){ ?>
-         <div class="col-md-9 pull-left">
+         <div class="col-md-9">
             <div class="level-member">
                 <div class="img-member">
                     <?php if(!empty($this->customer->usr_profile_photo)){?>
@@ -30,7 +34,7 @@
                 </div>
                <div class="text-member">
                   <h3>مرحبا بعودتك</h3>
-                  <p>Registered Date & Time : <?php echo date('F m,Y H:i:s A', strtotime($this->customer->usr_created));?></p>
+                  <p>التاريخ والوقت المسجل : <?php echo date('F m,Y H:i:s A', strtotime($this->customer->usr_created));?></p>
                </div>
             </div>
          </div>

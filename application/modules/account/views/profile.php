@@ -42,7 +42,7 @@
       </div>
       <div class="row">
          <?php if($this->website->web_lang=='en'){ ?>
-         <div class="col-md-9 col-sm-9  pull-right">
+         <div class="col-md-9 col-sm-9">
             <div class="personal-details">
                <div class="personal-header">
                   <div class="hed-sec">
@@ -157,7 +157,7 @@
             </div>
          </div>
          <?php }else if($this->website->web_lang=='ar'){ ?>
-         <div class="col-md-9 col-sm-9  pull-left">
+         <div class="col-md-9 col-sm-9">
             <div class="personal-details">
                <div class="personal-header">
                   <div class="hed-sec pull-right">
@@ -178,7 +178,7 @@
                   </div>
                </div>
                <div class="clearfix"></div>
-               <h3>Personal Details</h3>
+               <h3>التفاصيل الشخصية</h3>
                <?php $msg=$this->session->flashdata('msg'); if($msg){  ?>
                <div class="alert alert-<?php echo $msg['class'] ?> alert-dismissible admin-msg" data-dismiss="alert" aria-hidden="true">
                   <strong><?php echo $msg['type'] ?></strong> <?php echo $msg['message']; ?>
@@ -186,14 +186,14 @@
                <?php } ?>
                <form action="<?php echo site_url('account/update/'.$this->customer->usr_id);?>" method="post">
                   <div class="row">
-                     <div class="col-sm-6 pull-right">
+                     <div class="col-sm-6">
                         <div class="form-group">
                            <label for="exampleInputEmail1"><?php echo $this->variables[9]->var_parent_name_ar;?></label>
                            <input type="text" class="form-control" id="f_name" name="f_name" placeholder="<?php echo $this->variables[9]->var_parent_name_ar;?>" value="<?php echo $this->customer->usr_fname;?>">
                            <span class="help-block"></span>
                         </div>
                      </div>
-                     <div class="col-sm-6 pull-left">
+                     <div class="col-sm-6">
                         <div class="form-group">
                            <label for="exampleInputEmail1"><?php echo $this->variables[10]->var_parent_name_ar;?></label>
                            <input type="hidden" name="id" value="17">
@@ -201,22 +201,22 @@
                            <span class="help-block"></span>
                         </div>
                      </div>
-                     <div class="col-sm-6 pull-right">
+                     <div class="col-sm-6">
                         <div class="form-group">
-                           <label for="exampleInputEmail1">جنس تذكير أو تأنيث</label>
+                           <label for="exampleInputEmail1">الجنس</label>
                            <select class="form-control" placeholder="Select Gender" name="gender">
-                              <option value="">Please Select</option>
+                              <option value="">اختيار</option>
                               <option value="1" <?php if($this->customer->usr_gender=='1'){echo "selected";}?>>Male</option>
                               <option value="0" <?php if($this->customer->usr_gender=='0'){echo "selected";}?>>Female</option>
                            </select>
                            <span class="help-block"></span>
                         </div>
                      </div>
-                     <div class="col-sm-6 pull-left">
+                     <div class="col-sm-6">
                         <div class="form-group">
                            <label for="exampleInputEmail1">بلد الإقامة</label>
                            <select class="residence form-control" placeholder="Select Residence" name="residence">
-                              <option value="">Please Select</option>
+                              <option value="">اختيار</option>
                               <?php if(!empty($country)){foreach($country as $cnty){?>
                               <option value="<?php echo $cnty->id;?>" <?php if($this->customer->usr_location==$cnty->id){echo "selected";}?>><?php echo $cnty->name;?></option>
                               <?php } } ?>
@@ -226,9 +226,9 @@
                      </div>
                      <div class="col-sm-6 pull-right">
                         <div class="form-group">
-                           <label for="exampleInputEmail1">جنسية</label>
+                           <label for="exampleInputEmail1"> الجنسية</label>
                            <select class="nationality form-control" placeholder="Select nationality" name="nationality">
-                              <option value="">Please Select</option>
+                              <option value="">اختيار</option>
                               <?php if(!empty($country)){foreach($country as $cnty){?>
                               <option value="<?php echo $cnty->id;?>" <?php if($this->customer->usr_nationality==$cnty->id){echo "selected";}?>><?php echo $cnty->name;?></option>
                               <?php } } ?>
@@ -237,11 +237,11 @@
                         </div>
                      </div>
                   </div>
-                  <h3>اتصل</h3>
+                  <h3>التواصل</h3>
                   <div class="row">
-                     <div class="col-sm-6 pull-right">
+                     <div class="col-sm-6">
                         <select class="form-control" name="phonecode" id="phonecode">
-                           <option value="">Select</option>
+                           <option value="">اختيار</option>
                            <?php if(!empty($country)){foreach($country as $cnty){?>
                            <option value="<?php echo $cnty->id;?>" <?php if($this->customer->usr_area_phone==$cnty->phonecode){echo "selected";}?>><?php echo $cnty->name;?> (<?php echo $cnty->phonecode;?>)</option>
                            <?php } } ?>
@@ -259,7 +259,8 @@
                         <div class="col-sm-12">
                            <div class="checkbox">
                               <label>
-                              <input type="checkbox" name="newsletter" value="1" <?php if($this->customer->usr_newsletter=='1'){echo "checked";}?>> أرغب في تلقي رسائل إخبارية عبر البريد الإلكتروني حول مكافآت وإعلانات الصقور
+                                 <input type="checkbox" name="newsletter" value="1" <?php if($this->customer->usr_newsletter=='1'){echo "checked";}?>><b style="margin-right:18px;font-weight:400"> أرغب في تلقي رسائل إخبارية عبر البريد الالكتروني حول مكافآت وإعلانات فالكون
+                           </b>
                               </label>
                            </div>
                         </div>

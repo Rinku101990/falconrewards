@@ -1,5 +1,5 @@
 <?php if($this->website->web_lang=='en'){ ?>
-<div class="col-md-3 col-sm-3 pull-left">
+<div class="col-md-3 col-sm-3">
     <div class="personal-tab">
         <ul>
             <li>
@@ -24,7 +24,7 @@
     </div>
 </div>
 <?php }else if($this->website->web_lang=='ar'){?>
-<div class="col-md-3 col-sm-3 pull-right">
+<div class="col-md-3 col-sm-3">
     <div class="personal-tab">
         <ul>
             <li>

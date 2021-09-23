@@ -32,7 +32,7 @@
          <?php if($this->website->web_lang=='en'){ ?>
             <h1 style="margin-left: 17px;">Checkout</h1>
          <?php }else if($this->website->web_lang=='ar'){ ?>
-            <h1 style="margin-left: 17px;margin-bottom: 0px !important;" class="pull-left">الدفع</h1>
+            <h1 style="margin-left: 17px;margin-bottom: 0px !important;">الدفع</h1>
          <?php } ?>
       <?php }else{echo "<h1></h1>";} ?>
 
@@ -129,7 +129,7 @@
                <div class="col-md-8"></div>
                <div class="col-md-4">
                   <div class="payment-box">
-                     <span style="float: right;font-weight: 600;font-size: 28px;color:#1d755d"><span style="font-size:15px;font-weight:normal;color:#4a4a4a">دفع كامل في</span> <span class="countdown"></span></span>
+                     <span style="float: left;font-weight: 600;font-size: 28px;color:#1d755d"><span style="font-size:15px;font-weight:normal;color:#4a4a4a">دفع كامل في</span> <span class="countdown"></span></span>
                   </div>
                </div>
                <div class="col-md-8">
@@ -190,8 +190,8 @@
                            <input type="hidden" class="final-amount" name="final_amount" value="<?php echo number_format($items['subtotal']+$total_tax, 2);?>">
                            <input type="hidden" name="amount_currency" value="<?=currency($this->website->web_currency);?>">
                            <input type="hidden" name="discountAmount" value="">
-                           <h2 style="padding-top: 10px;">المبلغ الإجمالي</h2>
-                           <span style="float: right;font-weight: 600;font-size: 28px;margin-top: 0px;margin-bottom: 0px;"><?=currency($this->website->web_currency);?> <?php echo $total_price=number_format($sub_total+$total_tax, 2);?></span>
+                           <h2 style="padding-top: 0px;font-weight: 600;font-size: 28px;margin-top: 0px;margin-bottom: 0px;"><?=currency($this->website->web_currency);?> <?php echo $total_price=number_format($sub_total+$total_tax, 2);?></h2>
+                           <span style="float: right;">المبلغ الإجمالي</span>
                         </div>
                      </div>
                      <br>  

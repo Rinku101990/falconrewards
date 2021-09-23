@@ -415,7 +415,7 @@ $(document).ready(function(){
 						$("#AccountResponse").html('<div class="alert alert-success alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-thumbs-up "></i></span> <span class="alert-inner--text"><strong>Success !</strong> Thank you for again mail. We have sent you a confirmation email</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
 					}else if(webLang==='ar'){
 						$(".Accont_btn").html('أرسلت..');
-						$("#AccountResponse").html('<div class="alert alert-success alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-thumbs-up "></i></span> <span class="alert-inner--text"><strong>النجاح !</strong> شكرا لك على البريد مرة أخرى. لقد ارسلنا اليك ايميل تاكيد</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+						$("#AccountResponse").html('<div class="alert alert-success alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-thumbs-up "></i></span> <span class="alert-inner--text"><strong>النجاح !</strong> تم بنجاح! تم إرسال بريد الكتروني للتأكيد</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
 					}
 				}
 			}
@@ -588,7 +588,7 @@ $(document).ready(function(){
 					if(webLang==='en'){
 						$('.Change_Password').html('Checking...');
 					}else if(webLang==='ar'){
-						$('.Change_Password').html('تدقيق...');
+						$('.Change_Password').html('تحقق');
 					}
 					$('.Change_Password').prop('disabled', true);
 				},
@@ -609,7 +609,7 @@ $(document).ready(function(){
 							$("#PasswordResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> Old Password doesn`t match Password.</span>');
                         	$(".Change_Password").html('Retry');
 						}else if(webLang==='ar'){
-							$("#PasswordResponse").html('<span class="text-danger" style="font-size:16px"><strong>وجه الفتاة!</strong> كلمة المرور القديمة لا تطابق كلمة المرور.</span>');
+							$("#PasswordResponse").html('<span class="text-danger" style="font-size:16px"><strong>وجه الفتاة!</strong> كلمة المرور القديمة غير صحيحة</span>');
                         	$(".Change_Password").html('أعد المحاولة');
 						} 
 					}else{					
@@ -632,8 +632,8 @@ $(document).ready(function(){
 				$(".Change_Password").html('Retry');          
             	$('#PasswordResponse').html('<span style="color:red">(Any of the fields are empty.)</span>');
 			}else if(webLang==='ar'){
-				$(".Change_Password").html('Retry');          
-            	$('#PasswordResponse').html('<span style="color:red">(أي من الحقول فارغة.)</span>');
+				$(".Change_Password").html('إعادة المحاولة');          
+            	$('#PasswordResponse').html('<span style="color:red">(الحقول فارغة.)</span>');
 			} 
             
 		}	

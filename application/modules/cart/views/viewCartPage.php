@@ -88,7 +88,7 @@
                            <?php }else if($this->website->web_lang=='ar'){ ?>
                               <h3 style="margin-top: 0px !important;">جائزة</h3>
                            <?php } ?>
-                           <h4 style="height:57px;overflow: hidden;  text-overflow: ellipsis;  width: 45%;"><?php $rewardprice = strlen($items['rewardprice']); if($rewardprice>=18){echo substr($items['rewardprice'],0,18).'.';}else{echo substr($items['rewardprice'],0,18);}?></h4>
+                           <h4 style="height:57px;overflow: hidden;  text-overflow: ellipsis;  width: 45%;margin-right: 16px;"><?php $rewardprice = strlen($items['rewardprice']); if($rewardprice>=18){echo substr($items['rewardprice'],0,18).'.';}else{echo substr($items['rewardprice'],0,18);}?></h4>
                            <span class="available<?=$items['rowid'];?>" style="font-size: 14px;float: left;padding: 3px 1px;font-weight: 600;"></span>
                         </div>
                      </div>
@@ -226,7 +226,11 @@
          <div class="col-md-12">
             <div class="main-div">
                <div class="cart-box">
-                  <a href="<?php echo site_url('/');?>" class="btn payment-btn" style="padding: 6px 20px !important;">There are no items currently in your cart</a>
+                  <?php if($this->website->web_lang=='en'){ ?>
+                     <a href="<?php echo site_url('/');?>" class="btn payment-btn" style="padding: 6px 20px !important;">there are no items currently in your cart</a>
+                  <?php }else if($this->website->web_lang=='ar'){ ?>
+                     <a href="<?php echo site_url('/');?>" class="btn payment-btn" style="padding: 6px 20px !important;">لا يوجد عناصر في السلة</a>
+                  <?php } ?>
                </div>
             </div>
          </div>

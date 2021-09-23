@@ -67,7 +67,7 @@
                         </div>
                         <?php }else if($this->website->web_lang=='ar'){?>
                         <div class="col-sm-1 pull-right">
-                           <button type="button" class="btn btn-default login-submit Accont_btn">يرسل</button>
+                           <button type="button" class="btn btn-default login-submit Accont_btn">إرسال</button>
                         </div>
                         <div class="col-sm-6 pull-left"> 
                            <a class="new-account-sign btn_login pull-center" href="<?php echo site_url('login');?>" style="padding: 10px;">هل لديك حساب؟ تسجيل الدخول</a> 

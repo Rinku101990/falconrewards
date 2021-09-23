@@ -7,10 +7,9 @@
       <?php } ?>
       <div class="row">
          <?php if($this->website->web_lang=='en'){ ?>
-         <div class="col-md-9 pull-right">
+         <div class="col-md-9">
             <div class="personal-details">
                <div class="clearfix"></div>
-               <h3>Active Tickets</h3>
                <div class="row">
                   <?php if(!empty($tickets)){ foreach($tickets as $tcktlist){ ?>
                   <div class="col-sm-6">
@@ -34,17 +33,16 @@
                   </div>
                   <?php } }else{ ?>
                   <center>
-                     <p>no tickets found!</p>
+                     <p style="margin: 18px 0 10px">no active tickets</p>
                   </center>
                   <?php } ?>
                </div>
             </div>
          </div>
          <?php }else if($this->website->web_lang=='ar'){ ?>
-         <div class="col-md-9 pull-left">
+         <div class="col-md-9">
             <div class="personal-details">
                <div class="clearfix"></div>
-               <h3>تذاكر نشطة</h3>
                <div class="row">
                   <?php if(!empty($tickets)){ foreach($tickets as $tcktlist){ ?>
                   <div class="col-sm-6">
@@ -68,7 +66,7 @@
                   </div>
                   <?php } }else{ ?>
                   <center>
-                     <p>لا توجد تذاكر!</p>
+                     <p style="margin: 18px 0 10px">لا توجد تذاكر نشطة</p>
                   </center>
                   <?php } ?>
                </div>

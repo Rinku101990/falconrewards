@@ -52,7 +52,7 @@
                <?php }?>
                <li><a href="<?php echo site_url('');?>#products"><?php echo $this->variables[25]->var_parent_name_ar;?></a>
                </li>
-               <li><a href="<?php echo site_url('videos');?>">يرسم</a></li>
+               <li><a href="<?php echo site_url('videos');?>">السحوبات</a></li>
             </ul>
          </div>
          <div class="col-sm-3 col-md-3 col-lg-2 footer-top-spacing Customer-Service">

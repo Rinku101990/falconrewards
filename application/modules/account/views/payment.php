@@ -87,8 +87,8 @@
          <div class="col-md-9 col-sm-9 pull-left">
             <div class="personal-details">
                <div class="personal-header">
-                  <div class="hed-sec" >
-                     <h2>قائمة الانتقال</h2>
+                  <div class="hed-sec" style="float:right !important">
+                     <h2>قائمة التحويل</h2>
                   </div>
                   <table class="table table-striped" style="margin-bottom:0px !important">
                      <thead style="border-top: 2px solid #ddd;">
