@@ -66,7 +66,7 @@
                <div class="col-md-3">
                   <div class="select-usd" style="font-size:20px; font-weight:600;margin-top:13px;">
                      <a href="javascript:void(0)" id="setLanguage" defLang="<?php if($this->website->web_lang=='en'){echo'ar';}else if($this->website->web_lang=='ar'){echo'en';}?>">
-                        <img src="<?=base_url('assets/img/ae.png');?>"  style="vertical-align:text-bottom;width: 45px;"/> AED  <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        <img src="<?=base_url('assets/img/ae.png');?>"  style="vertical-align:text-bottom;width: 25px;height:20px"/> اللغة العربية  <!--<i class="fa fa-caret-down" aria-hidden="true"></i>-->
                      </a>
                   </div>
                   <div class="user-detail-log-cart-section user-detail-log-cart-section-en" style="margin-top: 13px;    margin-left: 110px;">

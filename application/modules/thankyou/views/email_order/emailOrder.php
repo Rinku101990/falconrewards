@@ -116,14 +116,14 @@
                                   <tbody>
                                     <tr>
                                       <th style="border: 1px solid #d5d2d2;padding: 5px;text-align: left;">Website/Store</th>
-									  <td style="border: 1px solid #d5d2d2;padding: 5px;text-align: left;"><?php echo $this->website->web_site_url;?></td>
+									  <td style="border: 1px solid #d5d2d2;padding: 5px;text-align: left;background-color: #f7f7f7 !important;"><a href="<?php echo $this->website->web_site_url;?>"><?php echo $this->website->web_site_url;?></a></td>
                                     </tr>
 									
 									<tr>
                                       <th style="border: 1px solid #d5d2d2;padding: 5px;text-align: left;">Order Id</th>
 									  <td style="border: 1px solid #d5d2d2;padding: 5px;text-align: left;">#<?php echo $cmpt_ord_detail->ord_reference_no;?></td>
                                     </tr>
-									<?php if($cmpt_ord_detail->ord_pay_mode != "COD"){?>
+									<?php if(!empty($cmpt_ord_detail->ord_txt_id)){?>
 									<tr>
                                       <th style="border: 1px solid #d5d2d2;padding: 5px;text-align: left;">Transaction Id</th>
 									  <td style="border: 1px solid #d5d2d2;padding: 5px;text-align: left;">#<?php echo $cmpt_ord_detail->ord_txt_id;?></td>
@@ -132,10 +132,10 @@
 									<tr>
                                       <th style="border: 1px solid #d5d2d2;padding: 5px;text-align: left;">Mode Of Payment</th>
 									  <td style="border: 1px solid #d5d2d2;padding: 5px;text-align: left;">
-									  <?php if($cmpt_ord_detail->ord_pay_mode == "COD"){
-										echo"Cash on Delivery(COD)";
-										}else{
-										echo"Online Payment";
+									  <?php if($cmpt_ord_detail->ord_txt_status == "CAPTURED"){
+										    echo "Online Payment";
+										  }else if($cmpt_ord_detail->ord_txt_status == "FAILED"){
+										    echo"Online Payment Failded";
 										}?>
 									</tr>
 									<tr>

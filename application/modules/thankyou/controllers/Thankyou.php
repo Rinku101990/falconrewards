@@ -32,11 +32,13 @@ class Thankyou extends MY_Controller{
         $content['recentOrd'] = $this->Thankyou->get_orderInfo($orderReferenceId,$this->table_orders);
         $mainId = $content['recentOrd']->ord_id;
         $custid=$this->customer->usr_id;  
+        //$serverResponse = '8d395541-f425-4552-8dca-44a655740a41';
         if($this->input->get('ref')){
+            
 
             $ref = $this->input->get('ref');
-            // $outletRef   = "2688c131-45dc-48ef-9b88-4f8e44b1449d";                                                                       
-            // $apikey      = "OTZmMGEyODctYzlhMi00YjEwLWJlMmItZDU5MTE4YjYzZDNlOjQ1YTg5NjJmLTc2OWMtNDMwYy04OTdiLTcxN2Y2NzFjNzBmZQ=="; 
+            //$outletRef   = "2688c131-45dc-48ef-9b88-4f8e44b1449d";                                                                       
+            //$apikey      = "OTZmMGEyODctYzlhMi00YjEwLWJlMmItZDU5MTE4YjYzZDNlOjQ1YTg5NjJmLTc2OWMtNDMwYy04OTdiLTcxN2Y2NzFjNzBmZQ=="; 
             
             $outletRef   = "9fe1eebb-b168-4da0-9e3c-fddc621e1dba";                                                                       
             $apikey      = "MmMzZDE0NzUtNjg4MS00NTkxLWE3N2QtM2UzZDI2OGMwY2M5OjNjM2Q0MWYxLWY5NWItNDc1OC04YWYyLWVlODI0YTRmYjk0OA=="; 
@@ -143,6 +145,8 @@ class Thankyou extends MY_Controller{
                     $mainId = $content['recentOrd']->ord_id;
                     $data1['tickets'] = $this->Thankyou->get_ticket_list($mainId); 
                     $data1['cmpt_ord_detail']=$this->Thankyou->get_complete_list($orderReferenceId);
+                    // echo "<pre>";
+                    // print_r($data1['cmpt_ord_detail']);die;
                     $data1['cmpt_ord_pro_detail']=$this->Thankyou->get_order_product_list($mainId);
                     $data1['payment_status'] = "Paid";
                     $emailsubject='Order Detail from falconrewards.com';
