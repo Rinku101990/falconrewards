@@ -81,6 +81,7 @@
    <div class="section_bg_gray">
       <div class="container-fuild">
          <div class="row">
+            <?php if($this->website->web_lang=='en'){?>
             <div class="col-sm-6 col-md-6">
                <a href="#">
                <img src="<?php echo site_url('assets/img/Pallet-31.jpeg');?>" alt="" class="img-responsive" style="width:100%; margin-bottom: 20px;    border-radius: 15px;">
@@ -91,6 +92,18 @@
                <img src="<?php echo site_url('assets/img/Pallet-32.jpeg');?>" alt="" class="img-responsive" style="width:100%;margin-bottom: 20px;    border-radius: 15px;">
                </a>
             </div>
+            <?php }else if($this->website->web_lang=='ar'){?>
+            <div class="col-sm-6 col-md-6">
+               <a href="#">
+               <img src="<?php echo site_url('assets/img/Pallet-31-ar.jpg');?>" alt="" class="img-responsive" style="width:100%; margin-bottom: 20px;    border-radius: 15px;">
+               </a>
+            </div>
+            <div class="col-sm-6 col-md-6">
+               <a href="#">
+               <img src="<?php echo site_url('assets/img/Pallet-32-ar.jpg');?>" alt="" class="img-responsive" style="width:100%;margin-bottom: 20px;    border-radius: 15px;">
+               </a>
+            </div>
+            <?php } ?>
          </div>
       </div>
    </div>
@@ -261,7 +274,7 @@
          <div class="row">
             <?php foreach($products as $pro){ ?>
             <div class="col-md-3">
-               <img src="<?php echo site_url('admin/uploads/campaign/'.$pro->img);?>"style="width: 351px;height: 161px;object-fit: contain;margin-top:65px;"/>
+               <img src="<?php echo site_url('admin/uploads/campaign/'.$pro->img);?>"style="width: 351px;height: 161px;object-fit: contain;margin-top:78px;"/>
                <?php if($this->website->web_lang=='en'){?>
                   Buy a
                   <?php echo $pro->p_name;?>
