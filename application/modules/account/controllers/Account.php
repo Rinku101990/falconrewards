@@ -68,10 +68,18 @@ class Account extends MY_Controller {
 			);   
 		   	$result = $this->Account->update($this->usrid,$mid,$data,$this->users);
 		   	if($result){
-			   $this->session->set_flashdata('msg',array('message' => 'Profile updated.','class' => 'success','type'=>'Ok!'));
+				if($this->website->web_lang=='en'){
+					$this->session->set_flashdata('msg',array('message' => 'Profile updated.','class' => 'success','type'=>'Ok!'));
+				}else if($this->website->web_lang=='ar'){
+					$this->session->set_flashdata('msg',array('message' => 'تم تحديث الصفحة الشخصية.','class' => 'success','type'=>'نعم!'));
+				}
 			   redirect('account/profile'); 
 		   	}else{
-			   $this->session->set_flashdata('msg',array('message' => "Unable to update.Some error occurred.",'class' => 'danger','type'=>'Oops!'));
+				if($this->website->web_lang=='en'){
+					$this->session->set_flashdata('msg',array('message' => "Unable to update.Some error occurred.",'class' => 'danger','type'=>'Oops!'));
+				}else if($this->website->web_lang=='ar'){
+					$this->session->set_flashdata('msg',array('message' => "غير قادر على التحديث. حدث خطأ ما.",'class' => 'danger','type'=>'وجه الفتاة!'));
+				}
 			   redirect('account/profile');  
 		   	}
 		    
@@ -108,10 +116,18 @@ class Account extends MY_Controller {
 		  // 	print_r($data);die;
 		   	$result = $this->Account->update($this->usrid,$mid,$data,$this->users);
 		   	if($result){
-			   $this->session->set_flashdata('msg',array('message' => 'profile picture changed.','class' => 'success','type'=>'Ok!'));
-			   redirect('account/profile'); 
+				if($this->website->web_lang=='en'){
+					$this->session->set_flashdata('msg',array('message' => 'profile picture changed.','class' => 'success','type'=>'Ok!'));
+				}else if($this->website->web_lang=='ar'){
+					$this->session->set_flashdata('msg',array('message' => 'تغيرت صورة الملف الشخصي.','class' => 'success','type'=>'نعم!'));
+				}
+			   	redirect('account/profile'); 
 		   	}else{
-			   $this->session->set_flashdata('msg',array('message' => "Unable to update.Some error occurred.",'class' => 'danger','type'=>'Oops!'));
+				if($this->website->web_lang=='en'){
+					$this->session->set_flashdata('msg',array('message' => "Unable to update.Some error occurred.",'class' => 'danger','type'=>'Oops!'));
+				}else if($this->website->web_lang=='ar'){
+					$this->session->set_flashdata('msg',array('message' => "غير قادر على التحديث. حدث خطأ ما.",'class' => 'danger','type'=>'وجه الفتاة!'));
+				}
 			   redirect('account/profile');  
 		   	}
 		}				
@@ -249,24 +265,36 @@ class Account extends MY_Controller {
 		$result=$this->Account->update($this->fld_email,$cust_email,$data,$this->users);
 		
         if($result){
-			 $this->session->set_flashdata('msg',array('message' => 'Your email has been successfully verified ','class' => 'success','type'=>'Success!','icon'=>'thumbs-up'));
+				if($this->website->web_lang=='en'){
+					$this->session->set_flashdata('msg',array('message' => 'Your email has been successfully verified ','class' => 'success','type'=>'Success!','icon'=>'thumbs-up'));
+				}else if($this->website->web_lang=='ar'){
+					$this->session->set_flashdata('msg',array('message' => 'تم التحقق من بريدك الإلكتروني بنجاح ','class' => 'success','type'=>'النجاح!','icon'=>'thumbs-up'));
+				}
 				redirect('login');
 			}else{
-			 $this->session->set_flashdata('msg',array('message' => 'Unable to Remove.Some error occurred.','class' => 'danger','type'=>'Oops!','icon'=>'slash'));
+				if($this->website->web_lang=='en'){
+					$this->session->set_flashdata('msg',array('message' => "Unable to update.Some error occurred.",'class' => 'danger','type'=>'Oops!','icon'=>'slash'));
+				}else if($this->website->web_lang=='ar'){
+					$this->session->set_flashdata('msg',array('message' => "غير قادر على التحديث. حدث خطأ ما.",'class' => 'danger','type'=>'وجه الفتاة!','icon'=>'slash'));
+				}
 				redirect('register');  
 			} 
 		}else{
-		redirect('home'); 	
+			redirect('home'); 	
 		} 
 		}
         else{
-	 $this->session->set_flashdata('msg',array('message' => 'Your email already verified !','class' => 'danger','type'=>'Oops!','icon'=>'slash'));
-				redirect('login');  
+			if($this->website->web_lang=='en'){
+				$this->session->set_flashdata('msg',array('message' => 'Your email already verified !','class' => 'danger','type'=>'Oops!','icon'=>'slash'));
+			}else if($this->website->web_lang=='ar'){
+				$this->session->set_flashdata('msg',array('message' => 'تم تفعيل البريد الالكتروني بالفعل','class' => 'danger','type'=>'وجه الفتاة!','icon'=>'slash'));
+			}
+			redirect('login');  
 		} 		
 		
 	}
 	
-	 public function currency()
+	public function currency()
 	{  
 		$url=$this->input->post('currenturl');
 		$data=array('web_currency'=>$this->input->post('web_currency'));       

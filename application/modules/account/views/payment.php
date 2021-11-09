@@ -93,11 +93,11 @@
                   <table class="table table-striped" style="margin-bottom:0px !important">
                      <thead style="border-top: 2px solid #ddd;">
                         <tr>
-                           <th>Sr. No.</th>
-                           <th>Order Id</th>
-                           <th>Txt Id</th>
-                           <th>Payment Id</th>
-                           <th>Data & Time</th>
+                           <th>الرقم التسلسلي</th>
+                           <th>رقم الطلب</th>
+                           <th>رقم العميلة</th>
+                           <th>رقم عملية الدفع</th>
+                           <th>التاريخ والوقت</th>
                         </tr>
                      </thead>
                      <tbody>
@@ -112,7 +112,7 @@
                         <?php } }else{ ?>
                         <tr>
                            <td colspan="5">
-                              <center>No Records</center>
+                              <center>لا تسجيلات</center>
                            </td>
                         </tr>
                         <?php }?>

@@ -11,6 +11,7 @@ $(document).ready(function(){
 			url: baseUrl+"home/language",
 			data:{customLang:defaultLang},
 			success:function(response){
+				//console.log(response);
 				if(response=='set'){
 					window.location.href=currentUrl;
 				}else{
@@ -161,7 +162,11 @@ $(document).ready(function(){
 					success: function(response)
 					{	
 						if(response=='Failed'){
-						    $(".RegisterCustomerResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> Unable to registration.</span>');
+							if(webLang==='en'){
+								$(".RegisterCustomerResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> Unable to registration.</span>');
+							}else if(webLang==='ar'){
+								$(".RegisterCustomerResponse").html('<span class="text-danger" style="font-size:16px"><strong>وجه الفتاة</strong> غير قادر على التسجيل.</span>');
+							}
 							setTimeout(function(){
                                 $(".RegisterCustomerResponse").show(0).delay(3000).hide(0);
                             }, 3000);
@@ -172,7 +177,11 @@ $(document).ready(function(){
 							}							
 							$('.SignUpCustomerBtn').prop('disabled', false);
 						}else if(response=='Used'){
-							$(".RegisterCustomerResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> Email address already in use.</span>');
+							if(webLang==='en'){
+								$(".RegisterCustomerResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> Email address already in use.</span>');
+							}else if(webLang==='ar'){
+								$(".RegisterCustomerResponse").html('<span class="text-danger" style="font-size:16px"><strong>وجه الفتاة</strong> البريد الالكتروني مسجل بالفعل</span>');
+							}
 						    setTimeout(function(){
                                 //$(".RegisterCustomerResponse").hide("3000")
                                 $(".RegisterCustomerResponse").show(0).delay(3000).hide(0);
@@ -301,7 +310,7 @@ $(document).ready(function(){
 							$(".loginResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> Invalid email Id and Password.</span>');
 							$(".SignIn_btn").html('Retry');
 						}else if(webLang==='ar'){
-							$(".loginResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> معرف البريد الإلكتروني وكلمة المرور غير صالحين.</span>');
+							$(".loginResponse").html('<span class="text-danger" style="font-size:16px"><strong>وجه الفتاة</strong> معرف البريد الإلكتروني وكلمة المرور غير صالحين.</span>');
 							$(".SignIn_btn").html('أعد المحاولة');
 						}
                         $('.SignIn_btn').prop('disabled', false);                      

@@ -55,81 +55,78 @@ class Login extends MY_Controller {
 		}
 	}
 		 
-
-public function forgot(){
+	public function forgot(){
 		$content['subview']='login/forgot';
 		$this->load->view('layout', $content);
 	}
 
-
-	public function forgot_password() {	   
+	public function forgot_password() 
+	{	   
 			
 	    $REQUESTMETHOD=$this->input->server('REQUEST_METHOD');
 		if($REQUESTMETHOD=='POST'){	
   
-		$useremail=$this->input->post('email'); 
-		$email = $this->security->xss_clean($useremail);
-		$check_email =$this->Login->check_email($this->fld_email,$email,$this->table_users);
-		if($check_email){
-		$password=rand(100000,1000000);
-		$data=array($this->fld_password=>md5($password)); 
-		$result = $this->Login->update($this->fld_email,$email,$data,$this->table_users);
-			
-			   // start email
-			if(!empty($email)){
-			$template=template(4);
-			if(!empty($template)){
-			$company=company_detail();				
-			$login_url=base_url();
-			 $token=array(
-				'Company_Logo'=>$company['Company_Logo'],
-				'website_url'=>$company['website_url'],
-				'social_media_icons'=>$company['social_media_icons'],
-				'website_name'=>$company['website_name'],
-				'user_full_name'=>$check_email->usr_fname.' '.$check_email->usr_lname,
-				'new_password'=>$password,
-				'login_link'=>$login_url,
-				'contact_us_url'=>$company['website_url'],
-				'contact_us_email'=>$company['contact_us_email']
-			 );
-			$pattern = '{%s}';
-			foreach($token as $key=>$val){
-				$varMap[sprintf($pattern,$key)] = $val;
-			}			
-            $get_msg=strtr($template->tp_body,$varMap);
-		    $subject=strtr($template->tp_subject,$varMap);
-		    
-// 			$to=$email;
-// 			email_send($to,$subject,$get_msg);
-
-            $from_email = "info@falconrewards.com";
-		    $to_email = $useremail;
-		    $this->load->library('email');
-		    $config = array (
-              'mailtype' => 'html',
-              'charset'  => 'utf-8',
-              'priority' => '1'
-            );
-            $this->email->initialize($config);
-		    $this->email->from($from_email, "Falcon Rewards");
-            $this->email->to($to_email);
-            $this->email->subject($subject);
-            $this->email->message($get_msg);
-            $this->email->send();
-
-			}
-			}
-			
-		// end email 	
-			
-			if($result){
-			  echo'success';
-			}else{
-			   echo'Failed';
-			}  	
+			$useremail=$this->input->post('email'); 
+			$email = $this->security->xss_clean($useremail);
+			$check_email =$this->Login->check_email($this->fld_email,$email,$this->table_users);
+			if($check_email){
+				$password=rand(100000,1000000);
+				$data=array($this->fld_password=>md5($password)); 
+				$result = $this->Login->update($this->fld_email,$email,$data,$this->table_users);
 				
+				// start email
+				if(!empty($email)){
+					$template=template(4);
+					if(!empty($template)){
+						$company=company_detail();				
+						$login_url=base_url();
+						$token=array(
+							'Company_Logo'=>$company['Company_Logo'],
+							'website_url'=>$company['website_url'],
+							'social_media_icons'=>$company['social_media_icons'],
+							'website_name'=>$company['website_name'],
+							'user_full_name'=>$check_email->usr_fname.' '.$check_email->usr_lname,
+							'new_password'=>$password,
+							'login_link'=>$login_url,
+							'contact_us_url'=>$company['website_url'],
+							'contact_us_email'=>$company['contact_us_email']
+						);
+						$pattern = '{%s}';
+						foreach($token as $key=>$val){
+							$varMap[sprintf($pattern,$key)] = $val;
+						}			
+						$get_msg=strtr($template->tp_body,$varMap);
+						$subject=strtr($template->tp_subject,$varMap);
+						
+						// $to=$email;
+						// email_send($to,$subject,$get_msg);
+						//print_r($get_msg);die;
+
+						$from_email = "info@falconrewards.com";
+						$to_email = $useremail;
+						$this->load->library('email');
+						$config = array (
+							'mailtype' => 'html',
+							'charset'  => 'utf-8',
+							'priority' => '1'
+						);
+						$this->email->initialize($config);
+						$this->email->from($from_email, "Falcon Rewards");
+						$this->email->to($to_email);
+						$this->email->subject($subject);
+						$this->email->message($get_msg);
+						$this->email->send();
+
+					}
+				}
+				// end email 	
+				if($result){
+					echo'success';
+				}else{
+					echo'Failed';
+				}  
 			}else{
-		    echo'Wrong';
+		    	echo'Wrong';
 			}
 		}
 	     

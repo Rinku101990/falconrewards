@@ -62,7 +62,7 @@
                               <input type="hidden" name="sum_price[]" value="<?php echo number_format($item_price,2);?>">
                               <div class="product-image"><img src="<?php echo $items['img'];?>"></div>
                               <h1><?=currency($this->website->web_currency);?> <?php echo number_format($item_price,2);?></h1>
-                              <h2>Unit Price</h2>
+                              <h4>Unit Price</h4>
                               <h3 style="margin-top: 0px !important;">Product</h3>
                               <h4><?php $productname = strlen($items['name']); if($productname>=20){echo substr($items['name'],0,20).'.';}else{echo substr($items['name'],0,20);}?></h4>
                            </div>
@@ -71,7 +71,7 @@
                            <div style="padding: 15px 15px;margin-bottom: 25px;">
                               <div class="product-image"><img src="<?php echo $items['rewardimg'];?>"> </div>
                               <h3 style="margin-top: 0px !important;">Prize</h3>
-                              <h4 style="height:57px;overflow: hidden;  text-overflow: ellipsis;  width: 35%;"><?php $rewardprice = strlen($items['rewardprice']); if($rewardprice>=18){echo substr($items['rewardprice'],0,18).'.';}else{echo substr($items['rewardprice'],0,18);}?></h4>
+                              <h4 style="height:57px;overflow: hidden;  text-overflow: ellipsis;margin:0 auto;"><?php $rewardprice = strlen($items['rewardprice']); if($rewardprice>=18){echo substr($items['rewardprice'],0,18).'.';}else{echo substr($items['rewardprice'],0,18);}?></h4>
                            </div>
                         </div>
                      </div>
@@ -107,7 +107,7 @@
                         <input type="hidden" class="final-amount" name="final_amount" value="<?php echo number_format($items['subtotal']+$total_tax, 2);?>">
                         <input type="hidden" name="amount_currency" value="<?=currency($this->website->web_currency);?>">
                         <input type="hidden" name="discountAmount" value="">
-                        <h2 style="padding-top: 10px;">GRAND TOTAL</h2>
+                        <h2 style="padding-top: 10px;">GRAND TOTAL()</h2>
                         <span style="float: right;font-weight: 600;font-size: 28px;margin-top: 0px;margin-bottom: 0px;"><?=currency($this->website->web_currency);?> <?php echo $total_price=number_format($sub_total+$total_tax, 2);?></span>
                      </div>
                   </div>
@@ -143,18 +143,18 @@
                                  <input type="hidden" name="id[]" value="<?php echo $items['id'];?>">
                                  <input type="hidden" name="quantity[]" value="<?php echo $items['qty'];?>">
                                  <input type="hidden" name="sum_price[]" value="<?php echo number_format($item_price,2);?>">
-                                 <div class="product-image"><img src="<?php echo $items['img'];?>"></div>
-                                 <h1><?=currency($this->website->web_currency);?> <?php echo number_format($item_price,2);?></h1>
-                                 <h2>Unit Price</h2>
-                                 <h3 style="margin-top: 0px !important;">Product</h3>
-                                 <h4><?php $productname = strlen($items['name']); if($productname>=20){echo substr($items['name'],0,20).'.';}else{echo substr($items['name'],0,20);}?></h4>
+                                 <div class="product-image" style="float:right;margin-left: 10px !important;"><img src="<?php echo $items['img'];?>"></div>
+                                 <h1 style="text-align:justify !important"><?=currency($this->website->web_currency);?> <?php echo number_format($item_price,2);?></h1>
+                                 <h4 style="text-align:justify !important">سعر الوحدة</h4>
+                                 <h3 style="margin-top: 0px !important;text-align:justify !important">المنتج</h3>
+                                 <h4 style="text-align:justify !important"><?php $productname = strlen($items['name_ar']); if($productname>=20){echo substr($items['name_ar'],0,20).'.';}else{echo substr($items['name_ar'],0,20);}?></h4>
                               </div>
                            </div>
                            <div class="col-md-6" style="">
                               <div style="padding: 15px 15px;margin-bottom: 25px;">
-                                 <div class="product-image"><img src="<?php echo $items['rewardimg'];?>"> </div>
-                                 <h3 style="margin-top: 0px !important;">Prize</h3>
-                                 <h4 style="height:57px;overflow: hidden;  text-overflow: ellipsis;  width: 35%;"><?php $rewardprice = strlen($items['rewardprice']); if($rewardprice>=18){echo substr($items['rewardprice'],0,18).'.';}else{echo substr($items['rewardprice'],0,18);}?></h4>
+                                 <div class="product-image" style="float:right;margin-left: 10px !important;"><img src="<?php echo $items['rewardimg'];?>"> </div>
+                                 <h3 style="margin-top: 0px !important;text-align:justify !important">جائزة</h3>
+                                 <h4 style="height:57px;overflow: hidden;text-align:justify !important;  text-overflow: ellipsis;margin:0 auto;"><?php $rewardprice = strlen($items['rewardprice_ar']); if($rewardprice>=18){echo substr($items['rewardprice_ar'],0,18).'.';}else{echo substr($items['rewardprice_ar'],0,18);}?></h4>
                               </div>
                            </div>
                         </div>

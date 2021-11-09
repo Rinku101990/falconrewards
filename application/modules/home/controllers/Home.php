@@ -93,7 +93,8 @@ class Home extends MY_Controller {
 		
 	 }
 	 
- 	public function product()
+ 	
+	 public function product()
 	{ 	
 	    $pid=decode($this->uri->segment(2));
 		$content['coming_product'] = $this->Home->coming_product($pid,$this->table_coming_product);
@@ -105,12 +106,32 @@ class Home extends MY_Controller {
 	/*--- Language switcher ---*/ 
 	public function language()
 	{ 	  
+		$this->load->library('cart');
 		$REQUESTMETHOD=$this->input->server('REQUEST_METHOD');
 		if($REQUESTMETHOD=='POST'){	    
 			$lang=$this->input->post('customLang');
 			$data=array('web_lang' => $lang);
 			$update=$this->Home->update('web_id','1',$data,'tbl_website_info');
-			echo "set";
+			if($update==true)
+			{
+				foreach($this->cart->contents() as $cartValue){
+					$productInfo = $this->Home->getForCartProductDetail($this->cpid,$cartValue['id'],$this->campaign);
+					if($lang=='en'){
+						$cartItem = array(
+							'rowid'=>$cartValue['rowid'],
+							'name'=>$productInfo->p_name
+						);
+						$this->cart->update($cartItem);
+					}else if($lang=='ar'){
+						$cartItem = array(
+							'rowid'=>$cartValue['rowid'],
+							'name'=>$productInfo->p_name_ar
+						);
+						$this->cart->update($cartItem);
+					}
+				}
+				echo "set";
+			}
 		}else{
 			echo "unset";
 		}

@@ -344,11 +344,13 @@
                      </svg>
 
                      <?php if($this->website->web_lang=='en'){?>
-                        <div class="remaining"><span class="number"><?php //echo round(sold($pro->p_id)*100/$pro->p_qty)+$pro->p_sold_plus;?> <?php if(!empty($soldOut)){echo $soldOut;}else{echo'0';}?><span class="sold-label">SOLD</span></span>
+                        <div class="remaining">
+                           <span class="number"><?php if(!empty($soldOut)){echo $soldOut;}else{echo'0';}?><span class="sold-label">SOLD</span></span>
                            <span class="second-liner"><span class="small-text">OUT OF</span><?php echo $productStocks;?></span> 
                         </div>
                      <?php }else if($this->website->web_lang=='ar'){?>
-                        <div class="remaining"><span class="number"><?php //echo round(sold($pro->p_id)*100/$pro->p_qty)+$pro->p_sold_plus;?> <?php if(!empty($soldOut)){echo $soldOut;}else{echo'0';}?><span class="sold-label">تم بيع</span></span>
+                        <div class="remaining">
+                           <span class="number"><?php if(!empty($soldOut)){echo $soldOut;}else{echo'0';}?><span class="sold-label">تم بيع</span></span>
                            <span class="second-liner"><span class="small-text">من مجموع</span><?php echo $productStocks;?></span> 
                         </div>
                      <?php }?>

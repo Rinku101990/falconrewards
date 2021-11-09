@@ -60,8 +60,13 @@
                      شراء
                      <?php echo $pro->p_name_ar;?>
                   <?php } ?>
-                  <span class="blockTitle"><?php echo $pro->p_name;?></span>  for:
-                  <span class="PriceBlock"><?=currency(5);?>&nbsp;<?php echo number_format(price(5,$pro->product),2);?></span>
+                  <?php if($this->website->web_lang=='en'){?>
+                     <span class="blockTitle"><?php echo $pro->p_name;?></span>  for:
+                     <span class="PriceBlock"><?=currency(5);?>&nbsp;<?php echo number_format(price(5,$pro->product),2);?></span>
+                  <?php }else if($this->website->web_lang=='ar'){?>
+                     <span class="blockTitle"><?php echo $pro->p_name;?></span>  ل:
+                     <span class="PriceBlock"><?=currency(5);?>&nbsp;<?php echo number_format(price(5,$pro->product),2);?></span>
+                  <?php } ?>
                </h3>
                <div class="row">
                   <div class="col-xs-5">
@@ -84,9 +89,17 @@
                               <circle r="39.5" cx="68.5" cy="46" transform="rotate(-90 57.5 57.5) " style="stroke-dasharray: 2.23514, 248.1; stroke: rgb(97, 198, 82); opacity: 1;"></circle>
                               <ellipse cx="46" cy="46" rx="34.425" ry="34.235" x="0" y="0" style="fill:#ffffff;"></ellipse>
                            </svg>
-                           <div class="remaining" style=" margin-top: -12px;  margin-left: 7px;"><span class="number" style="font-size: 1.5rem;"><?php if(!empty($get_total)){echo $get_total;}else{echo'0';}?><span class="sold-label">SOLD</span></span>
-                              <span class="second-liner"><span class="small-text">OUT OF</span><?php if($pro->p_id=='1'){ echo '300';}elseif($pro->p_id=='3'){echo '300';}else{echo $pro->p_qty;}?></span> 
+                           <?php if($this->website->web_lang=='en'){?>
+                              <div class="remaining" style=" margin-top: -12px;  margin-left: 7px;">
+                                 <span class="number" style="font-size: 1.5rem;"><?php if(!empty($get_total)){echo $get_total;}else{echo'0';}?><span class="sold-label">SOLD</span></span>
+                                 <span class="second-liner"><span class="small-text">OUT OF</span><?php if($pro->p_id=='1'){ echo '300';}elseif($pro->p_id=='3'){echo '300';}else{echo $pro->p_qty;}?></span> 
                            </div>
+                           <?php }else if($this->website->web_lang=='ar'){?>
+                              <div class="remaining" style=" margin-top: -12px;  margin-left: -5px;">
+                                 <span class="number" style="font-size: 1.5rem;"><?php if(!empty($get_total)){echo $get_total;}else{echo'0';}?><span class="sold-label">تم بيع</span></span>
+                                 <span class="second-liner"><span class="small-text">من مجموع</span><?php if($pro->p_id=='1'){ echo '300';}elseif($pro->p_id=='3'){echo '300';}else{echo $pro->p_qty;}?></span> 
+                              </div>
+                           <?php } ?>
                         </div>
                      </div>
                   </div>
@@ -96,17 +109,30 @@
                         <input class="quantity avail_qty" type="text" name="quantity" value="1">
                         <a class="incr-btn" data-action="increase" href="#">+</a>
                      </div>
-                     <?php if($get_total<=100){?>
-                     <button class="add-to-cart-mobile add_to_cart" RefId="<?=encode($pro->id);?>" type="button" tabindex="0" style="margin-top: 9px;">Add to Cart</button>
-                     <?php }else{?>
-                     <button class="add-to-cart-mobile "  type="button" tabindex="0" style="margin-top: 9px;" disabled="">Sold Out</button>
-                     <?php }?>
+                     <?php if($this->website->web_lang=='en'){?>
+                        <?php $get_t=sold($pro->p_id)+$pro->p_soldplus; if($get_t<=100){ ?>
+                           <button type="button" class="add-to-cart-mobile add_to_cart" RefId="<?=encode($pro->id);?>"  tabindex="0" style="margin-top: 9px;">Add to Cart</button>
+                        <?php }else{?>
+                           <button type="button" class="add-to-cart-mobile"  tabindex="0" style="margin-top: 9px;" disabled="">Sold Out</button>
+                        <?php }?>
+                     <?php }else if($this->website->web_lang=='ar'){?>
+                        <?php $get_t=sold($pro->p_id)+$pro->p_soldplus; if($get_t<=100){ ?>
+                           <button type="button" class="add-to-cart-mobile add_to_cart" RefId="<?=encode($pro->id);?>"  tabindex="0" style="margin-top: 9px;">أضف إلى السلة</button>
+                        <?php }else{?>
+                           <button type="button" class="add-to-cart-mobile"  tabindex="0" style="margin-top: 9px;" disabled="">نفذ</button>
+                        <?php }?>
+                     <?php } ?>
                      <!--<button class="add-to-cart-mobile add_to_cart" RefId="<?=encode($pro->id);?>" type="button" tabindex="0" style="margin-top: 9px;">Add to Cart</button>-->
                   </div>
                </div>
                <h3 class="bottom" style="font-size: 19px;">
-                  <b>Get a chance to <span class="win">WIN:</span></b>
-                  <span class="blockTitle"><?php echo $pro->r_title;?></span>
+                  <?php if($this->website->web_lang=='en'){?>
+                     <b>Get a chance to <span class="win">WIN:</span></b>
+                     <span class="blockTitle"><?php echo $pro->r_title;?></span>
+                  <?php }else if($this->website->web_lang=='ar'){?>
+                     <b>احصل على فرصة <span class="win">يفوز:</span></b>
+                     <span class="blockTitle"><?php echo $pro->r_title_ar;?></span>
+                  <?php } ?>
                </h3>
             </div>
          </div>
@@ -131,12 +157,29 @@
                <input class="quantity avail_qty" type="text" name="quantity" value="1"/>
                <a class="incr-btn" data-action="increase" href="#">&plus;</a>
             </div>
-            <?php $get_t=sold($pro->p_id)+$pro->p_soldplus; if($get_t<=100){ ?>
-            <button type="button" class="btn addcart-btn add-to-cart refresh-me add_to_cart" RefId="<?=encode($pro->id);?>">Add to Cart</button>
-            <?php }else{?>
-            <button type="button" class="btn addcart-btn refresh-me " disabled="">Sold Out</button>
-            <?php }?>
+            <?php if($this->website->web_lang=='en'){?>
+               <?php $get_t=sold($pro->p_id)+$pro->p_soldplus; if($get_t<=100){ ?>
+                  <button type="button" class="btn addcart-btn add-to-cart refresh-me add_to_cart" RefId="<?=encode($pro->id);?>">Add to Cart</button>
+               <?php }else{?>
+                  <button type="button" class="btn addcart-btn refresh-me " disabled="">Sold Out</button>
+               <?php }?>
+            <?php }else if($this->website->web_lang=='ar'){?>
+               <?php $get_t=sold($pro->p_id)+$pro->p_soldplus; if($get_t<=100){ ?>
+                  <button type="button" class="btn addcart-btn add-to-cart refresh-me add_to_cart" RefId="<?=encode($pro->id);?>">أضف إلى السلة</button>
+               <?php }else{?>
+                  <button type="button" class="btn addcart-btn refresh-me " disabled="">نفذ</button>
+               <?php }?>
+            <?php } ?>
          </div>
+         <?php 
+            $soldOutProductStocks = $get_t;
+            $productStocks = $pro->p_qty;
+            if($soldOutProductStocks >= $productStocks){
+               $soldOut = $productStocks;
+            }else{
+               $soldOut = $soldOutProductStocks;
+            }
+         ?>
          <div class="col-md-4">
             <div class="loading-circle-container">
                <div class="loading-circle" data-circle="<?php echo round($get_t*100/$pro->p_qty)+$pro->p_sold_plus;?>">
@@ -157,17 +200,30 @@
                      <circle r="39.5" cx="68.5" cy="46" transform="rotate(-90 57.5 57.5) " style="stroke-dasharray: 47.139, 248.1; stroke: #1c745c; opacity: 1;"></circle>
                      <ellipse cx="46" cy="46" rx="34.425" ry="34.235" x="0" y="0" style="fill:#ffffff;"></ellipse>
                   </svg>
-                  <div class="remaining"><span class="number"><?php if(!empty($get_t)){echo $get_t;}else{echo'0';}?><span class="sold-label">SOLD</span></span>
-                     <span class="second-liner"><span class="small-text">OUT OF</span><?php if($pro->p_id=='1'){echo '300';}elseif($pro->p_id=='3'){echo '300';}else{echo $pro->p_qty;}?></span>
-                  </div>
+                  <?php if($this->website->web_lang=='en'){?>
+                     <div class="remaining">
+                        <span class="number"><?php if(!empty($soldOut)){echo $soldOut;}else{echo'0';}?><span class="sold-label">SOLD</span></span>
+                        <span class="second-liner"><span class="small-text">OUT OF</span><?php echo $productStocks;?></span> 
+                     </div>
+                  <?php }else if($this->website->web_lang=='ar'){?>
+                     <div class="remaining">
+                        <span class="number"><?php if(!empty($soldOut)){echo $soldOut;}else{echo'0';}?><span class="sold-label">تم بيع</span></span>
+                        <span class="second-liner"><span class="small-text">من مجموع</span><?php echo $productStocks;?></span> 
+                     </div>
+                  <?php }?>
                </div>
             </div>
          </div>
          <div class="col-md-4">
             <img src="<?php echo site_url('admin/uploads/reward/'.$pro->image);?>"  style="width: 351px;height: 251px;object-fit: contain;"/>
-            <h2>Get a chance to win:</h2>
-            <span><?php echo $pro->r_title;?></span>
-            <p><?php echo $pro->r_short_description; ?></p>
+            <?php if($this->website->web_lang=='en'){?>
+               <h2>Get a chance to win:</h2>
+               <span><?php echo $pro->r_title;?></span>
+            <?php }else if($this->website->web_lang=='ar'){?>
+               <h2>احصل على فرصة للفوز:</h2>
+               <span><?php echo $pro->r_title_ar;?></span>
+            <?php } ?>
+            <br>
             <img src="<?php echo site_url('assets/img/be-right.png');?>" style="width: 185px;object-fit: contain;" />
          </div>
       </div>

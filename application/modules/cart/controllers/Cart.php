@@ -6,7 +6,7 @@ class Cart extends MY_Controller {
 	public function __construct() {
 		parent::__construct(); 
 		$this->load->model("Cart_model",'Cart');
-	    if(!empty($this->session->userdata('logged_in_users'))){
+	    	if(!empty($this->session->userdata('logged_in_users'))){
 	    $this->customer=customer($this->session->userdata('logged_in_users')->usr_id);
 	    }
 		/* ========FOR USERS =========== */
@@ -41,39 +41,60 @@ class Cart extends MY_Controller {
 		$price=$this->input->post('price');
 		$qty=$this->input->post('qty');
 		$product = $this->Cart->product_detail($this->campid,$pid,$this->campaign);
-		if($cartLang=='en'){
-			$img=base_url('admin/uploads/product/'.$product->p_picture);
-			$rewardimg = base_url('admin/uploads/reward/'.$product->image);
-			$product_url=base_url('product/').encode($product->p_id).'/'.slug($product->p_name);
-			$product_name=$product->p_name;
-			$data = array(
-				'id' => $product->p_id, 
-				'name' => $product_name, 
-				'price' => $product->p_aed, 
-				'qty' => $qty, 
-				'img' => $img, 
-				'product_url' =>$product_url, 
-				'rewardimg' => $rewardimg,
-				'rewardtitle'=> $product->r_title,
-				'rewardprice'=> $product->r_price
-			);
-		}else if($cartLang=='ar'){
-			$img=base_url('admin/uploads/product/'.$product->p_picture);
-			$rewardimg = base_url('admin/uploads/reward/'.$product->image);
-			$product_url=base_url('product/').encode($product->p_id).'/'.slug($product->p_name);
-			$product_name=$product->p_name_ar;
-			$data = array(
-				'id' => $product->p_id, 
-				'name' => $product_name, 
-				'price' => $product->p_aed, 
-				'qty' => $qty, 
-				'img' => $img, 
-				'product_url' =>$product_url, 
-				'rewardimg' => $rewardimg,
-				'rewardtitle'=> $product->r_title_ar,
-				'rewardprice'=> $product->r_price_ar
-			);
-		}
+		
+		$img=base_url('admin/uploads/product/'.$product->p_picture);
+		$rewardimg = base_url('admin/uploads/reward/'.$product->image);
+		$product_url=base_url('product/').encode($product->p_id).'/'.slug($product->p_name);
+		$product_name=$product->p_name;
+		$data = array(
+			'id' => $product->p_id, 
+			'name' => $product_name,
+			'name_ar'=>$product->p_name_ar, 
+			'price' => $product->p_aed, 
+			'qty' => $qty, 
+			'img' => $img, 
+			'product_url' =>$product_url, 
+			'rewardimg' => $rewardimg,
+			'rewardtitle'=> $product->r_title,
+			'rewardtitle_ar'=> $product->r_title_ar,
+			'rewardprice'=> $product->r_price,
+			'rewardprice_ar'=> $product->r_price_ar
+		);
+		// if($cartLang=='en'){
+		// 	$img=base_url('admin/uploads/product/'.$product->p_picture);
+		// 	$rewardimg = base_url('admin/uploads/reward/'.$product->image);
+		// 	$product_url=base_url('product/').encode($product->p_id).'/'.slug($product->p_name);
+		// 	$product_name=$product->p_name;
+		// 	$data = array(
+		// 		'id' => $product->p_id, 
+		// 		'name' => $product_name, 
+		// 		'price' => $product->p_aed, 
+		// 		'qty' => $qty, 
+		// 		'img' => $img, 
+		// 		'product_url' =>$product_url, 
+		// 		'rewardimg' => $rewardimg,
+		// 		'rewardtitle'=> $product->r_title,
+		// 		'rewardtitle_ar'=> $product->r_title_ar,
+		// 		'rewardprice'=> $product->r_price,
+		// 		'rewardprice_ar'=> $product->r_price_ar
+		// 	);
+		// }else if($cartLang=='ar'){
+		// 	$img=base_url('admin/uploads/product/'.$product->p_picture);
+		// 	$rewardimg = base_url('admin/uploads/reward/'.$product->image);
+		// 	$product_url=base_url('product/').encode($product->p_id).'/'.slug($product->p_name);
+		// 	$product_name=$product->p_name_ar;
+		// 	$data = array(
+		// 		'id' => $product->p_id, 
+		// 		'name' => $product_name, 
+		// 		'price' => $product->p_aed, 
+		// 		'qty' => $qty, 
+		// 		'img' => $img, 
+		// 		'product_url' =>$product_url, 
+		// 		'rewardimg' => $rewardimg,
+		// 		'rewardtitle'=> $product->r_title_ar,
+		// 		'rewardprice'=> $product->r_price_ar
+		// 	);
+		// }
 				
 		// if($product->sp_start_date <= $current_date && $product->sp_end_date >= $current_date){
 		// 	$special_price=$product->sp_special_price; 
