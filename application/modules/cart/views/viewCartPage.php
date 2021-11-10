@@ -44,6 +44,7 @@
          <h1>عربة التسوق</h1>
       <?php } ?>
       <div class="row">
+         <?php //print("<pre>".print_r($this->cart->contents(),true)."</pre>");?>
          <?php $total=0; if(!empty($this->cart->contents())){ ?>
          <div class="col-md-8">
             <?php   
@@ -72,13 +73,13 @@
                               <h1><?=currency($this->website->web_currency);?> <?php echo number_format($item_price,2);?> </h1>
                               <h4>Unit Price</h4>
                               <h3 style="margin-top: 0px !important;">Product</h3>
-                              <h4><?php $productname = strlen($items['name']); if($productname>=20){echo substr($items['name'],0,20).'.';}else{echo substr($items['name'],0,20);}?></h4>
+                              <h4><?php $productname = strlen($items['name']); if($productname >= 30){echo substr($items['name'],0,30);}else{echo $items['name'];}?></h4>
                            <?php }else if($this->website->web_lang=='ar'){ ?>
                               <div class="product-image" style="float:right;margin-left: 10px !important;"><img src="<?php echo $items['img'];?>"></div>
                               <h1 style="text-align:justify !important"><?=currency($this->website->web_currency);?> <?php echo number_format($item_price,2);?> </h1>
                               <h4 style="text-align:justify !important">سعر الوحدة</h4>
                               <h3 style="margin-top: 0px !important;text-align:justify !important">المنتج</h3>
-                              <h4 style="text-align:justify !important"><?php $productname = strlen($items['name_ar']); if($productname>=20){echo substr($items['name_ar'],0,20).'.';}else{echo substr($items['name_ar'],0,20);}?></h4>
+                              <h4 style="text-align:justify !important"><?php $productname = strlen($items['name_ar']); if($productname > 17){echo substr($items['name_ar'],0,17);}else{echo $items['name_ar'];}?></h4>
                            <?php } ?>
                         </div>
                      </div>
@@ -87,11 +88,11 @@
                            <?php if($this->website->web_lang=='en'){ ?>
                               <div class="product-image"><img src="<?php echo $items['rewardimg'];?>"> </div>
                               <h3 style="margin-top: 0px !important;">Prize</h3>
-                              <h4 style="height:57px;overflow: hidden;  text-overflow: ellipsis;margin:0 auto;"><?php $rewardprice = strlen($items['rewardprice']); if($rewardprice>=18){echo substr($items['rewardprice'],0,18).'.';}else{echo substr($items['rewardprice'],0,18);}?></h4>
+                              <h4 style="height:57px;overflow: hidden;  text-overflow: ellipsis;margin:0 auto;"><?php $rewardprice = strlen($items['rewardprice']); if($rewardprice > 18){echo substr($items['rewardprice'],0,18);}else{echo $items['rewardprice'];}?></h4>
                            <?php }else if($this->website->web_lang=='ar'){ ?>
                               <div class="product-image" style="float:right;margin-left: 10px !important;"><img src="<?php echo $items['rewardimg'];?>"> </div>
                               <h3 style="margin-top: 0px !important;text-align:justify !important">جائزة</h3>
-                              <h4 style="height:57px;overflow: hidden; text-align:justify !important; text-overflow: ellipsis;margin:0 auto;"><?php $rewardprice = strlen($items['rewardprice_ar']); if($rewardprice>=18){echo substr($items['rewardprice_ar'],0,18).'.';}else{echo substr($items['rewardprice_ar'],0,18);}?></h4>
+                              <h4 style="height:57px;overflow: hidden; text-align:justify !important; text-overflow: ellipsis;margin:0 auto;"><?php $rewardprice = strlen($items['rewardprice']); if($rewardprice > 17){echo substr($items['rewardprice_ar'],0,17);}else{echo $items['rewardprice_ar'];}?></h4>
                            <?php } ?>
                            
                            <span class="available<?=$items['rowid'];?>" style="font-size: 14px;float: left;padding: 3px 1px;font-weight: 600;"></span>
