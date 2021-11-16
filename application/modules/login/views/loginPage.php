@@ -32,9 +32,9 @@
                <!-- Login Form -->
                <div id="formContent" class="login_page">
                   <div class="head-top-heading">
-                     <?php if($this->website->web_lang=='en'){?>
+                     <?php if($this->websiteLang=='en'){?>
                         <p><?php echo $this->variables[0]->var_parent_name;?></p>
-                     <?php }else if($this->website->web_lang=='ar'){?>
+                     <?php }else if($this->websiteLang=='ar'){?>
                         <p><?php echo $this->variables[0]->var_parent_name_ar;?></p>
                      <?php } ?>
                   </div>
@@ -47,9 +47,9 @@
                      <div class="row">
                         <div class="col-sm-12">
                            <div class="form-group">
-                               <?php if($this->website->web_lang=='en'){?>
+                               <?php if($this->websiteLang=='en'){?>
                                     <input type="email" class="cust_email form-control" name="email" placeholder="<?php echo $this->variables[1]->var_parent_name;?>" value="">
-                               <?php }else if($this->website->web_lang=='ar'){?>
+                               <?php }else if($this->websiteLang=='ar'){?>
                                     <input type="email" class="cust_email form-control" name="email" placeholder="<?php echo $this->variables[1]->var_parent_name_ar;?>" value="">
                                <?php } ?>
                               <span id="cust_email"></span>
@@ -57,9 +57,9 @@
                         </div>
                         <div class="col-sm-12">
                            <div class="form-group">
-                               <?php if($this->website->web_lang=='en'){?>
+                               <?php if($this->websiteLang=='en'){?>
                                <input type="password" class="cust_password form-control" name="password" placeholder="<?php echo $this->variables[12]->var_parent_name;?>">
-                               <?php }else if($this->website->web_lang=='ar'){?>
+                               <?php }else if($this->websiteLang=='ar'){?>
                                <input type="password" class="cust_password form-control" name="password" placeholder="<?php echo $this->variables[12]->var_parent_name_ar;?>">
                                <?php } ?>
                               <span id="cust_password"></span>
@@ -68,7 +68,7 @@
                      </div>
 
                      <div class="row">
-                        <?php if($this->website->web_lang=='en'){?>
+                        <?php if($this->websiteLang=='en'){?>
                         <div class="col-sm-6 pull-left">
                            <div class="checkbox" style="margin-top: 0">
                               <label>
@@ -80,7 +80,7 @@
                         <div class="col-sm-6 pull-right">
                            <a href="<?=base_url('login/forgot');?>" style="font-size: initial !important;float: right"><?php echo $this->variables[3]->var_parent_name;?></a>
                         </div>
-                        <?php }else if($this->website->web_lang=='ar'){?>
+                        <?php }else if($this->websiteLang=='ar'){?>
                             <div class="col-sm-6 pull-right">
                                 <div class="checkbox" style="margin-top: 0;float: right;">
                                     <label>
@@ -95,14 +95,14 @@
                         <?php } ?>
                      </div>
                      <div class="row">
-                        <?php if($this->website->web_lang=='en'){?>
+                        <?php if($this->websiteLang=='en'){?>
                         <div class="col-sm-6 pull-left">
                            <button type="button" class="btn btn-default login-submit SignIn_btn" style="float:left"><?php echo $this->variables[4]->var_parent_name;?></button>
                         </div>
                         <div class="col-sm-6 pull-right"> 
                            <a class="new-account-sign btn_login pull-center" href="<?php echo site_url('register');?>" style="padding: 10px;"><?php echo $this->variables[5]->var_parent_name;?></a> 
                         </div>
-                        <?php }else if($this->website->web_lang=='ar'){?>
+                        <?php }else if($this->websiteLang=='ar'){?>
                            <div class="col-sm-6 pull-right">
                               <button type="button" class="btn btn-default login-submit SignIn_btn" style="float:right;"><?php echo $this->variables[4]->var_parent_name_ar;?></button>
                            </div>
@@ -114,9 +114,9 @@
                   </form>
                   <div class="row">
                      <div class="col-sm-12"> 
-                        <?php if($this->website->web_lang=='en'){?>
+                        <?php if($this->websiteLang=='en'){?>
                            <a class="new-account-sign btn_login  pull-left" href="<?php echo site_url('login/account-verified');?>" style="padding: 10px;"><?php echo $this->variables[6]->var_parent_name;?></a> 
-                        <?php }else if($this->website->web_lang=='ar'){?>
+                        <?php }else if($this->websiteLang=='ar'){?>
                            <a class="new-account-sign btn_login  pull-right" href="<?php echo site_url('login/account-verified');?>" style="padding: 10px;"><?php echo $this->variables[6]->var_parent_name_ar;?></a> 
                         <?php } ?>
                      </div>

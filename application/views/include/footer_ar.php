@@ -142,7 +142,7 @@
 </div>
 <button onclick="topFunction()" id="customFalconBackToTop" title="Go to top"><i class="fa fa-arrow-up"></i></button>
 <!-- / footer section end -->
-<input type="hidden" id="site_lang" name="site_lang" value="<?php echo $this->website->web_lang;?>">
+<input type="hidden" id="site_lang" name="site_lang" value="<?php echo $this->websiteLang;?>">
 <input type="hidden" id="site_url" name="site_url" value="<?php echo site_url();?>">
 <input type="hidden" id="current_url" name="current_url" value="<?php  echo (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";?>">
 <!-- global plugin scripts  -->

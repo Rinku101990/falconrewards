@@ -1,12 +1,12 @@
 <div class="inner-common">
    <div class="container">
-      <?php if($this->website->web_lang=='en'){ ?>
+      <?php if($this->websiteLang=='en'){ ?>
       <h1> Hi, <?php echo $this->customer->usr_fname.' '.$this->customer->usr_lname;?></h1>
-      <?php }else if($this->website->web_lang=='ar'){ ?>
+      <?php }else if($this->websiteLang=='ar'){ ?>
       <h1> مرحبا، <?php echo $this->customer->usr_fname.' '.$this->customer->usr_lname;?></h1>
       <?php } ?>
       <div class="row">
-         <?php if($this->website->web_lang=='en'){ ?>
+         <?php if($this->websiteLang=='en'){ ?>
          <div class="col-md-9">
             <div class="level-member">
                 <div class="img-member">
@@ -22,7 +22,7 @@
                </div>
             </div>
          </div>
-         <?php }else if($this->website->web_lang=='ar'){ ?>
+         <?php }else if($this->websiteLang=='ar'){ ?>
          <div class="col-md-9">
             <div class="level-member">
                 <div class="img-member">

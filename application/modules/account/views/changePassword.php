@@ -1,12 +1,12 @@
 <div class="inner-common">
    <div class="container">
-      <?php if($this->website->web_lang=='en'){ ?>
+      <?php if($this->websiteLang=='en'){ ?>
          <h1>Change Password</h1>
-      <?php }else if($this->website->web_lang=='ar'){ ?>
+      <?php }else if($this->websiteLang=='ar'){ ?>
          <h1>تغيير كلمة السر</h1>
       <?php } ?>
       <div class="row">
-         <?php if($this->website->web_lang=='en'){ ?>
+         <?php if($this->websiteLang=='en'){ ?>
          <div class="col-md-9">
             <div class="personal-details">
                <div class="clearfix"></div>
@@ -44,7 +44,7 @@
                </form>
             </div>
          </div>
-         <?php }else if($this->website->web_lang=='ar'){ ?>
+         <?php }else if($this->websiteLang=='ar'){ ?>
          <div class="col-md-9">
             <div class="personal-details">
                <div class="clearfix"></div>

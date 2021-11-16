@@ -38,14 +38,14 @@
 <div class="inner-common">
    <div class="container">
       <div class="col-md-12 col-sm-12">
-         <?php if($this->website->web_lang=='en'){ ?>
+         <?php if($this->websiteLang=='en'){ ?>
             <h1>Payment Option</h1>
-         <?php }else if($this->website->web_lang=='ar'){ ?>
+         <?php }else if($this->websiteLang=='ar'){ ?>
             <h1>خيار الدفع</h1>
          <?php } ?>
       </div>
       <div class="row">
-         <?php if($this->website->web_lang=='en'){ ?>
+         <?php if($this->websiteLang=='en'){ ?>
          <div class="col-md-9 col-sm-9 pull-right">
             <div class="personal-details">
                <div class="personal-header">
@@ -83,7 +83,7 @@
                </div>
             </div>
          </div>
-         <?php }else if($this->website->web_lang=='ar'){ ?>
+         <?php }else if($this->websiteLang=='ar'){ ?>
          <div class="col-md-9 col-sm-9 pull-left">
             <div class="personal-details">
                <div class="personal-header">

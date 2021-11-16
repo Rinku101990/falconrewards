@@ -29,9 +29,9 @@
    <div class="container">
 
       <?php if(!empty($this->session->userdata('logged_in_users'))){ ?>
-         <?php if($this->website->web_lang=='en'){ ?>
+         <?php if($this->websiteLang=='en'){ ?>
             <h1 style="margin-left: 17px;">Checkout</h1>
-         <?php }else if($this->website->web_lang=='ar'){ ?>
+         <?php }else if($this->websiteLang=='ar'){ ?>
             <h1 style="margin-left: 17px;margin-bottom: 0px !important;">الدفع</h1>
          <?php } ?>
       <?php }else{echo "<h1></h1>";} ?>
@@ -40,7 +40,7 @@
          <?php if(!empty($this->session->userdata('logged_in_users'))){ $total=0; if(!empty($this->cart->contents())){?>
          
          <div class="col-md-12">
-            <?php if($this->website->web_lang=='en'){ ?>
+            <?php if($this->websiteLang=='en'){ ?>
             <div class="col-md-8"></div>
             <div class="col-md-4">
                <div class="payment-box">
@@ -71,7 +71,7 @@
                            <div style="padding: 15px 15px;margin-bottom: 25px;">
                               <div class="product-image"><img src="<?php echo $items['rewardimg'];?>"> </div>
                               <h3 style="margin-top: 0px !important;">Prize</h3>
-                              <h4 style="height:57px;overflow: hidden;  text-overflow: ellipsis;margin:0 auto;"><?php $rewardprice = strlen($items['rewardprice']); if($rewardprice > 18){echo substr($items['rewardprice'],0,18);}else{echo $items['rewardprice'];}?></h4>
+                              <h4 style="height:57px;overflow: hidden;  text-overflow: ellipsis;margin:0 auto;"><?php $rewardprice = strlen($items['rewardprice']); if($rewardprice > 40){echo substr($items['rewardprice'],0,40);}else{echo $items['rewardprice'];}?></h4>
                            </div>
                         </div>
                      </div>
@@ -125,7 +125,7 @@
                </div>
                <br>
             </div>
-            <?php }else if($this->website->web_lang=='ar'){ ?>
+            <?php }else if($this->websiteLang=='ar'){ ?>
                <div class="col-md-8"></div>
                <div class="col-md-4">
                   <div class="payment-box">
@@ -147,14 +147,14 @@
                                  <h1 style="text-align:justify !important"><?=currency($this->website->web_currency);?> <?php echo number_format($item_price,2);?></h1>
                                  <h4 style="text-align:justify !important">سعر الوحدة</h4>
                                  <h3 style="margin-top: 0px !important;text-align:justify !important">المنتج</h3>
-                                 <h4 style="text-align:justify !important"><?php $productname = strlen($items['name_ar']); if($productname > 17){echo substr($items['name_ar'],0,17);}else{echo $items['name_ar'];}?></h4>
+                                 <h4 style="text-align:justify !important"><?php $productname = mb_strlen($items['name_ar']); if($productname > 29){echo mb_substr($items['name_ar'],0,29);}else{echo $items['name_ar'];}?></h4>
                               </div>
                            </div>
                            <div class="col-md-6" style="">
                               <div style="padding: 15px 15px;margin-bottom: 25px;">
                                  <div class="product-image" style="float:right;margin-left: 10px !important;"><img src="<?php echo $items['rewardimg'];?>"> </div>
                                  <h3 style="margin-top: 0px !important;text-align:justify !important">جائزة</h3>
-                                 <h4 style="height:57px;overflow: hidden;text-align:justify !important;  text-overflow: ellipsis;margin:0 auto;"><?php $rewardprice = strlen($items['rewardprice_ar']); if($rewardprice > 17){echo substr($items['rewardprice_ar'],0,17);}else{echo $items['rewardprice_ar'];}?></h4>
+                                 <h4 style="height:57px;overflow: hidden;text-align:justify !important;  text-overflow: ellipsis;margin:0 auto;"><?php $rewardprice = mb_strlen($items['rewardprice_ar']); if($rewardprice > 40){echo mb_substr($items['rewardprice_ar'],0,40);}else{echo $items['rewardprice_ar'];}?></h4>
                               </div>
                            </div>
                         </div>
@@ -218,9 +218,9 @@
                   <!-- Login Form -->
                   <div id="formContent" class="login_page">
                      <div class="head-top-heading">
-                        <?php if($this->website->web_lang=='en'){ ?>
+                        <?php if($this->websiteLang=='en'){ ?>
                            <p><?php echo $this->variables[0]->var_parent_name;?></p>
-                        <?php }else if($this->website->web_lang=='ar'){?>
+                        <?php }else if($this->websiteLang=='ar'){?>
                            <p><?php echo $this->variables[0]->var_parent_name_ar;?></p>
                         <?php } ?>
                      </div>
@@ -231,14 +231,14 @@
                      <form method="POST" id="SigninForm">
                         <!-- Tabs Titles -->
                         <div class="row">
-                            <?php if($this->website->web_lang=='en'){ ?>
+                            <?php if($this->websiteLang=='en'){ ?>
                             <div class="col-sm-12">
                               <div class="form-group">
                                  <input type="email" class="cust_email form-control" name="email" placeholder="<?php echo $this->variables[1]->var_parent_name;?>" autocomplete="off">
                                  <span id="cust_email"></span>
                               </div>
                            </div>
-                           <?php }else if($this->website->web_lang=='ar'){ ?>
+                           <?php }else if($this->websiteLang=='ar'){ ?>
                            <div class="col-sm-12">
                               <div class="form-group">
                                  <input type="email" class="cust_email form-control" name="email" placeholder="<?php echo $this->variables[1]->var_parent_name_ar;?>" autocomplete="off">
@@ -247,26 +247,26 @@
                            </div>
                            <?php } ?>
                            <div class="col-sm-12">
-                               <?php if($this->website->web_lang=='en'){ ?>
+                               <?php if($this->websiteLang=='en'){ ?>
                               <div class="form-group">
                                  <input type="password" class="cust_password form-control" name="password" placeholder="Password" autocomplete="off">
                                  <span id="cust_password"></span>
                               </div>
-                              <?php }else if($this->website->web_lang=='ar'){ ?>
+                              <?php }else if($this->websiteLang=='ar'){ ?>
                               <div class="form-group">
                                  <input type="password" class="cust_password form-control" name="password" placeholder="كلمه السر" autocomplete="off">
                                  <span id="cust_password"></span>
                               </div>
                               <?php } ?>
                            </div>
-                            <?php if($this->website->web_lang=='en'){ ?>
+                            <?php if($this->websiteLang=='en'){ ?>
                            <div class="col-sm-6 pull-left">
                               <div class="checkbox" style="margin-top: 0;float:left;">
                                  <label>
                                  <input type="checkbox" > Remember me</label>
                               </div>
                            </div>
-                            <?php }else if($this->website->web_lang=='ar'){ ?>
+                            <?php }else if($this->websiteLang=='ar'){ ?>
                            <div class="col-sm-6 pull-right">
                               <div class="checkbox" style="margin-top: 0;float: right;">
                                  <label>
@@ -276,14 +276,14 @@
                             <?php } ?>
                         </div>
                         <div class="row">
-                           <?php if($this->website->web_lang=='en'){ ?>
+                           <?php if($this->websiteLang=='en'){ ?>
                            <div class="col-sm-1 pull-left">
                               <button type="button" class="btn btn-default login-submit SignIn_btn">Login Now</button>
                            </div>
                            <div class="col-sm-4 pull-right"> 
                               <a class="new-account-sign btn_login pull-center" href="<?php echo site_url('register');?>" style="padding: 10px;">You have no account? Register</a> 
                            </div>
-                           <?php }else if($this->website->web_lang=='ar'){ ?>
+                           <?php }else if($this->websiteLang=='ar'){ ?>
                            <div class="col-sm-1 pull-right">
                               <button type="button" class="btn btn-default login-submit SignIn_btn">تسجيل الدخول الآن</button>
                            </div>

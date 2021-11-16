@@ -32,9 +32,9 @@
                <!-- Login Form -->
                <div id="formContent" class="login_page">
                   <div class="head-top-heading">
-                     <?php if($this->website->web_lang=='en'){?>
+                     <?php if($this->websiteLang=='en'){?>
                         <p>Account Verification</p>
-                     <?php }else if($this->website->web_lang=='ar'){?>
+                     <?php }else if($this->websiteLang=='ar'){?>
                         <p>تأكيد الحساب</p>
                      <?php } ?>
                   </div>
@@ -47,10 +47,10 @@
                      <div class="row">
                         <div class="col-sm-12">
                            <div class="form-group">
-                              <?php if($this->website->web_lang=='en'){?>
+                              <?php if($this->websiteLang=='en'){?>
                               <input type="email" class="cust_email form-control forgotEmailButton" name="email" placeholder="<?php echo $this->variables[1]->var_parent_name;?>" autocomplete="off">
                               <span id="cust_email"></span>
-                              <?php }else if($this->website->web_lang=='ar'){?>
+                              <?php }else if($this->websiteLang=='ar'){?>
                                  <input type="email" class="cust_email form-control forgotEmailButton" name="email" placeholder="<?php echo $this->variables[1]->var_parent_name_ar;?>" autocomplete="off">
                                  <span id="cust_email"></span>
                               <?php } ?>
@@ -58,14 +58,14 @@
                         </div>
                      </div>
                      <div class="row">
-                        <?php if($this->website->web_lang=='en'){?>
+                        <?php if($this->websiteLang=='en'){?>
                         <div class="col-sm-1 pull-left">
                            <button type="button" class="btn btn-default login-submit Accont_btn">Send</button>
                         </div>
                         <div class="col-sm-5 pull-right"> 
                            <a class="new-account-sign btn_login pull-center" href="<?php echo site_url('login');?>" style="padding: 10px;">Have an account? Login</a> 
                         </div>
-                        <?php }else if($this->website->web_lang=='ar'){?>
+                        <?php }else if($this->websiteLang=='ar'){?>
                         <div class="col-sm-1 pull-right">
                            <button type="button" class="btn btn-default login-submit Accont_btn">إرسال</button>
                         </div>

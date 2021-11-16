@@ -11,7 +11,6 @@ $(document).ready(function(){
 			url: baseUrl+"home/language",
 			data:{customLang:defaultLang},
 			success:function(response){
-				//console.log(response);
 				if(response=='set'){
 					window.location.href=currentUrl;
 				}else{
@@ -162,7 +161,7 @@ $(document).ready(function(){
 					success: function(response)
 					{	
 						if(response=='Failed'){
-							if(webLang==='en'){
+						    if(webLang==='en'){
 								$(".RegisterCustomerResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> Unable to registration.</span>');
 							}else if(webLang==='ar'){
 								$(".RegisterCustomerResponse").html('<span class="text-danger" style="font-size:16px"><strong>وجه الفتاة</strong> غير قادر على التسجيل.</span>');
@@ -310,7 +309,7 @@ $(document).ready(function(){
 							$(".loginResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> Invalid email Id and Password.</span>');
 							$(".SignIn_btn").html('Retry');
 						}else if(webLang==='ar'){
-							$(".loginResponse").html('<span class="text-danger" style="font-size:16px"><strong>وجه الفتاة</strong> معرف البريد الإلكتروني وكلمة المرور غير صالحين.</span>');
+							$(".loginResponse").html('<span class="text-danger" style="font-size:16px"><strong>Oops!</strong> معرف البريد الإلكتروني وكلمة المرور غير صالحين.</span>');
 							$(".SignIn_btn").html('أعد المحاولة');
 						}
                         $('.SignIn_btn').prop('disabled', false);                      
@@ -372,7 +371,7 @@ $(document).ready(function(){
 			check = true;
 			let email = $('.cust_email').val();
 			let filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;         
-			if(filter.test(email)) Pcheck=true;
+			    if(filter.test(email)) Pcheck=true;
 			else{ 
 				if(webLang==='en'){
 					$('#cust_email').html('<span style="color:red;">Email type Mismatched.</span>');
@@ -380,54 +379,54 @@ $(document).ready(function(){
 					$('#cust_email').html('<span style="color:red;float:right">نوع البريد الإلكتروني غير متطابق.</span>');
 				}
 				Pcheck=false; $('#for_email').focus(); 
-		}
-	}
+		    }
+	    }
 
 		if(check && Pcheck){
-				$.ajax(
+			$.ajax(
 			{ 
-			type: "POST",
-			url: url+"login/send",
-			data:$('#AccountForm').serialize(),
-			// dataType:'json',       
-			beforeSend: function ()
-			{
-				$('.Accont_btn').html('Checking...');
-				$('.Accont_btn').prop('disabled', true);
-			},
-			success: function(response)
-			{
-				
-				if(response == 'Failed'){
-					$('.Accont_btn').prop('disabled', false); 
-					if(webLang==='en'){
-						$("#AccountResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>Oops!</strong> Unable to Email Verified .Some error occurred.</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
-						$(".Accont_btn").html('Retry');
-					}else if(webLang==='ar'){
-						$("#AccountResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>وجه الفتاة!</strong> تعذر إرسال بريد إلكتروني تم التحقق منه. حدث خطأ ما.</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
-						$(".Accont_btn").html('أعد المحاولة');
-					}
-					                     
-				}else if(response == 'Wrong'){
-					$('.Accont_btn').prop('disabled', false);
-					if(webLang==='en'){
-						$("#AccountResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>Danger !</strong> Email address Invalid !.</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
-						$(".Accont_btn").html('Retry');
-					}else if(webLang==='ar'){
-						$("#AccountResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>خطر !</strong> عنوان البريد الإلكتروني غير صحيح!</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
-						$(".Accont_btn").html('أعد المحاولة');
-					}
-				}else{          
-					$('.Accont_btn').prop('disabled', false);
-					if(webLang==='en'){
-						$(".Accont_btn").html('Sent..');
-						$("#AccountResponse").html('<div class="alert alert-success alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-thumbs-up "></i></span> <span class="alert-inner--text"><strong>Success !</strong> Thank you for again mail. We have sent you a confirmation email</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
-					}else if(webLang==='ar'){
-						$(".Accont_btn").html('أرسلت..');
-						$("#AccountResponse").html('<div class="alert alert-success alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-thumbs-up "></i></span> <span class="alert-inner--text"><strong>النجاح !</strong> تم بنجاح! تم إرسال بريد الكتروني للتأكيد</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
-					}
-				}
-			}
+    			type: "POST",
+    			url: url+"login/send",
+    			data:$('#AccountForm').serialize(),
+    			// dataType:'json',       
+    			beforeSend: function ()
+    			{
+    				$('.Accont_btn').html('Checking...');
+    				$('.Accont_btn').prop('disabled', true);
+    			},
+    			success: function(response)
+    			{
+    				
+    				if(response == 'Failed'){
+    					$('.Accont_btn').prop('disabled', false); 
+    					if(webLang==='en'){
+    						$("#AccountResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>Oops!</strong> Unable to Email Verified .Some error occurred.</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+    						$(".Accont_btn").html('Retry');
+    					}else if(webLang==='ar'){
+    						$("#AccountResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>وجه الفتاة!</strong> تعذر إرسال بريد إلكتروني تم التحقق منه. حدث خطأ ما.</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+    						$(".Accont_btn").html('أعد المحاولة');
+    					}
+    					                     
+    				}else if(response == 'Wrong'){
+    					$('.Accont_btn').prop('disabled', false);
+    					if(webLang==='en'){
+    						$("#AccountResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>Danger !</strong> Email address Invalid !.</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+    						$(".Accont_btn").html('Retry');
+    					}else if(webLang==='ar'){
+    						$("#AccountResponse").html('<div class="alert alert-danger alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-slash "></i></span> <span class="alert-inner--text"><strong>خطر !</strong> عنوان البريد الإلكتروني غير صحيح!</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+    						$(".Accont_btn").html('أعد المحاولة');
+    					}
+    				}else{          
+    					$('.Accont_btn').prop('disabled', false);
+    					if(webLang==='en'){
+    						$(".Accont_btn").html('Sent..');
+    						$("#AccountResponse").html('<div class="alert alert-success alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-thumbs-up "></i></span> <span class="alert-inner--text"><strong>Success !</strong> Thank you for again mail. We have sent you a confirmation email</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+    					}else if(webLang==='ar'){
+    						$(".Accont_btn").html('أرسلت..');
+    						$("#AccountResponse").html('<div class="alert alert-success alert-dismissible  show" role="alert"> <span class="alert-inner--icon"><i class="fe fe-thumbs-up "></i></span> <span class="alert-inner--text"><strong>النجاح !</strong> تم بنجاح! تم إرسال بريد الكتروني للتأكيد</span> <button type="button" class="close text-black" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button> </div>');
+    					}
+    				}
+    			}
 			});
 		}
 		else
@@ -437,8 +436,6 @@ $(document).ready(function(){
 			}else if(webLang==='ar'){
 				$(".Accont_btn").html('أعد المحاولة');  
 			}
-			        
-			//  $('#ForgotResponse').html('<span style="color:red;">(Any of the fields are empty.)</span>');
 		} 
 		
 	});

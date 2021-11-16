@@ -35,9 +35,9 @@
                <!-- Login Form -->
                <div id="formContent" class="register_page" style="">
                   <div class="head-top-heading">
-                     <?php if($this->website->web_lang=='en'){?>
+                     <?php if($this->websiteLang=='en'){?>
                         <p>Register</p>
-                     <?php }else if($this->website->web_lang=='ar'){?>
+                     <?php }else if($this->websiteLang=='ar'){?>
                         <p>يسجل</p>
                      <?php } ?>
                   </div>
@@ -48,7 +48,7 @@
                   <form method="POST" id="RegisterForm">
                      <!-- Tabs Titles -->
                      <div class="row">
-                        <?php if($this->website->web_lang=='en'){?>
+                        <?php if($this->websiteLang=='en'){?>
                         <div class="col-sm-6">
                            <div class="form-group">
                               <input type="hidden" name="ipaddress" value="<?php echo $_SERVER['REMOTE_ADDR'];?>">
@@ -62,7 +62,7 @@
                               <span id="lname"></span>
                            </div>
                         </div>
-                        <?php }else if($this->website->web_lang=='ar'){?>
+                        <?php }else if($this->websiteLang=='ar'){?>
                         <div class="col-sm-6">
                            <div class="form-group">
                               <input type="hidden" name="ipaddress" value="<?php echo $_SERVER['REMOTE_ADDR'];?>">
@@ -79,16 +79,16 @@
                         <?php } ?>
                         <div class="col-sm-12">
                            <div class="form-group">
-                              <?php if($this->website->web_lang=='en'){?>
+                              <?php if($this->websiteLang=='en'){?>
                                  <input type="email" class="email form-control" name="email" placeholder="<?php echo $this->variables[11]->var_parent_name;?>">
                                  <span id="email"></span>
-                              <?php }else if($this->website->web_lang=='ar'){?>
+                              <?php }else if($this->websiteLang=='ar'){?>
                                  <input type="email" class="email form-control" name="email" placeholder="<?php echo $this->variables[11]->var_parent_name_ar;?>">
                                  <span id="email"></span>
                               <?php } ?>
                            </div>
                         </div>
-                        <?php if($this->website->web_lang=='en'){?>
+                        <?php if($this->websiteLang=='en'){?>
                         <div class="col-sm-6">
                            <div class="form-group">
                               <select class="form-control" name="phonecode">
@@ -104,7 +104,7 @@
                               <span id="phone"></span>
                            </div>
                         </div>
-                        <?php }else if($this->website->web_lang=='ar'){?>
+                        <?php }else if($this->websiteLang=='ar'){?>
                         <div class="col-sm-6">
                            <div class="form-group">
                               <input type="text" class="phone form-control" name="phone" placeholder="رقم الجوال" maxlength="10"  onkeypress="return (event.charCode !=8 &amp;&amp; event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 &amp;&amp; event.charCode <= 57)))">
@@ -122,7 +122,7 @@
                         </div>
                         
                         <?php } ?>
-                        <?php if($this->website->web_lang=='en'){?>
+                        <?php if($this->websiteLang=='en'){?>
                         <div class="col-sm-12">
                            <div class="form-group">
                               <input type="password" class="password form-control" name="password" placeholder="<?php echo $this->variables[12]->var_parent_name;?>">
@@ -135,7 +135,7 @@
                               <span id="crfpassword"></span>
                            </div>
                         </div>
-                        <?php }else if($this->website->web_lang=='ar'){?>
+                        <?php }else if($this->websiteLang=='ar'){?>
                         <div class="col-sm-12">
                            <div class="form-group">
                               <input type="password" class="password form-control" name="password" placeholder="<?php echo $this->variables[12]->var_parent_name_ar;?>">
@@ -152,12 +152,12 @@
                         <div class="form-group">
                            <div class="col-sm-12">
                               <div class="checkbox" style="margin-left: 2px;">
-                                 <?php if($this->website->web_lang=='en'){?>
+                                 <?php if($this->websiteLang=='en'){?>
                                     <label style="float:left;margin-bottom:10px">
                                         <input type="checkbox" id="protype" name="newsletter" value="1" checked="checked">
                                         <b style="font-weight: 400 !important;"><?php echo $this->variables[14]->var_parent_name;?></b>
                                     </label>
-                                 <?php }else if($this->website->web_lang=='ar'){?>
+                                 <?php }else if($this->websiteLang=='ar'){?>
                                     <label style="float: right;margin-bottom: 10px">
                                         <input type="checkbox" id="protype" name="newsletter" value="1" checked="checked">
                                         <b style="font-weight: 400 !important;margin-right: 18px;"><?php echo $this->variables[14]->var_parent_name_ar;?></b>
@@ -166,14 +166,14 @@
                               </div>
                            </div>
                         </div>
-                        <?php if($this->website->web_lang=='en'){?>
+                        <?php if($this->websiteLang=='en'){?>
                         <div class="col-sm-3 pull-left">
                            <button type="button" class="btn btn-default login-submit SignUpCustomerBtn">Register Now</button>
                         </div>
                         <div class="col-sm-4 pull-right"> 
                            <a class="new-account-sign btn_login pull-center" href="<?php echo site_url('login');?>" style="padding: 10px;">Have an account? Login</a> 
                         </div>
-                        <?php }else if($this->website->web_lang=='ar'){?>
+                        <?php }else if($this->websiteLang=='ar'){?>
                         <div class="col-sm-3 pull-right">
                            <button type="button" class="btn btn-default login-submit SignUpCustomerBtn">سجل الان</button>
                         </div>

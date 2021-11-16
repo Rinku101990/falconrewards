@@ -41,7 +41,7 @@
    }
 </style>
 <!-- banner section start-->
-<?php if($this->website->web_lang=='en'){?>
+<?php if($this->websiteLang=='en'){?>
 <div id="carousel-example-generic" class="carousel slide view" data-ride="carousel">
    <!-- Indicators -->
    <!-- Wrapper for slides -->
@@ -58,7 +58,7 @@
    </div>
    <!-- Controls -->
 </div>
-<?php }else if($this->website->web_lang=='ar'){?>
+<?php }else if($this->websiteLang=='ar'){?>
 <div id="carousel-example-generic" class="carousel slide view" data-ride="carousel">
    <!-- Indicators -->
    <!-- Wrapper for slides -->
@@ -81,7 +81,7 @@
    <div class="section_bg_gray">
       <div class="container-fuild">
          <div class="row">
-            <?php if($this->website->web_lang=='en'){?>
+            <?php if($this->websiteLang=='en'){?>
             <div class="col-sm-6 col-md-6">
                <a href="#">
                <img src="<?php echo site_url('assets/img/Pallet-31.jpeg');?>" alt="" class="img-responsive" style="width:100%; margin-bottom: 20px;    border-radius: 15px;">
@@ -92,7 +92,7 @@
                <img src="<?php echo site_url('assets/img/Pallet-32.jpeg');?>" alt="" class="img-responsive" style="width:100%;margin-bottom: 20px;    border-radius: 15px;">
                </a>
             </div>
-            <?php }else if($this->website->web_lang=='ar'){?>
+            <?php }else if($this->websiteLang=='ar'){?>
             <div class="col-sm-6 col-md-6">
                <a href="#">
                <img src="<?php echo site_url('assets/img/Pallet-31-ar.jpg');?>" alt="" class="img-responsive" style="width:100%; margin-bottom: 20px;    border-radius: 15px;">
@@ -119,10 +119,10 @@
             <?php foreach($products as $pro){ ?>
             <div class="col-md-3">
                <img src="<?php echo site_url('admin/uploads/campaign/'.$pro->img);?>"style="width: 351px;height: 161px;object-fit: contain;margin-top:78px;"/>
-               <?php if($this->website->web_lang=='en'){?>
+               <?php if($this->websiteLang=='en'){?>
                   Buy a
                   <?php echo $pro->p_name;?>
-               <?php }else if($this->website->web_lang=='ar'){ ?>
+               <?php }else if($this->websiteLang=='ar'){ ?>
                   شراء
                   <?php echo $pro->p_name_ar;?>
                <?php } ?>
@@ -135,17 +135,17 @@
                   <!--   <a class="incr-btn" data-action="increase" href="#">&plus;</a> -->
                </div>
                <br>
-                  <?php if($this->website->web_lang=='en'){?>
+                  <?php if($this->websiteLang=='en'){?>
                      <button type="button" class="btn addcart-btn add-to-cart refresh-me add_to_cart" id="add_to_cart<?=encode($pro->id);?>" RefId="<?=encode($pro->id);?>" style='margin-top: 10px;'>Add to Cart</button>
-                  <?php }else if($this->website->web_lang=='ar'){?>
+                  <?php }else if($this->websiteLang=='ar'){?>
                      <button type="button" class="btn addcart-btn add-to-cart refresh-me add_to_cart" id="add_to_cart<?=encode($pro->id);?>" RefId="<?=encode($pro->id);?>" style='margin-top: 10px;'>أضف إلى السلة</button>
                   <?php } ?>
                
                <?php }else{?>
                   <br>
-                  <?php if($this->website->web_lang=='en'){?>
+                  <?php if($this->websiteLang=='en'){?>
                      <button type="button" class="btn addcart-btn refresh-me " disabled="" style='margin-top: 10px;'>Sold Out</button>
-                  <?php }else if($this->website->web_lang=='ar'){?>
+                  <?php }else if($this->websiteLang=='ar'){?>
                      <button type="button" class="btn addcart-btn refresh-me " disabled="" style='margin-top: 10px;'>نفذ</button>
                   <?php }?>
                
@@ -159,10 +159,10 @@
                      $soldOut = $soldOutProductStocks;
                   }
                ?>
-               <?php if($this->website->web_lang=='en'){?>
-                  <h4>Get a chance to <span style="color:#ff6262;font-style: italic;">WIN </span>: <br><?php $winLength = strlen($pro->r_win); if($winLength > 32){echo substr($pro->r_win,0,30).'..';}else{echo $pro->r_win;}?></h4>
-               <?php }else if($this->website->web_lang=='ar'){?>
-                  <h4>احصل على فرصة <span style="color:#ff6262;font-style: italic;">فوز </span>: <br><?php $winLength = strlen($pro->r_win); if($winLength > 32){echo substr($pro->r_win_ar,0,30).'..';}else{echo $pro->r_win_ar;}?></h4>
+               <?php if($this->websiteLang=='en'){?>
+                  <h4>Get a chance to <span style="color:#ff6262;font-style: italic;">WIN </span>: <br><?php $winLength = strlen($pro->r_win); if($winLength > 32){echo substr($pro->r_win,0,30);}else{echo $pro->r_win;}?></h4>
+               <?php }else if($this->websiteLang=='ar'){?>
+                  <h4>احصل على فرصة <span style="color:#ff6262;font-style: italic;">فوز </span>: <br><?php $winLength = mb_strlen($pro->r_win); if($winLength > 32){echo mb_substr($pro->r_win_ar,0,30);}else{echo $pro->r_win_ar;}?></h4>
                <?php } ?>
                
                <!-- <button type="button" class="btn addcart-btn add-to-cart refresh-me add_to_cart" RefId="<?=encode($pro->id);?>">Add to Cart</button>-->
@@ -187,12 +187,12 @@
                         <ellipse cx="46" cy="46" rx="34.425" ry="34.235" x="0" y="0" style="fill:#ffffff;"></ellipse>
                      </svg>
 
-                     <?php if($this->website->web_lang=='en'){?>
+                     <?php if($this->websiteLang=='en'){?>
                         <div class="remaining">
                            <span class="number"><?php if(!empty($soldOut)){echo $soldOut;}else{echo'0';}?><span class="sold-label">SOLD</span></span>
                            <span class="second-liner"><span class="small-text">OUT OF</span><?php echo $productStocks;?></span> 
                         </div>
-                     <?php }else if($this->website->web_lang=='ar'){?>
+                     <?php }else if($this->websiteLang=='ar'){?>
                         <div class="remaining">
                            <span class="number"><?php if(!empty($soldOut)){echo $soldOut;}else{echo'0';}?><span class="sold-label">تم بيع</span></span>
                            <span class="second-liner"><span class="small-text">من مجموع</span><?php echo $productStocks;?></span> 
@@ -225,7 +225,7 @@
       <a id="products" data-magellan-target="products"></a>
         
         
-            <?php if($this->website->web_lang=='en'){?>
+            <?php if($this->websiteLang=='en'){?>
                <h2 style="font-size: 26px;font-weight: 500;color: #fff">
                   <div class="row">
                      <div class="col-md-6">
@@ -244,7 +244,7 @@
                      </div>
                   <div>  
                </h2> 
-            <?php }else if($this->website->web_lang=='ar'){?>
+            <?php }else if($this->websiteLang=='ar'){?>
             <h2 style="font-size: 26px;font-weight: 500;color: #fff">
                <div class="row">
                   <div class="col-md-6">
@@ -276,7 +276,11 @@
                   <img src="<?php echo site_url('assets/img/sold/Win-Samsung.png');?>" title="1" style="width: 100%;padding: 29px; height: 260px; object-fit: contain;" class="product-img" />
                   <img src="<?php echo site_url('assets/img/sold/sold.png');?>" class="soldoutLabelImage" style="width: 175px;">
                   <h5><b>Samsung S20+ 4G 128 GB</b></h5>
+                  <?php if($this->websiteLang=='en'){?>
                   <h5>Draw Date:</h5>
+                  <?php }else if($this->websiteLang=='ar'){?>
+                  <h5>تاريخ السحب:</h5>
+                  <?php } ?>
                   <h6><span>11 May, 2021   </span>     </h6>
                </div>
             </a>
@@ -287,7 +291,11 @@
                   <img src="<?php echo site_url('assets/img/sold/I-Pod.png');?>" title="1" style="width: 100%;padding: 29px; height: 260px; object-fit: contain;" class="product-img" />
                   <img src="<?php echo site_url('assets/img/sold/sold.png');?>" class="soldoutLabelImage" style="width: 175px;">
                   <h5><b>Apple AirPods Prod</b></h5>
+                  <?php if($this->websiteLang=='en'){?>
                   <h5>Draw Date:</h5>
+                  <?php }else if($this->websiteLang=='ar'){?>
+                  <h5>تاريخ السحب:</h5>
+                  <?php } ?>
                   <h6><span>03 May, 2021   </span>     </h6>
                </div>
             </a>
@@ -298,7 +306,11 @@
                   <img src="<?php echo site_url('assets/img/sold/Phillips-TV.png');?>" title="1" style="width: 100%;padding: 29px; height: 260px; object-fit: contain;" class="product-img" />
                   <img src="<?php echo site_url('assets/img/sold/sold.png');?>" class="soldoutLabelImage" style="width: 175px;">
                   <h5><b>Philips 50 inch Slim 4K UHD Smart TV</b></h5>
+                  <?php if($this->websiteLang=='en'){?>
                   <h5>Draw Date:</h5>
+                  <?php }else if($this->websiteLang=='ar'){?>
+                  <h5>تاريخ السحب:</h5>
+                  <?php } ?>
                   <h6><span>29 Jan, 2021   </span>     </h6>
                </div>
             </a>
@@ -309,7 +321,11 @@
                   <img src="<?php echo site_url('assets/img/sold/Win-I-Phone-11.png');?>" title="1" style="width: 100%;padding: 29px; height: 260px; object-fit: contain;" class="product-img" />
                   <img src="<?php echo site_url('assets/img/sold/sold.png');?>" class="soldoutLabelImage" style="width: 175px;">
                   <h5><b>iPhone 11 Pro 256GB Product – Newspaper Pencil</b></h5>
+                  <?php if($this->websiteLang=='en'){?>
                   <h5>Draw Date:</h5>
+                  <?php }else if($this->websiteLang=='ar'){?>
+                  <h5>تاريخ السحب:</h5>
+                  <?php } ?>
                   <h6><span>14 Oct, 2020   </span>     </h6>
                </div>
             </a>
@@ -320,7 +336,11 @@
                   <img src="<?php echo site_url('assets/img/sold/Win-Cash.png');?>" title="1" style="width: 100%;padding: 29px; height: 260px; object-fit: contain;" class="product-img" />
                   <img src="<?php echo site_url('assets/img/sold/sold.png');?>" class="soldoutLabelImage" style="width: 175px;">
                   <h5><b>AED 2,500 Cash</b></h5>
+                  <?php if($this->websiteLang=='en'){?>
                   <h5>Draw Date:</h5>
+                  <?php }else if($this->websiteLang=='ar'){?>
+                  <h5>تاريخ السحب:</h5>
+                  <?php } ?>
                   <h6><span>14 Oct, 2020   </span>     </h6>
                </div>
             </a>
@@ -336,7 +356,7 @@
       <a id="products" data-magellan-target="products"></a>
       <h2 style="font-size: 26px;font-weight: 500">
          
-         <?php if($this->website->web_lang=='en'){?>
+         <?php if($this->websiteLang=='en'){?>
           <b><span class="first"></span> 
             Falcon Products
             <span class="second"></span></b>
@@ -344,7 +364,7 @@
                  <span class="owl-prev" id="demo1-prev"> <i class="fa fa-angle-left" aria-hidden="true"></i></span>
                  <span class="owl-next" id="demo1-next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>
              </span>
-         <?php }else if($this->website->web_lang=='ar'){?>
+         <?php }else if($this->websiteLang=='ar'){?>
             <b style="float:right"><span class="first"></span> 
             منتجات فالكون
             <span class="second"></span></b>
@@ -362,9 +382,9 @@
             <a class="" href="<?=base_url('product/').encode($cp_value->id);?>">
                <div class="falcon-product-box">
                   <img src="<?php echo site_url('admin/uploads/coming-soon-product/').$cp_value->img;?>" title="<?=$cp_value->name;?>" style="width: 100%; height: 200px; object-fit: contain;    border-radius: 15px;" class="product-img" />
-                  <?php if($this->website->web_lang=='en'){?>
+                  <?php if($this->websiteLang=='en'){?>
                      <h5><b> <?=$cp_value->name;?></b></h5>
-                  <?php }else if($this->website->web_lang=='ar'){?>
+                  <?php }else if($this->websiteLang=='ar'){?>
                      <h5><b> <?=$cp_value->name_ar;?></b></h5>
                   <?php } ?>
                </div>
@@ -383,7 +403,7 @@
       <a id="products" data-magellan-target="products"></a>
       <h2 style="font-size: 26px;font-weight: 500; color: #fff">
          
-         <?php if($this->website->web_lang=='en'){?>
+         <?php if($this->websiteLang=='en'){?>
             <b><span class="first"></span> 
                 Winners
             <span class="second"></span></b>
@@ -391,7 +411,7 @@
                  <span class="owl-prev" id="demo2-prev"> <i class="fa fa-angle-left" aria-hidden="true"></i></span>
                  <span class="owl-next" id="demo2-next"> <i class="fa fa-angle-right" aria-hidden="true"></i> </span>
              </span>
-         <?php }else if($this->website->web_lang=='ar'){?>
+         <?php }else if($this->websiteLang=='ar'){?>
             <b style="float:right"><span class="first"></span> 
             الفائزون
             <span class="second"></span></b>
@@ -413,9 +433,9 @@
                   <?php }else{ ?>
                      <img src="<?php echo site_url('admin/uploads/winners/'.$winvalue->usr_profile);?>" title="1" style="width: 370px; height: 260px; object-fit: contain;padding:20px 0;" class="product-img" />
                   <?php } ?>
-                  <?php if($this->website->web_lang=='en'){?>
+                  <?php if($this->websiteLang=='en'){?>
                   <h5><b><?php echo $winvalue->drw_title;?></b></h5>
-                  <?php }else if($this->website->web_lang=='ar'){?>
+                  <?php }else if($this->websiteLang=='ar'){?>
                      <h5><b><?php echo $winvalue->drw_title_ar;?></b></h5>
                   <?php } ?>
                </div>

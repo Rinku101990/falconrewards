@@ -26,7 +26,7 @@
 
                <div class="col-md-3">
                   <div class="select-usd-ar" style="font-size:20px; font-weight:600;margin-top:13px;float: right !important;margin-right: -30px;">
-                     <a href="javascript:void(0)" id="setLanguage" defLang="<?php if($this->website->web_lang=='en'){echo'ar';}else if($this->website->web_lang=='ar'){echo'en';}?>">
+                     <a href="javascript:void(0)" id="setLanguage" defLang="<?php if($this->websiteLang=='en'){echo'ar';}else if($this->websiteLang=='ar'){echo'en';}?>">
                         <img src="<?=base_url('assets/img/ae.png');?>"  style="vertical-align:text-bottom;width: 25px;height:20px"/> English  <!--<i class="fa fa-caret-down" aria-hidden="true"></i>-->
                      </a>
                   </div>

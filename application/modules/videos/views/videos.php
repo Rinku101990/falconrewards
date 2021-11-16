@@ -8,9 +8,9 @@
             <?php foreach($draws as $drlist){ ?>
             <div class="col-md-3">
                <video autoplay="true" controls src="<?php echo site_url('admin/uploads/videos/'.$drlist->drw_video);?>" type="video/mp4" style="width: 290px !important;height: 161px;object-fit: contain;"></video>
-                <?php if($this->website->web_lang=='en'){?>
+                <?php if($this->websiteLang=='en'){?>
                     <strong><?php echo $drlist->drw_title;?></strong><br>
-                <?php }else if($this->website->web_lang=='ar'){?>
+                <?php }else if($this->websiteLang=='ar'){?>
                     <strong><?php echo $drlist->drw_title_ar;?></strong><br>
                 <?php } ?>
                 <strong>Draw at <?php echo date('h:i a',strtotime($drlist->drw_created)).'.'.date('D',strtotime($drlist->drw_created).'').'.'.date('j F, Y',strtotime($drlist->drw_created).'');?></strong>
@@ -28,9 +28,9 @@
       <a id="products" data-magellan-target="products"></a>
       <h2 style="font-size: 26px;font-weight: 500">
          <span class="first"></span> 
-         <?php if($this->website->web_lang=='en'){?>
+         <?php if($this->websiteLang=='en'){?>
             Past Draws
-         <?php }else if($this->website->web_lang=='ar'){?>
+         <?php }else if($this->websiteLang=='ar'){?>
             تعادلات الماضي
          <?php }?>
          <span class="second"></span>
@@ -45,9 +45,9 @@
         <div class="item" >
             <div class="falcon-product-box">
                 <video autoplay="false" controls src="<?php echo site_url('admin/uploads/videos/'.$pastlist->drw_video);?>" type="video/mp4" style="width:193px !important;height:108px !important"></video>
-                <?php if($this->website->web_lang=='en'){?>
+                <?php if($this->websiteLang=='en'){?>
                     <h5><b> <?php echo $pastlist->drw_title;?></b></h5>
-                <?php }else if($this->website->web_lang=='ar'){?>
+                <?php }else if($this->websiteLang=='ar'){?>
                     <h5><b> <?php echo $pastlist->drw_title_ar;?></b></h5>
                 <?php } ?>
             </div>
@@ -65,9 +65,9 @@
       <a id="products" data-magellan-target="products"></a>
       <h2 style="font-size: 26px;font-weight: 500; color: #fff">
          <span class="first"></span> 
-         <?php if($this->website->web_lang=='en'){?>
+         <?php if($this->websiteLang=='en'){?>
             Winners
-         <?php }else if($this->website->web_lang=='ar'){?>
+         <?php }else if($this->websiteLang=='ar'){?>
             الفائزون
          <?php }?>
          <span class="second"></span>
@@ -87,9 +87,9 @@
                   <?php }else{ ?>
                      <img src="<?php echo site_url('admin/uploads/winners/'.$winvalue->usr_profile);?>" title="1" style="width: 370px; height: 260px; object-fit: contain;padding:20px 0;" class="product-img" />
                   <?php } ?>
-                  <?php if($this->website->web_lang=='en'){?>
+                  <?php if($this->websiteLang=='en'){?>
                   <h5><b><?php echo $winvalue->drw_title;?></b></h5>
-                  <?php }else if($this->website->web_lang=='ar'){?>
+                  <?php }else if($this->websiteLang=='ar'){?>
                      <h5><b><?php echo $winvalue->drw_title_ar;?></b></h5>
                   <?php } ?>
                </div>

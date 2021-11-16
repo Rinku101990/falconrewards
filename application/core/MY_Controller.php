@@ -27,9 +27,14 @@ class MY_Controller extends MX_Controller
 
 	    $this->website=$Websitedata;
 	    $this->variables=$websiteVariables;
-	 	// $AllData=array(
-		// );    
-		// $this->AllProduct= $AllData; 
+		
+		if(!empty($this->session->userdata('langItem'))){
+			$WebsiteLanguage = $this->session->userdata('langItem');
+		}else{
+			$WebsiteLanguage = $this->session->set_userdata('langItem', 'en');
+		}
+		$this->websiteLang=$WebsiteLanguage;
+		
 	}
 	
 	function _hmvc_fixes()

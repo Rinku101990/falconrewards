@@ -38,9 +38,9 @@
 </style>
 <div class="inner-common cart-page">
    <div class="container">
-      <?php if($this->website->web_lang=='en'){ ?>
+      <?php if($this->websiteLang=='en'){ ?>
          <h1>Shopping Cart</h1>
-      <?php }else if($this->website->web_lang=='ar'){ ?>
+      <?php }else if($this->websiteLang=='ar'){ ?>
          <h1>عربة التسوق</h1>
       <?php } ?>
       <div class="row">
@@ -68,31 +68,31 @@
                            <input type="checkbox" name="rowid[]" class="rowid" value="<?php echo $items['rowid'];?>" style="opacity: 0"  checked>
                            <input type="hidden" name="quantity[]" value="<?php echo $items['qty'];?>">
                            <input type="hidden" name="item_price" class="item_price<?=$items['rowid'];?>" value="<?=$item_price;?>">
-                           <?php if($this->website->web_lang=='en'){ ?>
+                           <?php if($this->websiteLang=='en'){ ?>
                               <div class="product-image"><img src="<?php echo $items['img'];?>"></div>
                               <h1><?=currency($this->website->web_currency);?> <?php echo number_format($item_price,2);?> </h1>
                               <h4>Unit Price</h4>
                               <h3 style="margin-top: 0px !important;">Product</h3>
                               <h4><?php $productname = strlen($items['name']); if($productname >= 30){echo substr($items['name'],0,30);}else{echo $items['name'];}?></h4>
-                           <?php }else if($this->website->web_lang=='ar'){ ?>
+                           <?php }else if($this->websiteLang=='ar'){ ?>
                               <div class="product-image" style="float:right;margin-left: 10px !important;"><img src="<?php echo $items['img'];?>"></div>
                               <h1 style="text-align:justify !important"><?=currency($this->website->web_currency);?> <?php echo number_format($item_price,2);?> </h1>
                               <h4 style="text-align:justify !important">سعر الوحدة</h4>
                               <h3 style="margin-top: 0px !important;text-align:justify !important">المنتج</h3>
-                              <h4 style="text-align:justify !important"><?php $productname = strlen($items['name_ar']); if($productname > 17){echo substr($items['name_ar'],0,17);}else{echo $items['name_ar'];}?></h4>
+                              <h4 style="text-align:justify !important"><?php $productname = mb_strlen($items['name_ar']); if($productname > 29){echo mb_substr($items['name_ar'],0,29);}else{echo $items['name_ar'];}?></h4>
                            <?php } ?>
                         </div>
                      </div>
                      <div class="col-md-5" style="">
                         <div style="padding: 15px 15px;    margin-bottom: 6px;">
-                           <?php if($this->website->web_lang=='en'){ ?>
+                           <?php if($this->websiteLang=='en'){ ?>
                               <div class="product-image"><img src="<?php echo $items['rewardimg'];?>"> </div>
                               <h3 style="margin-top: 0px !important;">Prize</h3>
-                              <h4 style="height:57px;overflow: hidden;  text-overflow: ellipsis;margin:0 auto;"><?php $rewardprice = strlen($items['rewardprice']); if($rewardprice > 18){echo substr($items['rewardprice'],0,18);}else{echo $items['rewardprice'];}?></h4>
-                           <?php }else if($this->website->web_lang=='ar'){ ?>
+                              <h4 style="height:57px;overflow: hidden;  text-overflow: ellipsis;margin:0 auto;"><?php $rewardprice = strlen($items['rewardprice']); if($rewardprice > 40){echo substr($items['rewardprice'],0,40);}else{echo $items['rewardprice'];}?></h4>
+                           <?php }else if($this->websiteLang=='ar'){ ?>
                               <div class="product-image" style="float:right;margin-left: 10px !important;"><img src="<?php echo $items['rewardimg'];?>"> </div>
                               <h3 style="margin-top: 0px !important;text-align:justify !important">جائزة</h3>
-                              <h4 style="height:57px;overflow: hidden; text-align:justify !important; text-overflow: ellipsis;margin:0 auto;"><?php $rewardprice = strlen($items['rewardprice']); if($rewardprice > 17){echo substr($items['rewardprice_ar'],0,17);}else{echo $items['rewardprice_ar'];}?></h4>
+                              <h4 style="height:57px;overflow: hidden; text-align:justify !important; text-overflow: ellipsis;margin:0 auto;"><?php $rewardprice = mb_strlen($items['rewardprice']); if($rewardprice > 40){echo mb_substr($items['rewardprice_ar'],0,40);}else{echo $items['rewardprice_ar'];}?></h4>
                            <?php } ?>
                            
                            <span class="available<?=$items['rowid'];?>" style="font-size: 14px;float: left;padding: 3px 1px;font-weight: 600;"></span>
@@ -109,7 +109,7 @@
                   </div>
                </div>
                <!-- Ticket Area -->
-               <?php if($this->website->web_lang=='en'){ ?>
+               <?php if($this->websiteLang=='en'){ ?>
                <div class="ticket">
                   <span class="tickets<?=$items['rowid'];?>">
                      <!-- <i class="fa fa-ticket" aria-hidden="true"></i> -->
@@ -118,7 +118,7 @@
                </div>
                <!-- Item Total Amount -->
                <div class="amount">Items Total <span><?=currency($this->website->web_currency);?> <span id="sub_total<?=$items['rowid'];?>"><?php echo number_format($item_price*$items['qty'],2); $sub_total+=$item_price*$items['qty'];?></span></span></div>
-               <?php }else if($this->website->web_lang=='ar'){ ?>
+               <?php }else if($this->websiteLang=='ar'){ ?>
                <div class="ticket">
                   <span class="tickets<?=$items['rowid'];?>">
                      <!-- <i class="fa fa-ticket" aria-hidden="true"></i> -->
@@ -135,9 +135,9 @@
             <div class="payment-box">
                <div class="cart-box">
                   <div class="section-d">
-                     <?php if($this->website->web_lang=='en'){ ?>
+                     <?php if($this->websiteLang=='en'){ ?>
                         <h2>Total Products</h2>
-                     <?php }else if($this->website->web_lang=='ar'){ ?>
+                     <?php }else if($this->websiteLang=='ar'){ ?>
                         <h2>إجمالي المنتجات</h2>
                      <?php }?>
                      
@@ -146,7 +146,7 @@
                   <div class="section-d">
                      <h2 class="main_total_tickt"> 
                         <?php $main_total_tickt=$qty_total+$qty_total;
-                        if($this->website->web_lang=='en'){
+                        if($this->websiteLang=='en'){
 
                            if($main_total_tickt > '1')
                            { 
@@ -154,7 +154,7 @@
                            }else{ 
                               echo "Total Ticket"; 
                            }
-                        }else if($this->website->web_lang=='ar'){
+                        }else if($this->websiteLang=='ar'){
                            if($main_total_tickt > '1')
                            { 
                                  echo 'إجمالي التذاكر';
@@ -167,10 +167,10 @@
                   </div>
                   <form action="<?=base_url('checkout');?>" method="post" >
                      <div class="section-d">
-                        <?php if($this->website->web_lang=='en'){ ?>
+                        <?php if($this->websiteLang=='en'){ ?>
                            <h2>Donate to receive an additional entry</h2><br>
                            <p><small>I agree to donate all purchased products to charity<br> as per the "<a href="<?php echo site_url('terms-conditions');?>" style="font-size: 13px;">Draw Terms & Conditions</a>"</small></p>
-                        <?php }else if($this->website->web_lang=='ar'){ ?>
+                        <?php }else if($this->websiteLang=='ar'){ ?>
                            <h2>تبرع لتحصل على دخول اضافي</h2><br>
                            <p><small style="font-size:84% !important">أوافق على التبرع بجميع المنتجات المشتراة للجمعيات الخيرية<br> وفقا ل "<a href="<?php echo site_url('terms-conditions');?>" style="font-size: 13px;">شروط وأحكام السحب</a>"</small></p>
                         <?php } ?>
@@ -198,9 +198,9 @@
                      <input type="hidden" id="txt" value="<?php echo @$tax[0]->txt_per;?>">
                      <div class="section-d">
                         <h2 style="font-size:22px;color:#000">
-                           <?php if($this->website->web_lang=='en'){ ?>
+                           <?php if($this->websiteLang=='en'){ ?>
                               GRAND TOTAL
-                           <?php }else if($this->website->web_lang=='ar'){ ?>
+                           <?php }else if($this->websiteLang=='ar'){ ?>
                               المبلغ الإجمالي
                            <?php } ?>
                            
@@ -208,9 +208,9 @@
                         <input type="hidden" name="item_price" value="<?php echo number_format($sub_total+$total_tax, 2);?>">
                         <span style="font-size:22px;color:#000"><?=currency($this->website->web_currency);?>&nbsp;<span id="get_total" style="font-size:22px;color:#000"><?php echo number_format($sub_total+$total_tax, 2);?></span></span>
                      </div>
-                     <?php if($this->website->web_lang=='en'){ ?>
+                     <?php if($this->websiteLang=='en'){ ?>
                         <button type="submit" class="btn payment-btn" href="<?=base_url('checkout');?>">Select Payment Method</button>
-                     <?php }else if($this->website->web_lang=='ar'){ ?>
+                     <?php }else if($this->websiteLang=='ar'){ ?>
                         <button type="submit" class="btn payment-btn" href="<?=base_url('checkout');?>">اختار طريقة الدفع</button>
                      <?php } ?>
                      
@@ -218,9 +218,9 @@
                </div>
                <p>
                   <small>
-                  <?php if($this->website->web_lang=='en'){ ?>
+                  <?php if($this->websiteLang=='en'){ ?>
                   <?php echo $this->variables[35]->var_parent_name;?>
-                  <?php }else if($this->website->web_lang=='ar'){?>
+                  <?php }else if($this->websiteLang=='ar'){?>
                   <?php echo $this->variables[35]->var_parent_name_ar;?>
                   <?php } ?>
                   <small>
@@ -232,9 +232,9 @@
          <div class="col-md-12">
             <div class="main-div">
                <div class="cart-box">
-                  <?php if($this->website->web_lang=='en'){ ?>
+                  <?php if($this->websiteLang=='en'){ ?>
                      <a href="<?php echo site_url('/');?>" class="btn payment-btn" style="padding: 6px 20px !important;">there are no items currently in your cart</a>
-                  <?php }else if($this->website->web_lang=='ar'){ ?>
+                  <?php }else if($this->websiteLang=='ar'){ ?>
                      <a href="<?php echo site_url('/');?>" class="btn payment-btn" style="padding: 6px 20px !important;">لا يوجد عناصر في السلة</a>
                   <?php } ?>
                </div>

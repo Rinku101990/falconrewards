@@ -1,7 +1,7 @@
 <div class="inner-common">
    <div class="container">
       <div class="row">
-         <?php if($this->website->web_lang=='en'){ ?>
+         <?php if($this->websiteLang=='en'){ ?>
          <div class="messages-div">
             <?php $msg=$this->session->flashdata('msg'); if($msg){  ?>
             <div class="danger message">
@@ -17,7 +17,7 @@
             </div>
             <?php } ?>
          </div>
-         <?php }else if($this->website->web_lang=='ar'){ ?>
+         <?php }else if($this->websiteLang=='ar'){ ?>
          <div class="messages-div">
             <?php $msg=$this->session->flashdata('msg'); if($msg){  ?>
             <div class="danger message">

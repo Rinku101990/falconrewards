@@ -1,4 +1,4 @@
-<?php if($this->website->web_lang=='en'){ ?>
+<?php if($this->websiteLang=='en'){ ?>
 <div class="col-md-3 col-sm-3">
     <div class="personal-tab">
         <ul>
@@ -23,7 +23,7 @@
         </ul>
     </div>
 </div>
-<?php }else if($this->website->web_lang=='ar'){?>
+<?php }else if($this->websiteLang=='ar'){?>
 <div class="col-md-3 col-sm-3">
     <div class="personal-tab">
         <ul>

@@ -1,8 +1,8 @@
-<?php if($this->website->web_lang=='en'){?>
+<?php if($this->websiteLang=='en'){?>
    <div class="inner-banner winner">
       <img src="<?php echo site_url('admin/uploads/content-page/').$page->pg_banner_img;?>" title="<?=$page->pg_title;?>"/>
    </div>
-<?php }else if($this->website->web_lang=='ar'){?>
+<?php }else if($this->websiteLang=='ar'){?>
    <div class="inner-banner winner">
       <img src="<?php echo site_url('admin/uploads/content-page/').$page->pg_banner_img_ar;?>" title="<?=$page->pg_title_ar;?>"/>
    </div>
@@ -11,12 +11,12 @@
 <!-- winner-section start-->
 <div class="inner-common">
    <div class="container">
-      <?php if($this->website->web_lang=='en'){?>
+      <?php if($this->websiteLang=='en'){?>
       <h1><?php echo $page->pg_title;?></h1>
       <div class="about-page-section" style="background: #fff;padding: 41px;">
          <?=$page->content1;?>
       </div>
-      <?php }else if($this->website->web_lang=='ar'){?>
+      <?php }else if($this->websiteLang=='ar'){?>
       <h1><?php echo $page->pg_title_ar;?></h1>
       <div class="about-page-section" style="background: #fff;padding: 41px;">
          <?=$page->content2;?>

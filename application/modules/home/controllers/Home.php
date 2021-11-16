@@ -91,10 +91,9 @@ class Home extends MY_Controller {
            echo "<p style='font-size: 13px;position: absolute;top: 105%;border: 1px solid #eceff1;box-shadow: 0 5px 25px 0 rgba(123,123,123,0.15);background: #fff;width: calc(53% - 48px);transition: all 0.3s;-webkit-transition: all 0.3s;-ms-webkit-transition: all 0.3s;min-height: 40px;z-index: 999999;height: 40px;background:#fff;padding:10px;width: 100%;border: 1px solid #f1f3f6;''> <em> No Record found ... </em> </p>";
      	}	
 		
-	 }
-	 
- 	
-	 public function product()
+	}
+	
+	public function product()
 	{ 	
 	    $pid=decode($this->uri->segment(2));
 		$content['coming_product'] = $this->Home->coming_product($pid,$this->table_coming_product);
@@ -106,30 +105,14 @@ class Home extends MY_Controller {
 	/*--- Language switcher ---*/ 
 	public function language()
 	{ 	  
-		$this->load->library('cart');
 		$REQUESTMETHOD=$this->input->server('REQUEST_METHOD');
 		if($REQUESTMETHOD=='POST'){	    
 			$lang=$this->input->post('customLang');
-			$data=array('web_lang' => $lang);
-			$update=$this->Home->update('web_id','1',$data,'tbl_website_info');
-			if($update==true)
+			$sessionSet=$this->session->set_userdata('langItem', $lang);
+			//$data=array('web_lang' => $lang);
+			//$update=$this->Home->update('web_id','1',$data,'tbl_website_info');
+			if($sessionSet !== FALSE)
 			{
-				foreach($this->cart->contents() as $cartValue){
-					$productInfo = $this->Home->getForCartProductDetail($this->cpid,$cartValue['id'],$this->campaign);
-					if($lang=='en'){
-						$cartItem = array(
-							'rowid'=>$cartValue['rowid'],
-							'name'=>$productInfo->p_name
-						);
-						$this->cart->update($cartItem);
-					}else if($lang=='ar'){
-						$cartItem = array(
-							'rowid'=>$cartValue['rowid'],
-							'name'=>$productInfo->p_name_ar
-						);
-						$this->cart->update($cartItem);
-					}
-				}
 				echo "set";
 			}
 		}else{

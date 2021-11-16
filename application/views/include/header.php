@@ -1,6 +1,5 @@
-<?php //print("<pre>".print_r($this->variables,true)."</pre>");?>
 <!DOCTYPE html>
-<html <?php if($this->website->web_lang=='en'){echo "dir='ltr' lang='en'";}else if($this->website->web_lang=='ar'){echo "dir='rtl' lang='ar'";}?>>
+<html <?php if($this->websiteLang=='en'){echo "dir='ltr' lang='en'";}else if($this->websiteLang=='ar'){echo "dir='rtl' lang='ar'";}?>>
    <head>
       <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
